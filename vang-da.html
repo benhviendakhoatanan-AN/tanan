@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đánh giá Vàng da Sơ sinh - BV Tân An</title>
+    <link rel="icon" href="assets/logo-favicon.webp" type="image/png">
+    <link rel="stylesheet" href="vang-da.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="tool-container">
+        <!-- Header -->
+        <div class="tool-header">
+            <div class="tool-title-wrapper">
+                <div class="tool-icon">
+                    <img src="assets/logo.webp" alt="Logo BV Tân An">
+                </div>
+                <h1 class="tool-title">ỨNG DỤNG ĐÁNH GIÁ VÀNG DA SƠ SINH</h1>
+            </div>
+            <p class="tool-subtitle">Theo Bhutani Nomogram & Hướng dẫn AAP 2022</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs-container">
+            <button class="tab-btn active" data-tab="input">📋 Nhập liệu</button>
+            <button class="tab-btn" data-tab="results">📊 Kết quả</button>
+            <button class="tab-btn" data-tab="charts">📈 Biểu đồ</button>
+            <button class="tab-btn" data-tab="guidelines">📖 Hướng dẫn</button>
+            <button class="tab-btn" data-tab="kramer">👁 Kramer</button>
+        </div>
+
+        <!-- INPUT TAB -->
+        <div id="tab-input" class="tab-content active">
+            <!-- Patient Info -->
+            <div class="card">
+                <h3 class="card-title"><span style="color: #3B82F6;">●</span> THÔNG TIN TRẺ</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Ngày sinh</label>
+                        <input type="date" class="form-input" data-state="birthDate">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Giờ sinh</label>
+                        <input type="time" class="form-input" data-state="birthTime">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Ngày đánh giá</label>
+                        <input type="date" class="form-input" data-state="assessmentDate">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Giờ đánh giá</label>
+                        <input type="time" class="form-input" data-state="assessmentTime">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Tuổi thai (tuần)</label>
+                        <select class="form-select" data-state="gestationalAge">
+                            <option value="35">35 tuần</option>
+                            <option value="36">36 tuần</option>
+                            <option value="37">37 tuần</option>
+                            <option value="38" selected>38 tuần</option>
+                            <option value="39">39 tuần</option>
+                            <option value="40">40 tuần</option>
+                            <option value="41">41 tuần</option>
+                            <option value="42">42 tuần</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Cân nặng lúc sinh (gram)</label>
+                        <input type="number" class="form-input" placeholder="VD: 3200" data-state="birthWeight">
+                    </div>
+                </div>
+                <!-- Dynamic Age Display -->
+                <div id="age-display" class="message-box" style="display: none;"></div>
+            </div>
+
+            <!-- Bilirubin -->
+            <div class="card">
+                <h3 class="card-title"><span style="color: #FBBF24;">●</span> NỒNG ĐỘ BILIRUBIN</h3>
+                <div class="form-grid" style="grid-template-columns: 2fr 1fr;">
+                    <div class="form-group">
+                        <label class="form-label">Bilirubin toàn phần (TSB)</label>
+                        <input type="number" class="form-input" step="0.1" placeholder="Nhập giá trị"
+                            data-state="bilirubin">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Đơn vị</label>
+                        <select class="form-select" data-state="bilirubinUnit">
+                            <option value="mgdl">mg/dL</option>
+                            <option value="umol">µmol/L</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="bili-conversion" class="message-box"
+                    style="display: none; background: rgba(251, 191, 36, 0.1); border-color: rgba(251, 191, 36, 0.3);">
+                </div>
+            </div>
+
+            <!-- Risk Factors -->
+            <div class="card">
+                <h3 class="card-title"><span style="color: #EF4444;">●</span> YẾU TỐ NGUY CƠ ĐỘC THẦN KINH (AAP 2022)
+                </h3>
+                <div class="risk-grid">
+                    <label class="risk-item"><input type="checkbox" name="risk_hemolysis"> <span>Tan máu đồng miễn
+                            dịch</span></label>
+                    <label class="risk-item"><input type="checkbox" name="risk_g6pd"> <span>Thiếu men
+                            G6PD</span></label>
+                    <label class="risk-item"><input type="checkbox" name="risk_sepsis"> <span>Nhiễm trùng
+                            huyết</span></label>
+                    <label class="risk-item"><input type="checkbox" name="risk_acidosis"> <span>Toan máu (pH &lt;
+                            7.2)</span></label>
+                    <label class="risk-item"><input type="checkbox" name="risk_albumin"> <span>Albumin &lt; 3.0
+                            g/dL</span></label>
+                    <label class="risk-item"><input type="checkbox" name="risk_asphyxia"> <span>Ngạt chu
+                            sinh</span></label>
+                    <label class="risk-item"><input type="checkbox" name="risk_lethargy"> <span>Li bì, bỏ
+                            bú</span></label>
+                    <label class="risk-item"><input type="checkbox" name="risk_temperatureInstability"> <span>Rối loạn
+                            thân nhiệt</span></label>
+                </div>
+                <div id="risk-warning" class="message-box"
+                    style="display: none; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #FCA5A5;">
+                    ⚠️ Có yếu tố nguy cơ - Sử dụng ngưỡng điều trị thấp hơn
+                </div>
+            </div>
+
+            <button id="btn-calculate" class="calculate-btn" disabled>🔍 Đánh giá ngay</button>
+        </div>
+
+        <!-- RESULTS TAB -->
+        <div id="tab-results" class="tab-content">
+            <div id="results-placeholder" class="card" style="text-align: center; padding: 60px 20px;">
+                <div style="font-size: 48px; margin-bottom: 16px;">📊</div>
+                <h3 style="color: #94A3B8; font-weight: 400; margin: 0;">Vui lòng nhập thông tin và nhấn "Đánh giá ngay"
+                </h3>
+            </div>
+
+            <div id="results-content" style="display: none;">
+                <!-- Main Banner -->
+                <div id="result-banner" class="result-banner monitor">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- Key Metrics -->
+                <div class="metrics-grid">
+                    <div class="card" style="text-align: center; padding: 20px; margin-bottom: 0;">
+                        <div style="font-size: 12px; color: #94A3B8; margin-bottom: 4px;">BILIRUBIN HIỆN TẠI</div>
+                        <div class="metric-value" id="res-bili">--</div>
+                        <div style="font-size: 12px; color: #64748B;">mg/dL</div>
+                    </div>
+                    <div class="card" style="text-align: center; padding: 20px; margin-bottom: 0;">
+                        <div style="font-size: 12px; color: #94A3B8; margin-bottom: 4px;">NGƯỠNG CHIẾU ĐÈN</div>
+                        <div class="metric-value" style="color: #F59E0B;" id="res-photo">--</div>
+                        <div style="font-size: 12px;" id="res-dist-photo">--</div>
+                    </div>
+                    <div class="card" style="text-align: center; padding: 20px; margin-bottom: 0;">
+                        <div style="font-size: 12px; color: #94A3B8; margin-bottom: 4px;">NGƯỠNG THAY MÁU</div>
+                        <div class="metric-value" style="color: #DC2626;" id="res-exchange">--</div>
+                        <div style="font-size: 12px;" id="res-dist-exchange">--</div>
+                    </div>
+                </div>
+
+                <!-- Action Box -->
+                <div class="card">
+                    <h3 class="card-title">📋 KHUYẾN CÁO XỬ TRÍ</h3>
+                    <div id="action-box"></div>
+                    <div class="message-box" style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
+                        <span style="font-size: 24px;">⏰</span>
+                        <div>
+                            <div style="font-size: 13px; color: #93C5FD;">KIỂM TRA LẠI</div>
+                            <div style="font-size: 18px; font-weight: 600; color: #BFDBFE;" id="next-check">--</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary -->
+                <div class="card">
+                    <h3 class="card-title">📊 TÓM TẮT</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 14px;">
+                        <div style="color: #94A3B8;">Tuổi thai:</div>
+                        <div id="sum-ga" style="color: #E2E8F0;">--</div>
+                        <div style="color: #94A3B8;">Tuổi sau sinh:</div>
+                        <div id="sum-age" style="color: #E2E8F0;">--</div>
+                        <div style="color: #94A3B8;">Bilirubin:</div>
+                        <div id="sum-bili" style="color: #E2E8F0;">--</div>
+                        <div style="color: #94A3B8;">Yếu tố nguy cơ:</div>
+                        <div id="sum-risk" style="color: #86EFAC;">--</div>
+                    </div>
+                </div>
+
+                <!-- Mini Chart -->
+                <div class="card">
+                    <h3 class="card-title">📈 VỊ TRÍ TRÊN BIỂU ĐỒ BHUTANI</h3>
+                    <div id="bhutani-chart-mini" class="chart-container"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHARTS TAB -->
+        <div id="tab-charts" class="tab-content">
+            <div class="card">
+                <h3 class="card-title"><span style="color: #FBBF24;">●</span> BIỂU ĐỒ BHUTANI</h3>
+                <div id="bhutani-chart" class="chart-container"></div>
+            </div>
+            <div class="card">
+                <h3 class="card-title"><span style="color: #3B82F6;">●</span> NGƯỠNG CHIẾU ĐÈN (AAP)</h3>
+                <div id="photo-chart" class="chart-container"></div>
+            </div>
+        </div>
+
+        <!-- GUIDELINES TAB -->
+        <div id="tab-guidelines" class="tab-content">
+            <div class="card">
+                <h3 class="card-title">⚠️ YẾU TỐ NGUY CƠ ĐỘC THẦN KINH</h3>
+                <div class="risk-grid">
+                    <div class="risk-item" style="cursor: default;"><span>🩸 Tan máu đồng miễn dịch (DAT+)</span></div>
+                    <div class="risk-item" style="cursor: default;"><span>🧬 Thiếu men G6PD</span></div>
+                    <div class="risk-item" style="cursor: default;"><span>🦠 Nhiễm trùng huyết</span></div>
+                    <div class="risk-item" style="cursor: default;"><span>⚗️ Toan máu (Acidosis)</span></div>
+                    <div class="risk-item" style="cursor: default;"><span>💉 Albumin &lt; 3.0 g/dL</span></div>
+                    <div class="risk-item" style="cursor: default;"><span>😴 Li bì, bỏ bú rõ rệt</span></div>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-title">📚 NGUỒN THAM KHẢO</h3>
+                <ul style="color: #94A3B8; font-size: 14px; line-height: 1.8;">
+                    <li>AAP Clinical Practice Guideline 2022</li>
+                    <li>Bhutani VK et al. Pediatrics 1999</li>
+                    <li>Hướng dẫn Bộ Y tế Việt Nam</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- KRAMER TAB -->
+        <div id="tab-kramer" class="tab-content">
+            <div class="card">
+                <h3 class="card-title">👁 THANG ĐIỂM KRAMER</h3>
+                <div class="kramer-list">
+                    <div class="kramer-item" data-zone="1">
+                        <div class="kramer-zone-num" style="background:#FFFACD;">1</div>
+                        <div>
+                            <div style="font-weight: 600;">Vùng 1: Mặt</div>
+                            <div style="font-size: 13px; color: #94A3B8;">5-6 mg/dL</div>
+                        </div>
+                    </div>
+                    <div class="kramer-item" data-zone="2">
+                        <div class="kramer-zone-num" style="background:#FFE4B5;">2</div>
+                        <div>
+                            <div style="font-weight: 600;">Vùng 2: Ngực đến rốn</div>
+                            <div style="font-size: 13px; color: #94A3B8;">9-11 mg/dL</div>
+                        </div>
+                    </div>
+                    <div class="kramer-item" data-zone="3">
+                        <div class="kramer-zone-num" style="background:#FFDAB9;">3</div>
+                        <div>
+                            <div style="font-weight: 600;">Vùng 3: Rốn đến đùi</div>
+                            <div style="font-size: 13px; color: #94A3B8;">12-14 mg/dL</div>
+                        </div>
+                    </div>
+                    <div class="kramer-item" data-zone="4">
+                        <div class="kramer-zone-num" style="background:#F4A460;">4</div>
+                        <div>
+                            <div style="font-weight: 600;">Vùng 4: Tay và chân</div>
+                            <div style="font-size: 13px; color: #94A3B8;">15-17 mg/dL</div>
+                        </div>
+                    </div>
+                    <div class="kramer-item" data-zone="5">
+                        <div class="kramer-zone-num" style="background:#CD853F;">5</div>
+                        <div>
+                            <div style="font-weight: 600;">Vùng 5: Lòng bàn tay/chân</div>
+                            <div style="font-size: 13px; color: #94A3B8;">&gt;18 mg/dL</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Message -->
+                <div id="kramer-message" class="message-box" style="display: none;"></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>⚕️ <strong>CẢNH BÁO:</strong> Ứng dụng này thuộ bản quyền của Duypv - BV Tân An chỉ mang tính chất tham
+                khảo. Quyết định điều trị phải do bác
+                sĩ đưa ra.</p>
+        </div>
+    </div>
+
+    <script src="vang-da.js"></script>
+</body>
+
+</html>

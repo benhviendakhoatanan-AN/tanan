@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BV Tân An</title>
+    <link rel="icon" href="assets/logo-favicon.webp" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <meta name="description"
+        content="Bệnh viện Đa khoa Quốc tế Tân An - Dịch vụ y tế chất lượng cao, trang thiết bị hiện đại, đội ngũ bác sĩ giàu kinh nghiệm.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Flags -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo-favicon.webp">
+    <style>
+        /* Section Headers like FV */
+        .section-header-fv {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .section-header-fv h2 {
+            margin-bottom: 0;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+        }
+
+        .section-header-fv .view-all {
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .section-header-fv .view-all:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <!-- Top Bar: Logo, Search, Utility -->
+        <div class="top-bar">
+            <div class="container top-bar-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/logo.webp" alt="Bệnh Viện Đa Khoa Quốc Tế Tân An" class="logo-img">
+                    </a>
+                </div>
+                <div class="header-hotlines"
+                    style="display: flex; flex-direction: column; justify-content: center; margin: 0 auto; padding-left: 30px;">
+                    <div class="hotline-item emergency" style="display: flex; align-items: center; margin-bottom: 3px;">
+                        <i class="fas fa-phone-volume hotline-icon"
+                            style="color: red; font-size: 1.2rem; margin-right: 8px; animation: ring 1.5s infinite;"></i>
+                        <div class="hotline-text-group" style="display: flex; align-items: baseline;">
+                            <span class="hotline-label"
+                                style="color: red; font-weight: 700; font-size: 0.9rem; margin-right: 6px;"
+                                data-i18n="common.emergency">CẤP
+                                CỨU:</span>
+                            <span class="hotline-number" style="color: red; font-weight: 700; font-size: 1.2rem;">(0272)
+                                3 661 115</span>
+                        </div>
+                    </div>
+                    <div class="hotline-item booking" style="display: flex; align-items: center;">
+                        <i class="fas fa-headset hotline-icon"
+                            style="color: #28a745; font-size: 1.2rem; margin-right: 8px;"></i>
+                        <div class="hotline-text-group" style="display: flex; align-items: baseline;">
+                            <span class="hotline-label"
+                                style="color: #28a745; font-weight: 700; font-size: 0.9rem; margin-right: 6px;"
+                                data-i18n="common.hotline">HOTLINE:</span>
+                            <span class="hotline-number"
+                                style="color: #28a745; font-weight: 700; font-size: 1.2rem;">(0272) 3 550 507</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header-tools">
+                    <div class="lang-switch">
+                        <a href="#" class="active" data-i18n="lang.vietnamese"><span
+                                class="flag-icon flag-icon-vn"></span> TIẾNG VIỆT</a>
+                        <a href="#" data-i18n="lang.english"><span class="flag-icon flag-icon-gb"></span> ENGLISH</a>
+                        <a href="#" data-i18n="lang.khmer"><span class="flag-icon flag-icon-kh"></span> KHMER</a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="main-nav">
+            <div class="container nav-container">
+                <ul class="nav-list">
+                    <li><a href="index.html" data-i18n="nav.home">TRANG CHỦ</a></li>
+                    <li><a href="about.html" data-i18n="nav.about">GIỚI THIỆU CHUNG</a></li>
+                    <li><a href="noi-soi.html" data-i18n="nav.endoscopy">NỘI SOI TIÊU HOÁ</a></li>
+                    <li class="dropdown">
+                        <a href="dich-vu-y-khoa.html"><span data-i18n="nav.services">DỊCH VỤ Y KHOA</span> <i
+                                class="fas fa-chevron-down" style="font-size: 0.7em; margin-left: 5px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="dich-vu-y-khoa.html">Nội - Ngoại Tiêu Hóa</a></li>
+                            <li><a href="dich-vu-y-khoa.html">Tim Mạch</a></li>
+                            <li><a href="dich-vu-y-khoa.html">Tầm Soát Đột Quỵ</a></li>
+                            <li><a href="dich-vu-y-khoa.html">Tầm Soát Ung Thư</a></li>
+                            <li><a href="noi-soi.html">Nội Soi Tiêu Hóa</a></li>
+                            <li><a href="dich-vu-y-khoa.html">Sản - Phụ Khoa</a></li>
+                            <li><a href="dich-vu-y-khoa.html">Nội Ngoại Nhi</a></li>
+                            <li><a href="dich-vu-y-khoa.html">Chẩn Đoán Hình Ảnh</a></li>
+                            <li><a href="dich-vu-y-khoa.html">Xét Nghiệm</a></li>
+                            <li><a href="tiem-chung.html">Trung Tâm Tiêm Chủng</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="news.html" data-i18n="nav.news">TIN TỨC</a></li>
+                    <li><a href="contact.html" data-i18n="nav.contact">LIÊN HỆ</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Slider Look -->
+    <!-- Hero Section Slider -->
+    <div class="hero-slider" id="heroSlider">
+        <!-- Slide 1: General (Existing) -->
+        <div class="hero-slide active" style="background-image: url('assets/hero-bg-final.webp');">
+            <div class="container">
+                <div class="home-hero-content">
+                    <h1 data-i18n="hero.slide1Title">CHĂM SÓC SỨC KHỎE TOÀN DIỆN</h1>
+                    <p data-i18n="hero.slide1Text">Bệnh viện Đa khoa Quốc tế Tân An cam kết mang đến dịch vụ y tế chuẩn
+                        mực quốc tế với sự tận tâm
+                        và chuyên nghiệp hàng đầu.</p>
+                    <a href="package-details.html" class="btn btn-primary"
+                        style="background: white; color: var(--primary-color);" data-i18n="hero.slide1Btn">GÓI KHÁM SỨC
+                        KHỎE</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Endoscopy -->
+        <div class="hero-slide" style="background-image: url('assets/hero-endoscopy-real.webp');">
+            <div class="container">
+                <div class="home-hero-content">
+                    <h1 data-i18n="hero.slide2Title">NỘI SOI TIÊU HÓA KHÔNG ĐAU</h1>
+                    <p data-i18n="hero.slide2Text">Công nghệ NBI phóng đại hiện đại, phát hiện sớm ung thư thực quản, dạ
+                        dày, đại tràng.</p>
+                    <a href="noi-soi.html" class="btn btn-primary"
+                        style="background: white; color: var(--primary-color);" data-i18n="hero.slide2Btn">TÌM HIỂU
+                        NGAY</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Fetal Echo -->
+        <div class="hero-slide" style="background-image: url('assets/hero-fetal-echo-real.webp');">
+            <div class="container">
+                <div class="home-hero-content">
+                    <h1 data-i18n="hero.slide3Title">SIÊU ÂM TIM THAI CHUYÊN SÂU</h1>
+                    <p data-i18n="hero.slide3Text">Tầm soát dị tật tim bẩm sinh cho bé yêu ngay từ trong bụng mẹ với
+                        chuyên gia tim mạch hàng đầu.
+                    </p>
+                    <a href="#booking" class="btn btn-primary" style="background: white; color: var(--primary-color);"
+                        data-i18n="hero.slide3Btn">ĐĂNG KÝ TƯ VẤN</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Dots -->
+        <div class="slider-dots">
+            <button class="slider-dot active" onclick="goToHeroSlide(0)"></button>
+            <button class="slider-dot" onclick="goToHeroSlide(1)"></button>
+            <button class="slider-dot" onclick="goToHeroSlide(2)"></button>
+        </div>
+    </div>
+
+
+    <!-- Floating Quick Actions Bar (FV Style) -->
+    <div class="quick-actions-container">
+        <div class="quick-actions-bar">
+            <a href="#booking" class="action-item">
+                <div class="action-icon"><i class="fas fa-calendar-check"></i></div>
+                <h3 data-i18n="quickActions.bookAppt">ĐẶT HẸN KHÁM</h3>
+                <span class="text-muted" style="font-size: 0.85rem;" data-i18n="quickActions.bookApptDesc">Nhanh
+                    chóng & Tiện lợi</span>
+            </a>
+            <a href="services.html" class="action-item">
+                <div class="action-icon"><i class="fas fa-notes-medical"></i></div>
+                <h3 data-i18n="quickActions.medicalServices">DỊCH VỤ Y KHOA</h3>
+                <span class="text-muted" style="font-size: 0.85rem;" data-i18n="quickActions.medicalServicesDesc">Đa
+                    khoa toàn diện</span>
+            </a>
+            <a href="package-details.html" class="action-item">
+                <div class="action-icon"><i class="fas fa-file-medical-alt"></i></div>
+                <h3 data-i18n="quickActions.healthPackages">GÓI KHÁM SỨC KHỎE</h3>
+                <span class="text-muted" style="font-size: 0.85rem;" data-i18n="quickActions.healthPackagesDesc">Cá
+                    nhân & Doanh nghiệp</span>
+            </a>
+            <a href="tiem-chung.html" class="action-item">
+                <div class="action-icon"><i class="fas fa-syringe"></i></div>
+                <h3 data-i18n="quickActions.vaccination">TRUNG TÂM TIÊM CHỦNG</h3>
+                <span class="text-muted" style="font-size: 0.85rem;" data-i18n="quickActions.vaccinationDesc">Vaccine
+                    cho mọi lứa tuổi</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Specialized Services / Centers of Excellence -->
+    <section class="section bg-light services-section">
+        <div class="container">
+            <div class="section-header-fv">
+                <h2 data-i18n="services.title">DỊCH VỤ Y KHOA</h2>
+                <a href="dich-vu-y-khoa.html" class="view-all"><span data-i18n="common.viewAllServices">XEM TẤT CẢ DỊCH
+                        VỤ</span> <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="centers-grid">
+                <div class="center-item" data-service-id="digestive">
+                    <div class="center-icon">
+                        <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/realistic_digestive_1769647136472.png"
+                            alt="Nội - Ngoại Tiêu Hóa" class="center-img">
+                    </div>
+                    <div class="center-title" data-i18n="services.digestive">Nội - Ngoại Tiêu Hóa</div>
+                </div>
+                <div class="center-item" data-service-id="cardiology">
+                    <div class="center-icon">
+                        <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/realistic_cardiology_1769647150486.png"
+                            alt="Tim Mạch" class="center-img">
+                    </div>
+                    <div class="center-title" data-i18n="services.cardiology">Tim Mạch</div>
+                </div>
+                <div class="center-item" data-service-id="stroke">
+                    <div class="center-icon">
+                        <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/realistic_stroke_1769647164114.png"
+                            alt="Tầm Soát Đột Quỵ" class="center-img">
+                    </div>
+                    <div class="center-title" data-i18n="services.stroke">Tầm Soát Đột Quỵ</div>
+                </div>
+                <div class="center-item" data-service-id="cancer">
+                    <div class="center-icon">
+                        <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/realistic_cancer_1769647178696.png"
+                            alt="Tầm Soát Ung Thư" class="center-img">
+                    </div>
+                    <div class="center-title" data-i18n="services.cancer">Tầm Soát Ung Thư</div>
+                </div>
+                <div class="center-item" data-service-id="endoscopy">
+                    <div class="center-icon">
+                        <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/realistic_endoscopy_1769647201963.png"
+                            alt="Nội Soi Tiêu Hóa" class="center-img">
+                    </div>
+                    <div class="center-title" data-i18n="services.endoscopy">Nội Soi Tiêu Hóa</div>
+                </div>
+                <div class="center-item" data-service-id="obgyn">
+                    <div class="center-icon">
+                        <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/realistic_maternity_v2_1769657849702.png"
+                            alt="Sản - Phụ Khoa" class="center-img">
+                    </div>
+                    <div class="center-title" data-i18n="services.obgyn">Sản - Phụ Khoa</div>
+                </div>
+                <div class="center-item" data-service-id="pediatrics">
+                    <div class="center-icon">
+                        <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/realistic_pediatrics_1769647237542.png"
+                            alt="Nội Ngoại Nhi" class="center-img">
+                    </div>
+                    <div class="center-title" data-i18n="services.pediatrics">Nội Ngoại Nhi</div>
+                </div>
+                <div class="center-item" data-service-id="imaging">
+                    <div class="center-icon">
+                        <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/realistic_imaging_1769647254399.png"
+                            alt="Chẩn Đoán Hình Ảnh" class="center-img">
+                    </div>
+                    <div class="center-title" data-i18n="services.imaging">Chẩn Đoán Hình Ảnh</div>
+                </div>
+                <div class="center-item" data-service-id="laboratory">
+                    <div class="center-icon">
+                        <img src="assets/xet-nghiem-icon.png" alt="Xét Nghiệm" class="center-img">
+                    </div>
+                    <div class="center-title" data-i18n="services.laboratory">Xét Nghiệm</div>
+                </div>
+                <div class="center-item" data-service-id="vaccination">
+                    <div class="center-icon">
+                        <img src="assets/tiem-chung-icon.png" alt="Trung Tâm Tiêm Chủng" class="center-img">
+                    </div>
+                    <div class="center-title" data-i18n="services.vaccination">Trung Tâm Tiêm Chủng</div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Medical Equipment Section -->
+    <section class="section equipment-section">
+        <div class="container">
+            <div class="section-header-fv">
+                <h2 data-i18n="equipment.title">TRANG THIẾT BỊ Y TẾ HIỆN ĐẠI</h2>
+                <a href="trang-thiet-bi.html" class="view-all"><span data-i18n="common.viewDetails">XEM CHI TIẾT</span>
+                    <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="equipment-container">
+                <!-- Column 1: Text & Introduction -->
+                <div class="equipment-text-col">
+                    <h3 data-i18n="equipment.subtitle">Công nghệ chẩn đoán hình ảnh tiên tiến</h3>
+                    <p data-i18n="equipment.description">Bệnh viện Đa khoa Tân An trang bị hệ thống máy móc hiện đại
+                        bậc nhất, ứng dụng trí tuệ nhân
+                        tạo
+                        (AI) trong chẩn đoán và điều trị, giúp phát hiện sớm các bệnh lý nguy hiểm.</p>
+
+                    <ul class="equipment-features-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong data-i18n="equipment.mriTitle">Hệ thống MRI 1.5 Tesla</strong>
+                                <span data-i18n="equipment.mriDesc">Hình ảnh sắc nét, giảm tiếng ồn, thời gian chụp
+                                    nhanh.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong data-i18n="equipment.ctTitle">CT Scanner 128 lát cắt</strong>
+                                <span data-i18n="equipment.ctDesc">Tầm soát ung thư và bệnh lý tim mạch với độ chính
+                                    xác cao.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong data-i18n="equipment.aiTitle">Ứng dụng AI (Trí tuệ nhân tạo)</strong>
+                                <span data-i18n="equipment.aiDesc">Phân tích dữ liệu hình ảnh, hỗ trợ bác sĩ chẩn
+                                    đoán chính xác đến 99%.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong data-i18n="equipment.nbiTitle">Nội soi NBI phóng đại</strong>
+                                <span data-i18n="equipment.nbiDesc">Phát hiện ung thư đường tiêu hóa ở giai đoạn rất
+                                    sớm.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Image Slider -->
+                <div class="equipment-slider-col">
+                    <div class="equipment-slider-wrapper">
+                        <div class="equipment-slide active">
+                            <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/uploaded_media_1_1769674202971.jpg"
+                                alt="Bác sĩ nội soi tiêu hóa" style="object-fit: cover; width: 100%; height: 100%;">
+                            <div class="eq-slide-caption" data-i18n="equipment.slideNBICaption">Hệ thống Nội soi NBI
+                                hiện đại</div>
+                        </div>
+                        <div class="equipment-slide">
+                            <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/uploaded_media_1769591313413.jpg"
+                                alt="Trung tâm điều khiển AI" style="object-fit: cover; width: 100%; height: 100%;">
+                            <div class="eq-slide-caption" data-i18n="equipment.slideAICaption">Trung tâm Chẩn đoán
+                                AI</div>
+                        </div>
+                        <div class="equipment-slide">
+                            <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/uploaded_media_1769591299879.jpg"
+                                alt="Hệ thống MRI 3.0 Tesla" style="object-fit: cover; width: 100%; height: 100%;">
+                            <div class="eq-slide-caption" data-i18n="equipment.slideMRICaption">Hệ thống MRI 1.5
+                                Tesla từ Philips tích hợp AI trong chẩn
+                                đoán
+                                hình ảnh</div>
+                        </div>
+                        <div class="equipment-slide">
+                            <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/uploaded_media_1769592360842.jpg"
+                                alt="Hệ thống Xét nghiệm Tự động" style="object-fit: cover; width: 100%; height: 100%;">
+                            <div class="eq-slide-caption" data-i18n="equipment.slideLabCaption">Hệ thống Xét nghiệm
+                                Tự động Hóa</div>
+                        </div>
+                        <div class="equipment-slide">
+                            <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/uploaded_media_0_1769592934333.jpg"
+                                alt="Trung tâm Xét nghiệm Quốc tế"
+                                style="object-fit: cover; width: 100%; height: 100%;">
+                            <div class="eq-slide-caption" data-i18n="equipment.slideLabIntlCaption">Trung tâm Xét
+                                nghiệm Tiêu chuẩn Quốc tế</div>
+                        </div>
+                        <div class="equipment-slide">
+                            <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/uploaded_media_1_1769592934333.jpg"
+                                alt="Hệ thống Robot Tự động" style="object-fit: cover; width: 100%; height: 100%;">
+                            <div class="eq-slide-caption" data-i18n="equipment.slideRobotCaption">Hệ thống Robot Vận
+                                chuyển Mẫu Tự động</div>
+                        </div>
+                        <div class="equipment-slide">
+                            <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/uploaded_media_0_1769663978644.jpg"
+                                alt="Máy siêu âm tim thai GE" style="object-fit: cover; width: 100%; height: 100%;">
+                            <div class="eq-slide-caption" data-i18n="equipment.slideFetalCaption">Máy siêu âm tim
+                                bào thai hiện đại nhất của GE</div>
+                        </div>
+                        <div class="equipment-slide">
+                            <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/uploaded_media_1_1769663978644.jpg"
+                                alt="Siêu âm GE Healthcare" style="object-fit: cover; width: 100%; height: 100%;">
+                            <div class="eq-slide-caption" data-i18n="equipment.slide5DCaption">Hệ thống siêu âm 5D
+                                chẩn đoán dị tật thai nhi tích hợp AI
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slider Dots -->
+                    <div class="equipment-dots">
+                        <span class="eq-dot active" onclick="goToEquipmentSlide(0)"></span>
+                        <span class="eq-dot" onclick="goToEquipmentSlide(1)"></span>
+                        <span class="eq-dot" onclick="goToEquipmentSlide(2)"></span>
+                        <span class="eq-dot" onclick="goToEquipmentSlide(3)"></span>
+                        <span class="eq-dot" onclick="goToEquipmentSlide(4)"></span>
+                        <span class="eq-dot" onclick="goToEquipmentSlide(5)"></span>
+                        <span class="eq-dot" onclick="goToEquipmentSlide(6)"></span>
+                        <span class="eq-dot" onclick="goToEquipmentSlide(7)"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Packages Slider Section -->
+    <section class="section packages-section">
+        <div class="container">
+            <div class="section-header-fv">
+                <h2 data-i18n="packages.title">GÓI KHÁM SỨC KHỎE</h2>
+                <a href="package-details.html" class="view-all"><span data-i18n="common.viewDetails">XEM CHI
+                        TIẾT</span> <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="packages-slider-container">
+                <div class="packages-slider" id="packages-slider">
+                    <!-- Slide 1: 3 packages -->
+                    <div class="packages-slide active">
+                        <div class="packages-grid">
+                            <!-- Package 1: Nội soi Dạ dày -->
+                            <div class="package-card">
+                                <div class="package-header">
+                                    <h3 data-i18n="packages.endoscopyGastricTitle">NỘI SOI DẠ DÀY</h3>
+                                    <p data-i18n="packages.endoscopyGastricDesc">Người đau bụng, ợ chua, khó tiêu
+                                    </p>
+                                </div>
+                                <div class="package-price">1.500.000đ</div>
+                                <ul class="package-features">
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureConsult">Khám với bác sĩ chuyên khoa</span>
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> <span data-i18n="packages.featureNBI">Nội
+                                            soi NBI phóng đại</span></li>
+                                    <li><i class="fas fa-check-circle"></i> <span data-i18n="packages.featureHP">Test vi
+                                            khuẩn HP</span></li>
+                                    <li><i class="fas fa-check-circle"></i> <span data-i18n="packages.featureResult">Trả
+                                            kết quả & tư vấn</span></li>
+                                </ul>
+                                <a href="package-details.html#noisoi-daday" class="btn btn-outline btn-block"
+                                    data-i18n="common.viewDetails">XEM CHI
+                                    TIẾT</a>
+                            </div>
+
+                            <!-- Package 2: Tầm soát Ung thư Dạ dày -->
+                            <div class="package-card featured">
+                                <div class="package-badge" data-i18n="packages.badgeRecommended">KHUYÊN DÙNG</div>
+                                <div class="package-header">
+                                    <h3 data-i18n="packages.screeningGastricTitle">TẦM SOÁT UNG THƯ DẠ DÀY</h3>
+                                    <p data-i18n="packages.screeningGastricDesc">Người ≥45 tuổi, tiền sử gia đình
+                                    </p>
+                                </div>
+                                <div class="package-price">3.100.000đ</div>
+                                <ul class="package-features">
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureBasicPlus">Tất cả danh mục gói cơ bản</span>
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureBiopsy">Sinh thiết tế bào (nếu có tổn
+                                            thương)</span></li>
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featurePathology">Giải phẫu bệnh chuyên sâu</span>
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureCancerMarkers">Tầm soát dấu ấn ung thư</span>
+                                    </li>
+                                </ul>
+                                <a href="package-details.html#noisoi-tamsoat" class="btn btn-primary btn-block"
+                                    data-i18n="common.viewDetails">XEM CHI
+                                    TIẾT</a>
+                            </div>
+
+                            <!-- Package 3: Nội soi Đại tràng -->
+                            <div class="package-card">
+                                <div class="package-header">
+                                    <h3 data-i18n="packages.endoscopyColonTitle">NỘI SOI ĐẠI TRÀNG</h3>
+                                    <p data-i18n="packages.endoscopyColonDesc">Người ≥45 tuổi, rối loạn tiêu hóa</p>
+                                </div>
+                                <div class="package-price">2.500.000đ</div>
+                                <ul class="package-features">
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureConsult">Khám với bác sĩ chuyên khoa</span>
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureEntireColon">Nội soi toàn bộ đại trực
+                                            tràng</span></li>
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featurePolypScreening">Tầm soát Polyp & Ung
+                                            thư</span></li>
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureCleanBowel">Thuốc làm sạch ruột</span></li>
+                                </ul>
+                                <a href="package-details.html#noisoi-daitrang" class="btn btn-outline btn-block"
+                                    data-i18n="common.viewDetails">XEM
+                                    CHI
+                                    TIẾT</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: 3 more packages -->
+                    <div class="packages-slide">
+                        <div class="packages-grid">
+                            <!-- Package 4: Gói Cơ Bản -->
+                            <div class="package-card">
+                                <div class="package-header">
+                                    <h3 data-i18n="packages.basicTitle">GÓI CƠ BẢN</h3>
+                                    <p data-i18n="packages.basicDesc">Dành cho người dưới 40 tuổi</p>
+                                </div>
+                                <div class="package-price">2.500.000đ</div>
+                                <ul class="package-features">
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureGeneralInternal">Khám Nội tổng quát</span>
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureBloodTest">Xét nghiệm máu (15 chỉ số)</span>
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureAbdominalUltrasound">Siêu âm ổ bụng tổng
+                                            quát</span></li>
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureChestECG">X-Quang ngực + Điện tim ECG</span>
+                                    </li>
+                                </ul>
+                                <a href="package-details.html#basic" class="btn btn-outline btn-block"
+                                    data-i18n="common.viewDetails">XEM CHI
+                                    TIẾT</a>
+                            </div>
+
+                            <!-- Package 5: Gói Nâng Cao -->
+                            <div class="package-card featured">
+                                <div class="package-badge" data-i18n="packages.badgePopular">PHỔ BIẾN</div>
+                                <div class="package-header">
+                                    <h3 data-i18n="packages.advancedTitle">GÓI NÂNG CAO</h3>
+                                    <p data-i18n="packages.advancedDesc">Cho người trên 40 tuổi</p>
+                                </div>
+                                <div class="package-price">5.500.000đ</div>
+                                <ul class="package-features">
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureBasicPlus">Toàn bộ Gói Cơ Bản</span></li>
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureCancerMarkers">Tầm soát dấu ấn ung thư</span>
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureGastricEndoscopyAnes">Nội soi Dạ dày (gây
+                                            mê)</span></li>
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureThyroidUltrasound">Siêu âm tuyến giáp +
+                                            tim</span></li>
+                                </ul>
+                                <a href="package-details.html#advanced" class="btn btn-primary btn-block"
+                                    data-i18n="common.viewDetails">XEM CHI
+                                    TIẾT</a>
+                            </div>
+
+                            <!-- Package 6: Gói VIP -->
+                            <div class="package-card">
+                                <div class="package-header">
+                                    <h3 data-i18n="packages.vipTitle">GÓI TOÀN DIỆN VIP</h3>
+                                    <p data-i18n="packages.vipDesc">Đẳng cấp chăm sóc 5 sao</p>
+                                </div>
+                                <div class="package-price">12.000.000đ</div>
+                                <ul class="package-features">
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureAdvancedPlus">Toàn bộ Gói Nâng Cao</span>
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureColonoscopy">Nội soi Đại tràng (gây
+                                            mê)</span></li>
+                                    <li><i class="fas fa-check-circle"></i> <span data-i18n="packages.featureMRI">MRI Sọ
+                                            não / Cột sống</span></li>
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureVIPCare">Chế độ chăm sóc VIP riêng</span>
+                                    </li>
+                                </ul>
+                                <a href="package-details.html#vip" class="btn btn-outline btn-block"
+                                    data-i18n="common.viewDetails">XEM CHI TIẾT</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Tầm soát Nam/Nữ -->
+                    <div class="packages-slide">
+                        <div class="packages-grid">
+                            <!-- Package 7: Tầm soát Nam -->
+                            <div class="package-card">
+                                <div class="package-badge" style="background: #004aad;" data-i18n="packages.badgeMale">
+                                    DÀNH CHO NAM</div>
+                                <div class="package-header">
+                                    <h3 data-i18n="packages.maleTitle">TẦM SOÁT CHUYÊN SÂU NAM</h3>
+                                    <p data-i18n="packages.maleDesc">Toàn diện dành cho Nam giới</p>
+                                </div>
+                                <div class="package-price">12.925.000đ</div>
+                                <ul class="package-features">
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureConsultExpert">Khám và tư vấn chuyên
+                                            khoa</span></li>
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureBloodUrine">Xét nghiệm máu + Nước tiểu</span>
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureFullUltrasound">Siêu âm ổ bụng + Tim + Tuyến
+                                            giáp</span></li>
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureBothEndoscopy">Nội soi Dạ dày + Đại
+                                            tràng</span></li>
+                                </ul>
+                                <a href="package-details.html#specialized-male" class="btn btn-outline btn-block"
+                                    data-i18n="common.viewDetails">XEM
+                                    CHI TIẾT</a>
+                            </div>
+
+                            <!-- Package 8: Tầm soát Nữ -->
+                            <div class="package-card featured">
+                                <div class="package-badge" style="background: #d81b60;"
+                                    data-i18n="packages.badgeFemale">DÀNH CHO NỮ</div>
+                                <div class="package-header">
+                                    <h3 data-i18n="packages.femaleTitle">TẦM SOÁT CHUYÊN SÂU NỮ</h3>
+                                    <p data-i18n="packages.femaleDesc">Toàn diện dành cho Phụ nữ</p>
+                                </div>
+                                <div class="package-price">13.235.000đ</div>
+                                <ul class="package-features">
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureConsultExpert">Khám và tư vấn chuyên
+                                            khoa</span></li>
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureWomensUltrasound">Siêu âm vú + Phụ
+                                            khoa</span></li>
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featurePapSmear">Xét nghiệm Pap smear</span></li>
+                                    <li><i class="fas fa-check-circle"></i> <span
+                                            data-i18n="packages.featureBothEndoscopy">Nội soi Dạ dày + Đại
+                                            tràng</span></li>
+                                </ul>
+                                <a href="package-details.html#specialized-female" class="btn btn-primary btn-block"
+                                    data-i18n="common.viewDetails">XEM
+                                    CHI TIẾT</a>
+                            </div>
+
+                            <!-- Placeholder for 3rd card -->
+                            <div class="package-card"
+                                style="background: linear-gradient(135deg, #f8fbff 0%, #e6f2ff 100%); border: 2px dashed var(--primary-color);">
+                                <div class="package-header">
+                                    <h3 style="color: var(--primary-color);" data-i18n="common.needAdvice">BẠN CẦN
+                                        TƯ VẤN?</h3>
+                                    <p data-i18n="common.contactSupport">Liên hệ để được hỗ trợ</p>
+                                </div>
+                                <div class="package-price" style="font-size: 1.5rem;" data-i18n="common.hotline">
+                                    Hotline</div>
+                                <ul class="package-features">
+                                    <li><i class="fas fa-phone-alt"></i> 0272 3 550 507</li>
+                                    <li><i class="fas fa-ambulance"></i> <span data-i18n="common.emergency">Cấp
+                                            cứu</span>: 0272 3 550 115</li>
+                                    <li><i class="fas fa-envelope"></i> info@tananhospital.vn</li>
+                                    <li><i class="fas fa-clock"></i> <span data-i18n="common.workingHoursCompact">7:30 -
+                                            17:00 (T2 - CN)</span>
+                                    </li>
+                                </ul>
+                                <a href="#booking" class="btn btn-primary btn-block" data-i18n="common.contactNow">LIÊN
+                                    HỆ NGAY</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slider Navigation Dots -->
+                <div class="packages-dots">
+                    <button class="package-dot active" onclick="goToPackageSlide(0)"></button>
+                    <button class="package-dot" onclick="goToPackageSlide(1)"></button>
+                    <button class="package-dot" onclick="goToPackageSlide(2)"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Patient Testimonials (Góc Tri Ân) -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header-fv">
+                <h2 data-i18n="testimonials.title">GÓC TRI ÂN</h2>
+            </div>
+
+            <div class="review-filter-bar">
+                <button class="review-filter-btn active" data-filter="all" data-i18n="testimonials.filterAll">Tất
+                    cả</button>
+                <button class="review-filter-btn" data-filter="daday" data-i18n="testimonials.filterGastric">Nội soi
+                    Dạ dày</button>
+                <button class="review-filter-btn" data-filter="daitrang" data-i18n="testimonials.filterColon">Nội
+                    soi Đại tràng</button>
+                <button class="review-filter-btn" data-filter="dichvu" data-i18n="testimonials.filterService">Dịch
+                    vụ & Bác sĩ</button>
+            </div>
+
+            <!-- Grid Container -->
+            <div id="testimonial-container">
+                <!-- Javascript will populate reviews here -->
+            </div>
+
+            <!-- Pagination/Load More (Hidden by js usually but good to have structure) -->
+            <div class="load-more-container">
+                <button id="load-more-btn" class="btn btn-outline" style="padding: 10px 30px; font-size: 0.9rem;"
+                    data-i18n="testimonials.loadMore">Xem
+                    thêm đánh giá</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News Section (FV Highlight) -->
+    <section class="section bg-light" id="news">
+        <div class="container">
+            <div class="section-header-fv">
+                <h2 data-i18n="news.title">TIN TỨC & SỰ KIỆN</h2>
+                <a href="news.html" class="view-all"><span data-i18n="common.viewAll">XEM TẤT CẢ</span> <i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="home-news-grid">
+                <!-- News 1 -->
+                <div class="home-news-card">
+                    <div class="home-news-img">
+                        <img src="assets/news-1.webp" alt="News Image"
+                            onerror="this.src='https://placehold.co/400x250?text=News+Thumb'">
+                    </div>
+                    <div class="home-news-content">
+                        <span class="home-news-date">25/01/2026</span>
+                        <h3 class="home-news-title"><a href="news.html" data-i18n="news.card1Title">Từ 01.01.2026:
+                                Bệnh viện Đa khoa Quốc tế Tân
+                                An
+                                mở rộng khu khám VIP</a></h3>
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 0;" data-i18n="news.card1Desc">Nâng
+                            cao trải nghiệm khách hàng
+                            với
+                            không gian sang trọng và quy trình khép kín...</p>
+                    </div>
+                </div>
+
+                <!-- News 2 -->
+                <div class="home-news-card">
+                    <div class="home-news-img">
+                        <img src="assets/news-2.webp" alt="News Image"
+                            onerror="this.src='https://placehold.co/400x250?text=Event'">
+                    </div>
+                    <div class="home-news-content">
+                        <span class="home-news-date">20/01/2026</span>
+                        <h3 class="home-news-title"><a href="news.html" data-i18n="news.card2Title">Hội thảo: Tầm
+                                soát ung thư đường tiêu hóa
+                                bằng
+                                công nghệ nội soi NBI</a></h3>
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 0;" data-i18n="news.card2Desc">Cập
+                            nhật những tiến bộ y khoa
+                            mới
+                            nhất giúp phát hiện sớm ung thư dạ dày...</p>
+                    </div>
+                </div>
+
+                <!-- News 3 -->
+                <div class="home-news-card">
+                    <div class="home-news-img">
+                        <img src="assets/news-3.webp" alt="News Image"
+                            onerror="this.src='https://placehold.co/400x250?text=Community'">
+                    </div>
+                    <div class="home-news-content">
+                        <span class="home-news-date">15/01/2026</span>
+                        <h3 class="home-news-title"><a href="news.html" data-i18n="news.card3Title">Chương trình
+                                khám bệnh miễn phí cho người
+                                cao
+                                tuổi tại Tân An</a></h3>
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 0;" data-i18n="news.card3Desc">Hơn
+                            200 suất khám và quà tặng
+                            đã
+                            được trao tận tay những hoàn cảnh khó khăn...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Services Section -->
+    <section class="section" id="featured-services" style="padding-top: 0; background-color: #fff;">
+        <div class="container">
+            <div class="section-header-fv"
+                style="margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center;">
+                <h2 data-i18n="featured.title">CÁC DỊCH VỤ NỔI BẬT</h2>
+                <div class="featured-nav">
+                    <button class="feat-nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="feat-nav-btn next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <div class="featured-slider-container">
+                <div class="featured-slider">
+                    <!-- Item 1: HPV Vaccine -->
+                    <div class="featured-slide">
+                        <a href="package-details.html">
+                            <img src="https://placehold.co/580x280/005ca8/ffffff?text=V%E1%BA%AFc+xin+HPV+-+B%E1%BA%A3o+V%E1%BB%87+Con+B%E1%BA%A1n&font=montserrat"
+                                alt="Vắc xin HPV" class="featured-img">
+                        </a>
+                    </div>
+                    <!-- Item 2: Pricing -->
+                    <div class="featured-slide">
+                        <a href="package-details.html">
+                            <img src="https://placehold.co/580x280/0077c2/ffffff?text=Gi%C3%A1+g%C3%B3i+kh%C3%A1m+n%E1%BB%99i+soi&font=montserrat"
+                                alt="Gói nội soi" class="featured-img">
+                        </a>
+                    </div>
+                    <!-- Item 3: Prenatal -->
+                    <div class="featured-slide">
+                        <a href="package-details.html">
+                            <img src="https://placehold.co/580x280/7b1fa2/ffffff?text=L%E1%BB%9Bp+ti%E1%BB%81n+s%E1%BA%A3n&font=montserrat"
+                                alt="Lớp tiền sản" class="featured-img">
+                        </a>
+                    </div>
+                    <!-- Item 4: Contact -->
+                    <div class="featured-slide">
+                        <a href="contact.html">
+                            <img src="https://placehold.co/580x280/388e3c/ffffff?text=%C4%90%E1%BA%B7t+l%E1%BB%8Bch+kh%C3%A1m&font=montserrat"
+                                alt="Đặt lịch" class="featured-img">
+                        </a>
+                    </div>
+                    <!-- Item 5: Extra for sliding -->
+                    <div class="featured-slide">
+                        <a href="#">
+                            <img src="https://placehold.co/580x280/ff5722/ffffff?text=Khuy%E1%BA%BFn+M%C3%A3i+%C4%90%E1%BA%B7c+Bi%E1%BB%87t&font=montserrat"
+                                alt="Khuyến mãi" class="featured-img">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Healthcare Resources Section -->
+    <section class="section" id="health-resources" style="background-color: #e0f7fa; padding: 50px 0;">
+        <div class="container">
+            <div class="resources-header"
+                style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 25px; flex-wrap: wrap;">
+                <div class="resources-title-block">
+                    <h2 style="color: #00796b; font-weight: 700; margin-bottom: 8px;" data-i18n="resources.title">
+                        Tài Liệu Chăm Sóc Sức Khỏe</h2>
+                    <p style="color: #555; margin: 0; font-size: 0.95rem; max-width: 600px;" data-i18n="resources.desc">
+                        Nguồn thông tin tham khảo về các bệnh lý và hướng dẫn chăm sóc
+                        sức khỏe đáng tin cậy do các chuyên gia biên soạn</p>
+                </div>
+                <div class="resources-nav" style="flex-shrink: 0;">
+                    <button class="res-nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="res-nav-btn next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <div class="resources-slider-container">
+                <div class="resources-slider">
+                    <!-- Card 1 -->
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="https://placehold.co/300x200/b2dfdb/004d40?text=Tr%E1%BA%BB+Em"
+                                alt="Sức khỏe trẻ em">
+                        </div>
+                        <div class="resource-content">
+                            <h4 class="resource-title">Hướng dẫn chăm sóc sức khỏe răng miệng cho trẻ em</h4>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="https://placehold.co/300x200/80deea/00695c?text=Ph%E1%BB%95i" alt="Sức khỏe phổi">
+                        </div>
+                        <div class="resource-content">
+                            <h4 class="resource-title">Phòng ngừa các bệnh về hô hấp và phổi</h4>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="https://placehold.co/300x200/f8bbd0/880e4f?text=Ng%C6%B0%E1%BB%9Di+Cao+Tu%E1%BB%95i"
+                                alt="Người cao tuổi">
+                        </div>
+                        <div class="resource-content">
+                            <h4 class="resource-title">Chăm sóc sức khỏe người cao tuổi</h4>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="https://placehold.co/300x200/ffe0b2/e65100?text=Ti%E1%BB%83u+%C4%90%C6%B0%E1%BB%9Dng"
+                                alt="Tiểu đường">
+                        </div>
+                        <div class="resource-content">
+                            <h4 class="resource-title">Quản lý bệnh tiểu đường hiệu quả</h4>
+                        </div>
+                    </div>
+                    <!-- Card 5 (hidden initially, revealed on slide) -->
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="https://placehold.co/300x200/c5e1a5/33691e?text=Dinh+D%C6%B0%E1%BB%A1ng"
+                                alt="Dinh dưỡng">
+                        </div>
+                        <div class="resource-content">
+                            <h4 class="resource-title">Chế độ dinh dưỡng lành mạnh</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Contact -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3 data-i18n="common.hospitalName">BỆNH VIỆN ĐA KHOA QUỐC TẾ TÂN AN</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="common.address">Số 136C Tỉnh lộ 827,
+                            Phường Tân An, Tây Ninh (Long An cũ)</span>
+                    </p>
+                    <p><i class="fas fa-phone-alt"></i> <span data-i18n="common.hotline">Hotline</span>: <span
+                            class="hotline">0272 3 550 507</span></p>
+                    <p><i class="fas fa-phone-alt"></i> <span data-i18n="common.emergency">Cấp cứu</span>: <span
+                            class="hotline">0272 3 550 115</span></p>
+                    <p><i class="fas fa-envelope"></i> Email: info@tananhospital.vn </p>
+                    <p><i class="fas fa-clock"></i> <span data-i18n="common.workingHours">Giờ làm việc: Thứ 2 - Chủ
+                            Nhật: 7:30 - 17:00</span></p>
+                </div>
+
+                <div class="footer-links">
+                    <h3 data-i18n="footer.systemTitle">HỆ THỐNG</h3>
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav.home">Trang chủ</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">Về chúng tôi</a></li>
+                        <li><a href="package-details.html" data-i18n="quickActions.healthPackages">Gói khám</a></li>
+                        <li><a href="#" data-i18n="footer.career">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3 data-i18n="footer.usefulLinks">LIÊN KẾT HỮU ÍCH</h3>
+                    <ul>
+                        <li><a href="doctors.html" data-i18n="quickActions.findDoctor">Tìm Bác Sĩ</a></li>
+                        <li><a href="#booking" data-i18n="quickActions.bookAppt">Đặt Hẹn Khám Bệnh</a></li>
+                        <li><a href="#" data-i18n="footer.qa">Hỏi Đáp Y Khoa</a></li>
+                        <li><a href="news.html" data-i18n="nav.news">Tin Tức & Sự Kiện</a></li>
+                        <li><a href="#" data-i18n="footer.careerOpp">Cơ Hội Nghề Nghiệp</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Map & Contact Form Grid -->
+            <!-- Map & Contact Form Grid -->
+            <!-- Map & Contact Form Grid -->
+            <div class="footer-bottom-grid"
+                style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 30px; align-items: stretch;">
+
+                <!-- Google Maps Card -->
+                <div class="footer-card"
+                    style="flex: 1; min-width: 300px; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column;">
+                    <h3 style="text-align: center; margin-bottom: 15px; font-weight: 700; color: #333;"
+                        data-i18n="footer.mapTitle">VỊ TRÍ BỆNH
+                        VIỆN
+                    </h3>
+                    <div style="flex-grow: 1; position: relative; min-height: 350px;">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12000.745696109608!2d106.41952391990549!3d10.519977685397096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310ab72385f606b3%3A0x3f48c61fbf566805!2zQuG7h25oIHZp4buHbiDEkGEga2hvYSBUw6JuIEFu!5e0!3m2!1svi!2s!4v1769573620015!5m2!1svi!2s"
+                            width="100%" height="100%"
+                            style="border:0; border-radius: 8px; position: absolute; top: 0; left: 0;"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <!-- Registration Form Card -->
+                <div class="footer-card" id="booking"
+                    style="flex: 0 0 30%; max-width: 350px; min-width: 280px; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; scroll-margin-top: 120px;">
+                    <h3 style="text-align: center; margin-bottom: 15px; font-weight: 700; color: #333;"
+                        data-i18n="footer.formTitle">ĐĂNG KÝ TƯ
+                        VẤN
+                        NHANH</h3>
+                    <form id="consultation-form"
+                        style="display: flex; flex-direction: column; gap: 10px; flex-grow: 1; justify-content: center;">
+                        <input type="text" class="form-control" name="ho_ten" placeholder="Họ và tên *" required
+                            style="padding: 10px; border: 1px solid #ddd; border-radius: 6px;"
+                            data-i18n-placeholder="footer.formName">
+                        <input type="tel" class="form-control" name="so_dien_thoai" placeholder="Số điện thoại *"
+                            required style="padding: 10px; border: 1px solid #ddd; border-radius: 6px;"
+                            data-i18n-placeholder="footer.formPhone">
+                        <input type="email" class="form-control" name="email" placeholder="Email (nếu có)"
+                            style="padding: 10px; border: 1px solid #ddd; border-radius: 6px;"
+                            data-i18n-placeholder="footer.formEmail">
+                        <select class="form-control" name="chuyen_khoa"
+                            style="padding: 10px; border: 1px solid #ddd; border-radius: 6px; color: #555;">
+                            <option value="" data-i18n="footer.formSelect">-- Chọn Dịch vụ đăng ký --</option>
+                            <option value="Khám tổng quát" data-i18n="dropdown.checkup">Khám tổng quát</option>
+                            <option value="Nội soi tiêu hóa" data-i18n="dropdown.endoscopy">Nội soi tiêu hóa
+                            </option>
+                            <option value="Tầm soát ung thư" data-i18n="services.cancer">Tầm soát ung thư</option>
+                            <option value="Tư vấn sức khỏe" data-i18n="footer.formHealthConsult">Tư vấn sức khỏe
+                            </option>
+                            <option value="Khác" data-i18n="footer.formOther">Khác</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary btn-block"
+                            style="padding: 10px; font-weight: bold;" data-i18n="footer.formSubmit">GỬI YÊU
+                            CẦU</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                &copy; 2026 Bệnh Viện Đa Khoa Quốc Tế Tân An. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Widget -->
+    <div class="floating-contact">
+        <a href="https://zalo.me/0858133507" target="_blank" class="contact-btn btn-zalo" data-tooltip="Chat Zalo"
+            data-i18n-tooltip="tooltip.zalo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo">
+        </a>
+        <a href="https://m.me/benhviendakhoatanan" target="_blank" class="contact-btn btn-messenger"
+            data-tooltip="Chat Messenger" data-i18n-tooltip="tooltip.messenger">
+            <i class="fab fa-facebook-messenger"></i>
+        </a>
+        <a href="tel:02723661115" class="contact-btn btn-phone" data-tooltip="Gọi Cấp Cứu"
+            data-i18n-tooltip="tooltip.emergency">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="#booking" class="contact-btn btn-booking" style="background: #28a745;" data-tooltip="Đăng ký khám ngay"
+            data-i18n-tooltip="tooltip.booking">
+            <i class="fas fa-calendar-check"></i>
+        </a>
+        <a href="#" class="contact-btn btn-back-to-top" style="background: #555; display: none;"
+            data-tooltip="Lên đầu trang" data-i18n-tooltip="tooltip.top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+
+    <!-- Service Details Modal -->
+    <div id="service-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <i id="modal-icon" class="fas fa-stethoscope"></i>
+                <h2 id="modal-title">Service Title</h2>
+                <div id="modal-description">Service Description goes here...</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="lang-switcher.js"></script>
+    <script src="reviews.js"></script>
+    <script src="cms-loader.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

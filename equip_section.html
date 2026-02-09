@@ -1,0 +1,71 @@
+<!-- ==================== EQUIPMENT TAB ==================== -->
+<section id="tab-equipment" class="admin-tab">
+    <div class="tab-header">
+        <h1>🔬 Quản lý Trang thiết bị</h1>
+        <button id="add-equipment-btn" class="btn btn-primary" onclick="adminPanel.openEquipmentModal()">+ Thêm thiết
+            bị</button>
+    </div>
+
+    <div class="data-table-container">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Hình ảnh</th>
+                    <th>Tên thiết bị (Caption)</th>
+                    <th>Thứ tự</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody id="equipment-tbody">
+                <!-- Dynamic content -->
+            </tbody>
+        </table>
+        <div id="equipment-empty" class="empty-state" style="display: none;">
+            <p>Chưa có thiết bị nào.</p>
+        </div>
+    </div>
+
+    <!-- Equipment Modal -->
+    <div id="equipment-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="equipment-modal-title">Thêm thiết bị mới</h2>
+                <span class="close-modal" onclick="adminPanel.closeEquipmentModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="equipment-form" onsubmit="event.preventDefault(); adminPanel.saveEquipment();">
+                    <input type="hidden" id="equipment-id">
+                    <div class="form-group">
+                        <label>Tên thiết bị (Caption hiển thị)</label>
+                        <input type="text" id="equipment-caption" placeholder="VD: Hệ thống Nội soi NBI..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Hình ảnh URL</label>
+                        <div class="image-input-group">
+                            <input type="text" id="equipment-image" placeholder="URL hình ảnh hoặc chọn từ thư viện"
+                                required>
+                            <button type="button" class="btn btn-outline"
+                                onclick="adminPanel.openMediaPixel('equipment-image')">🖼️</button>
+                        </div>
+                        <div class="image-preview" id="equipment-image-preview"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Đường dẫn chi tiết (Link)</label>
+                        <input type="text" id="equipment-link" placeholder="#">
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="equipment-active" checked>
+                            <span>Hiển thị trên slider</span>
+                        </label>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline"
+                            onclick="adminPanel.closeEquipmentModal()">Hủy</button>
+                        <button type="submit" class="btn btn-primary">Lưu thiết bị</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

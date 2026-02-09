@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/logo-favicon.webp" type="image/png">
+    <title>Nội Soi Tiêu Hóa NBI - BV Tân An</title>
+    <meta name="description"
+        content="Đơn vị nội soi tiêu hóa chuẩn Nhật Bản. Nội soi không đau, chính xác, an toàn với hệ thống máy Olympus hiện đại.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Flags -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo-favicon.webp">
+    <style>
+        .endo-hero {
+            /* Branding: Overlay logo slightly visible in the background */
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.8)),
+                /* White overlay for clean look */
+                url('assets/logo.webp'),
+                /* Logo Watermark */
+                url('assets/endoscopy-hero.webp');
+            /* Hero Image */
+            background-size: cover, 400px, cover;
+            /* Size of overlay logo */
+            background-position: center, center, center;
+            background-repeat: no-repeat, no-repeat, no-repeat;
+            background-blend-mode: normal, overlay, normal;
+            /* Blend logo */
+
+            height: 70vh;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            /* Header is sticky, no margin needed */
+        }
+
+        .endo-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .reason-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .reason-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .reason-num {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #eee;
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            z-index: 0;
+        }
+
+        .reason-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .reason-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .reason-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .values-section {
+            background-color: #f8f9fa;
+        }
+
+        .value-3t-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .value-3t-card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .value-3t-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 16px;
+            transition: 0.4s;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .accordion.active,
+        .accordion:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .value-3t-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .endo-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <!-- Header -->
+    <header class="header">
+        <!-- Top Bar: Logo, Search, Utility -->
+        <div class="top-bar">
+            <div class="container top-bar-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/logo.webp" alt="Bệnh Viện Đa Khoa Quốc Tế Tân An" class="logo-img">
+                    </a>
+                </div>
+                <div class="header-hotlines"
+                    style="display: flex; flex-direction: column; justify-content: center; margin: 0 auto; padding-left: 30px;">
+                    <div class="hotline-item emergency" style="display: flex; align-items: center; margin-bottom: 3px;">
+                        <i class="fas fa-phone-volume hotline-icon"
+                            style="color: red; font-size: 1.2rem; margin-right: 8px; animation: ring 1.5s infinite;"></i>
+                        <div class="hotline-text-group" style="display: flex; align-items: baseline;">
+                            <span class="hotline-label"
+                                style="color: red; font-weight: 700; font-size: 0.9rem; margin-right: 6px;"
+                                data-i18n="common.emergency">CẤP
+                                CỨU:</span>
+                            <span class="hotline-number" style="color: red; font-weight: 700; font-size: 1.2rem;">(0272)
+                                3 661 115</span>
+                        </div>
+                    </div>
+                    <div class="hotline-item booking" style="display: flex; align-items: center;">
+                        <i class="fas fa-headset hotline-icon"
+                            style="color: #28a745; font-size: 1.2rem; margin-right: 8px;"></i>
+                        <div class="hotline-text-group" style="display: flex; align-items: baseline;">
+                            <span class="hotline-label"
+                                style="color: #28a745; font-weight: 700; font-size: 0.9rem; margin-right: 6px;"
+                                data-i18n="common.hotline">HOTLINE:</span>
+                            <span class="hotline-number"
+                                style="color: #28a745; font-weight: 700; font-size: 1.2rem;">(0272) 3 550 507</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header-tools">
+                    <div class="lang-switch">
+                        <a href="#" class="active" data-i18n="lang.vietnamese"><span
+                                class="flag-icon flag-icon-vn"></span> TIẾNG VIỆT</a>
+                        <a href="#" data-i18n="lang.english"><span class="flag-icon flag-icon-gb"></span> ENGLISH</a>
+                        <a href="#" data-i18n="lang.khmer"><span class="flag-icon flag-icon-kh"></span> KHMER</a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="main-nav">
+            <div class="container nav-container">
+                <ul class="nav-list">
+                    <li><a href="index.html" data-i18n="nav.home">TRANG CHỦ</a></li>
+                    <li><a href="about.html" data-i18n="nav.about">GIỚI THIỆU CHUNG</a></li>
+                    <li><a href="noi-soi.html" data-i18n="nav.endoscopy">NỘI SOI TIÊU HOÁ</a></li>
+                    <li class="dropdown">
+                        <a href="dich-vu-y-khoa.html"><span data-i18n="nav.services">DỊCH VỤ Y KHOA</span> <i
+                                class="fas fa-chevron-down" style="font-size: 0.7em; margin-left: 5px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li class="mega-col">
+                                <div class="mega-col-title">Chuyên Khoa Nội</div>
+                                <ul>
+                                    <li><a href="dich-vu-y-khoa.html">Khoa Sản Phụ Khoa</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Khoa Nội Nhi & Nhi Sơ Sinh</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Khoa Nội Tổng Quát</a></li>
+                                    <li class="mega-nested"><a href="dich-vu-y-khoa.html">Nội Hô Hấp & Phổi</a></li>
+                                    <li class="mega-nested"><a href="dich-vu-y-khoa.html">Nội Tiết & Tiểu Đường</a></li>
+                                    <li class="mega-nested"><a href="dich-vu-y-khoa.html">Nội Cơ Xương Khớp</a></li>
+                                    <li class="mega-nested"><a href="dich-vu-y-khoa.html">Nội Thận</a></li>
+                                    <li class="mega-nested"><a href="dich-vu-y-khoa.html">Nội Tim Mạch</a></li>
+                                    <li class="mega-nested"><a href="dich-vu-y-khoa.html">Nội Tiêu Hoá</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">CK Tiêu Hóa & Gan Mật</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Y Học Cổ Truyền</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Gây Mê Hồi Sức</a></li>
+                                </ul>
+                            </li>
+                            <li class="mega-col">
+                                <div class="mega-col-title">Chuyên Khoa Ngoại</div>
+                                <ul>
+                                    <li><a href="dich-vu-y-khoa.html">Ngoại Tổng Quát</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Chấn Thương Chỉnh Hình</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Khoa Tiết Niệu</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Tai Mũi Họng</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Mắt & PT Khúc Xạ</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Răng Hàm Mặt</a></li>
+                                </ul>
+                            </li>
+                            <li class="mega-col">
+                                <div class="mega-col-title">CLS & Hỗ Trợ</div>
+                                <ul>
+                                    <li><a href="dich-vu-y-khoa.html">Chẩn Đoán Hình Ảnh</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Xét Nghiệm & Ngân Hàng Máu</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Vật Lý Trị Liệu & PHCN</a></li>
+                                    <li><a href="noi-soi.html">Nội Soi Tiêu Hóa</a></li>
+                                </ul>
+                            </li>
+                            <li class="mega-col">
+                                <div class="mega-col-title">Trung Tâm & DV Khác</div>
+                                <ul>
+                                    <li><a href="tiem-chung.html">Trung Tâm Tiêm Chủng</a></li>
+                                    <li><a href="package-details.html">Khám Tổng Quát</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Tầm Soát Ung Thư</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Tầm Soát Đột Quỵ</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Khám SK Doanh Nghiệp</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Khám SK Lái Xe</a></li>
+                                    <li><a href="#" style="color: var(--primary-color); font-weight: 600;">Cấp Cứu 24/7
+                                            ☎</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="news.html" data-i18n="nav.news">TIN TỨC</a></li>
+                    <li><a href="contact.html" data-i18n="nav.contact">LIÊN HỆ</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="endo-hero">
+        <div class="container">
+            <h1 data-i18n="endoscopy.heroTitle">ĐƠN VỊ NỘI SOI TIÊU HÓA</h1>
+            <p style="font-size: 1.5rem; margin-bottom: 30px;" data-i18n="endoscopy.heroText">"VÌ MỘT VIỆT NAM VỚI HỆ
+                TIÊU HÓA KHỎE MẠNH"</p>
+            <a href="#booking" class="btn btn-primary btn-lg" data-i18n="common.booking">ĐẶT LỊCH TƯ VẤN NGAY</a>
+        </div>
+    </section>
+
+    <!-- 8 Reasons -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title text-center" data-i18n="endoscopy.whyTitle">8 LÝ DO CHỌN NỘI SOI TẠI BỆNH VIỆN TÂN
+                AN</h2>
+            <div class="reasons-slider">
+                <div class="reasons-track" id="reasonsTrack">
+                    <!-- Slide 1: Reasons 1-4 -->
+                    <div class="reasons-slide">
+                        <div class="reasons-slide-grid">
+                            <!-- 1 -->
+                            <div class="reason-card">
+                                <span class="reason-num">01</span>
+                                <div class="reason-content">
+                                    <i class="fas fa-file-contract reason-icon"></i>
+                                    <h3>Yên Tâm Về Pháp Lý</h3>
+                                    <p>Đơn vị y tế được Sở Y Tế cấp phép hoạt động chính thức. Đảm bảo mọi quy chuẩn y
+                                        khoa khắt khe nhất.</p>
+                                </div>
+                            </div>
+                            <!-- 2 -->
+                            <div class="reason-card">
+                                <span class="reason-num">02</span>
+                                <div class="reason-content">
+                                    <i class="fas fa-microscope reason-icon"></i>
+                                    <h3>Thiết Bị Từ Nhật Bản</h3>
+                                    <p>Sử dụng hệ thống Olympus X1 & Fujifilm EP 7000 hiện đại với công nghệ phóng đại
+                                        100-135 lần, phát hiện ung thư sớm.</p>
+                                </div>
+                            </div>
+                            <!-- 3 -->
+                            <div class="reason-card">
+                                <span class="reason-num">03</span>
+                                <div class="reason-content">
+                                    <i class="fas fa-clipboard-check reason-icon"></i>
+                                    <h3>Quy Trình Chuẩn Nhật</h3>
+                                    <p>Nội soi kỹ lưỡng: chụp 28 tấm hình dạ dày, 40 tấm hình đại tràng. Thời gian soi
+                                        đảm bảo > 7 phút để không bỏ sót tổn thương.</p>
+                                </div>
+                            </div>
+                            <!-- 4 -->
+                            <div class="reason-card">
+                                <span class="reason-num">04</span>
+                                <div class="reason-content">
+                                    <i class="fas fa-user-md reason-icon"></i>
+                                    <h3>Bác Sĩ Giàu Kinh Nghiệm</h3>
+                                    <p>Đội ngũ bác sĩ đã thực hiện hơn 20.000 ca nội soi, thường xuyên tu nghiệp và cập
+                                        nhật kiến thức từ chuyên gia hàng đầu Nhật Bản.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Reasons 5-8 -->
+                    <div class="reasons-slide">
+                        <div class="reasons-slide-grid">
+                            <!-- 5 -->
+                            <div class="reason-card">
+                                <span class="reason-num">05</span>
+                                <div class="reason-content">
+                                    <i class="fas fa-vials reason-icon"></i>
+                                    <h3>Giải Phẫu Bệnh Chính Xác</h3>
+                                    <p>Mẫu sinh thiết được đọc bởi các chuyên gia giải phẫu bệnh đầu ngành, đảm bảo chẩn
+                                        đoán đúng bản chất tổn thương.</p>
+                                </div>
+                            </div>
+                            <!-- 6 -->
+                            <div class="reason-card">
+                                <span class="reason-num">06</span>
+                                <div class="reason-content">
+                                    <i class="fas fa-shield-virus reason-icon"></i>
+                                    <h3>An Toàn Tuyệt Đối</h3>
+                                    <p>Dụng cụ tiêu hao (kềm sinh thiết, kim tiêm...) dùng một lần duy nhất. Quy trình
+                                        rửa dây soi tự động 100%.</p>
+                                </div>
+                            </div>
+                            <!-- 7 -->
+                            <div class="reason-card">
+                                <span class="reason-num">07</span>
+                                <div class="reason-content">
+                                    <i class="fas fa-hand-holding-medical reason-icon"></i>
+                                    <h3>Đồng Hành 24/7</h3>
+                                    <p>Đội ngũ trợ lý y khoa hỗ trợ giải đáp thắc mắc và hướng dẫn chăm sóc sau nội soi
+                                        bất cứ lúc nào.</p>
+                                </div>
+                            </div>
+                            <!-- 8 -->
+                            <div class="reason-card">
+                                <span class="reason-num">08</span>
+                                <div class="reason-content">
+                                    <i class="fas fa-clock reason-icon"></i>
+                                    <h3>Nhanh Chóng & Khoa Học</h3>
+                                    <p>Quy trình khép kín, tối ưu hóa thời gian chờ đợi. Tổng thời gian chỉ từ 60-90
+                                        phút cho một lần thăm khám.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Dots -->
+                <div class="reasons-dots">
+                    <button class="reason-dot active" data-slide="0"></button>
+                    <button class="reason-dot" data-slide="1"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values 3T -->
+    <section class="section values-section">
+        <div class="container">
+            <h2 class="section-title text-center" data-i18n="endoscopy.3tTitle">3 GIÁ TRỊ CỐT LÕI (3T)</h2>
+            <div class="value-3t-grid">
+                <div class="value-3t-card">
+                    <img src="assets/value-tadashii.webp" alt="Tadashii - Chính Xác"
+                        style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; margin-bottom: 20px; border: 3px solid var(--primary-color);">
+                    <h3>Tadashii - Chính Xác</h3>
+                    <p>Đặt sự chính xác lên hàng đầu nhờ công nghệ AI và quy trình chuẩn Nhật Bản để không bỏ sót bệnh.
+                    </p>
+                </div>
+                <div class="value-3t-card">
+                    <img src="assets/value-tomoni.webp" alt="Tomoni - Đồng Hành"
+                        style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; margin-bottom: 20px; border: 3px solid var(--primary-color);">
+                    <h3>Tomoni - Đồng Hành</h3>
+                    <p>Luôn sát cánh cùng bệnh nhân từ lúc tầm soát đến khi điều trị khỏi bệnh.</p>
+                </div>
+                <div class="value-3t-card">
+                    <img src="assets/value-teinei.webp" alt="Teinei - Tận Tâm"
+                        style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; margin-bottom: 20px; border: 3px solid var(--primary-color);">
+                    <h3>Teinei - Tận Tâm</h3>
+                    <p>Phục vụ bằng tinh thần "Omotenashi" - chăm sóc khách hàng bằng tất cả sự chân thành từ trái tim.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section bg-primary text-white">
+        <div class="container">
+            <div class="grid-4 text-center">
+                <div>
+                    <h2 style="font-size: 3rem; margin-bottom: 5px;">13,000+</h2>
+                    <p data-i18n="endoscopy.statSatisfied">Khách hàng hài lòng</p>
+                </div>
+                <div>
+                    <h2 style="font-size: 3rem; margin-bottom: 5px;">100%</h2>
+                    <p data-i18n="endoscopy.statPainless">Không đau - Êm ái</p>
+                </div>
+                <div>
+                    <h2 style="font-size: 3rem; margin-bottom: 5px;">99%</h2>
+                    <p data-i18n="endoscopy.statDetection">Phát hiện bệnh lý</p>
+                </div>
+                <div>
+                    <h2 style="font-size: 3rem; margin-bottom: 5px;">24/7</h2>
+                    <p data-i18n="endoscopy.statSupport">Hỗ trợ y tế</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Medical Team Banner -->
+    <section class="section" style="padding-bottom: 0;">
+        <div class="container">
+            <div
+                style="position: relative; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <img src="assets/medical-team.webp" alt="Đội ngũ bác sĩ nội soi Tân An"
+                    style="width: 100%; height: auto; display: block;">
+                <div
+                    style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,48,135,0.9)); color: white; padding: 40px 30px 20px;">
+                    <h2 class="text-center" style="margin: 0; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);"
+                        data-i18n="endoscopy.teamTitle">ĐỘI NGŨ BÁC SĨ
+                        GIÀU KINH NGHIỆM - TẬN TÂM VỚI NGHỀ</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commitment Section with Consultation Image -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title text-center" data-i18n="endoscopy.commitmentTitle">BỆNH VIỆN TÂN AN CAM KẾT</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
+                <div class="commitment-image">
+                    <img src="assets/consultation.webp" alt="Bác sĩ tư vấn nội soi"
+                        style="width: 100%; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 5px solid white;">
+                </div>
+                <div class="commitment-content">
+                    <div class="card"
+                        style="border-left: 5px solid var(--primary-color); margin-bottom: 20px; padding: 20px; text-align: left; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                            <i class="fas fa-check-circle" style="font-size: 2rem; color: var(--primary-color);"></i>
+                            <h3 style="margin: 0; font-size: 1.2rem;">KHÔNG ĐAU - KHÔNG KHÓ CHỊU</h3>
+                        </div>
+                        <p style="margin: 0;">Cam kết quy trình nội soi êm ái như một giấc ngủ ngon, khách hàng tỉnh dậy
+                            hoàn toàn thoải mái.</p>
+                    </div>
+                    <div class="card"
+                        style="border-left: 5px solid var(--primary-color); margin-bottom: 20px; padding: 20px; text-align: left; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                            <i class="fas fa-search-plus" style="font-size: 2rem; color: var(--primary-color);"></i>
+                            <h3 style="margin: 0; font-size: 1.2rem;">CHÍNH XÁC TUYỆT ĐỐI</h3>
+                        </div>
+                        <p style="margin: 0;">Cam kết không bỏ sót tổn thương nhờ máy móc hiện đại và bác sĩ soi đủ thời
+                            gian (>7 phút).</p>
+                    </div>
+                    <div class="card"
+                        style="border-left: 5px solid var(--primary-color); margin-bottom: 0; padding: 20px; text-align: left; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                            <i class="fas fa-hand-holding-heart"
+                                style="font-size: 2rem; color: var(--primary-color);"></i>
+                            <h3 style="margin: 0; font-size: 1.2rem;">TRUNG THỰC & TẬN TÂM</h3>
+                        </div>
+                        <p style="margin: 0;">Tư vấn đúng bệnh, không vẽ bệnh. Chi phí minh bạch ngay từ đầu.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center" data-i18n="endoscopy.pricingTitle">CHI PHÍ MINH BẠCH</h2>
+            <div class="pricing-grid">
+                <!-- Package 1 -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-title">NỘI SOI DẠ DÀY</div>
+                        <p class="text-muted mb-0">Người đau bụng, ợ chua, khó tiêu</p>
+                        <div class="price">1.500.000đ</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check-circle"></i> Khám với bác sĩ chuyên khoa</li>
+                        <li><i class="fas fa-check-circle"></i> Nội soi NBI phóng đại</li>
+                        <li><i class="fas fa-check-circle"></i> Test vi khuẩn HP</li>
+                        <li><i class="fas fa-check-circle"></i> Trả kết quả & tư vấn</li>
+                    </ul>
+                    <div class="pricing-action">
+                        <a href="package-details.html#noisoi-daday" class="btn btn-outline-primary btn-block">XEM CHI
+                            TIẾT</a>
+                    </div>
+                </div>
+
+                <!-- Package 2 (Featured) -->
+                <div class="pricing-card featured">
+                    <div class="tag">KHUYÊN DÙNG</div>
+                    <div class="pricing-header">
+                        <div class="pricing-title">TẦM SOÁT UNG THƯ DẠ DÀY</div>
+                        <p class="text-white-50 mb-0">Người ≥45 tuổi, tiền sử gia đình</p>
+                        <div class="price">3.100.000đ</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check-circle"></i> Tất cả danh mục gói cơ bản</li>
+                        <li><i class="fas fa-check-circle"></i> Sinh thiết tế bào (nếu có tổn thương)</li>
+                        <li><i class="fas fa-check-circle"></i> Giải phẫu bệnh chuyên sâu</li>
+                        <li><i class="fas fa-check-circle"></i> Tầm soát dấu ấn ung thư</li>
+                    </ul>
+                    <div class="pricing-action">
+                        <a href="package-details.html#noisoi-tamsoat" class="btn btn-light btn-block"
+                            style="color: var(--primary-color); font-weight: bold;">XEM CHI TIẾT</a>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-title">NỘI SOI ĐẠI TRÀNG</div>
+                        <p class="text-muted mb-0">Người ≥45 tuổi, rối loạn tiêu hóa</p>
+                        <div class="price">2.500.000đ</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check-circle"></i> Khám với bác sĩ chuyên khoa</li>
+                        <li><i class="fas fa-check-circle"></i> Nội soi toàn bộ đại trực tràng</li>
+                        <li><i class="fas fa-check-circle"></i> Tầm soát Polyp & Ung thư</li>
+                        <li><i class="fas fa-check-circle"></i> Thuốc làm sạch ruột</li>
+                    </ul>
+                    <div class="pricing-action">
+                        <a href="package-details.html#noisoi-daitrang" class="btn btn-outline-primary btn-block">XEM CHI
+                            TIẾT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section">
+        <div class="container-wide">
+            <h2 class="section-title text-center">KHÁCH HÀNG NÓI VỀ CHÚNG TÔI</h2>
+            <p class="text-center" style="margin-bottom: 30px;">Hơn 13,000 khách hàng đã tin tưởng lựa chọn dịch vụ Nội
+                soi tại Bệnh viện Tân An</p>
+
+            <!-- Filters -->
+            <div class="review-filter-bar">
+                <button class="review-filter-btn active" data-filter="all">Tất cả</button>
+                <button class="review-filter-btn" data-filter="daday">Nội soi Dạ dày</button>
+                <button class="review-filter-btn" data-filter="daitrang">Nội soi Đại tràng</button>
+                <button class="review-filter-btn" data-filter="dichvu">Dịch vụ & Bác sĩ</button>
+            </div>
+
+            <!-- Grid Container -->
+            <div id="testimonial-container">
+                <!-- Javascript will populate reviews here -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="load-more-container">
+                <button id="load-more-btn" class="btn btn-outline" style="padding: 10px 30px; font-size: 0.9rem;">Xem
+                    thêm đánh giá</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title text-center" data-i18n="faq.title">CÂU HỎI THƯỜNG GẶP</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <button class="accordion">1. Khi nào tôi cần nội soi dạ dày/đại tràng?</button>
+                <div class="panel">
+                    <p>Bạn cần nội soi khi có triệu chứng: ợ chua, đau thượng vị, đầy bụng, đi cầu ra máu, rối loạn đại
+                        tiện, hoặc sụt cân không rõ nguyên nhân. Ngoài ra, người trên 40 tuổi nên tầm soát định kỳ dù
+                        không có triệu chứng để phát hiện sớm ung thư.</p>
+                </div>
+
+                <button class="accordion">2. Nội soi có đau không?</button>
+                <div class="panel">
+                    <p>Tại Bệnh viện Tân An, chúng tôi áp dụng phương pháp <strong>Nội soi không đau (Tiền mê)</strong>.
+                        Bạn sẽ ngủ một giấc ngắn 15-20 phút êm ái và tỉnh dậy khi quá trình đã hoàn tất, hoàn toàn không
+                        khó chịu hay ám ảnh.</p>
+                </div>
+
+                <button class="accordion">3. Cần chuẩn bị gì trước khi nội soi?</button>
+                <div class="panel">
+                    <p><strong>Dạ dày:</strong> Nhịn ăn ít nhất 6-8 tiếng, nhịn uống ít nhất 2 tiếng trước khi
+                        soi.<br><strong>Đại tràng:</strong> Cần uống thuốc làm sạch ruột theo hướng dẫn của bác sĩ
+                        (thường uống vào buổi sáng ngày soi hoặc tối hôm trước).</p>
+                </div>
+
+                <button class="accordion">4. Nội soi mất bao lâu?</button>
+                <div class="panel">
+                    <p>Thời gian soi thực tế chỉ mất khoảng 10-15 phút cho dạ dày và 15-20 phút cho đại tràng. Tuy
+                        nhiên, tính cả thời gian chuẩn bị, khám trước soi và nghỉ ngơi sau soi (để thuốc mê tan hết),
+                        bạn nên dành ra khoảng một buổi (3-4 tiếng).</p>
+                </div>
+
+                <button class="accordion">5. Sau khi nội soi có ăn uống được ngay không?</button>
+                <div class="panel">
+                    <p>Sau khi tỉnh dậy hoàn toàn (khoảng 30 phút sau soi), bạn có thể uống sữa hoặc ăn cháo loãng, súp
+                        nhẹ. Tránh đồ ăn cay nóng, chua hoặc quá cứng trong ngày đầu tiên.</p>
+                </div>
+
+                <button class="accordion">6. Bệnh viện có áp dụng Bảo hiểm Y tế không?</button>
+                <div class="panel">
+                    <p>Có. Bệnh viện Đa khoa Tân An áp dụng thanh toán BHYT và Bảo hiểm bảo lãnh (PVI, Bảo Việt...) theo
+                        đúng quy định, giúp khách hàng tiết kiệm tối đa chi phí.</p>
+                </div>
+
+                <button class="accordion">7. Nội soi có phát hiện được ung thư không?</button>
+                <div class="panel">
+                    <p>Có. Nội soi là "tiêu chuẩn vàng" để chẩn đoán ung thư đường tiêu hóa. Với công nghệ NBI phóng
+                        đại, bác sĩ có thể phát hiện ung thư ngay từ giai đoạn rất sớm (tiền ung thư) khi chưa có triệu
+                        chứng.</p>
+                </div>
+
+                <button class="accordion">8. Nội soi thường và nội soi tiền mê khác nhau thế nào?</button>
+                <div class="panel">
+                    <p><strong>Nội soi thường:</strong> Bệnh nhân hoàn toàn tỉnh táo, có thể cảm thấy buồn nôn (soi dạ
+                        dày) hoặc đau tức bụng (soi đại tràng).<br><strong>Nội soi tiền mê:</strong> Bệnh nhân ngủ, hoàn
+                        toàn không đau, bác sĩ dễ dàng quan sát kỹ hơn do bệnh nhân nằm im.</p>
+                </div>
+
+                <button class="accordion">9. Tôi có thể lái xe về sau khi nội soi tiền mê không?</button>
+                <div class="panel">
+                    <p>Không. Thuốc tiền mê có thể gây buồn ngủ nhẹ hoặc giảm phản xạ trong vài giờ. Vì sự an toàn của
+                        bạn, bạn nên đi cùng người thân hoặc đi taxi/xe công nghệ khi ra về.</p>
+                </div>
+
+                <button class="accordion">10. Bao lâu tôi nên đi nội soi lại một lần?</button>
+                <div class="panel">
+                    <p>Nếu kết quả bình thường: 1-2 năm/lần với dạ dày, 3-5 năm/lần với đại tràng.<br>Nếu có Polyp hoặc
+                        bệnh lý: Tái khám theo lịch hẹn cụ thể của bác sĩ (thường là 6 tháng hoặc 1 năm).</p>
+                </div>
+
+
+                <button class="accordion special">Nội soi có phát hiện được ung
+                    thư không?</button>
+                <div class="panel">
+                    <p>Có. Nội soi là "tiêu chuẩn vàng" để phát hiện ung thư sớm. Với công nghệ NBI/BLI phóng đại, bác
+                        sĩ có thể nhìn thấy các biến đổi mạch máu rất nhỏ vả sinh thiết ngay để chẩn đoán chính xác.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA & Form -->
+    <section id="booking" class="section bg-light">
+        <div class="container text-center">
+            <h2 class="section-title">ĐĂNG KÝ TƯ VẤN & NHẬN ƯU ĐÃI</h2>
+            <p class="mb-20">Để lại thông tin, bác sĩ chuyên khoa sẽ liên hệ tư vấn trực tiếp cho bạn.</p>
+
+            <div class="contact-form-container"
+                style="max-width: 500px; margin: 0 auto; padding: 30px; border-radius: 10px; background: white; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                <form id="consultation-form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="Họ tên" placeholder="Họ và tên *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" name="Số điện thoại" placeholder="Số điện thoại *"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="Email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" name="Gói quan tâm">
+                            <option value="">Chọn dịch vụ quan tâm...</option>
+                            <option value="NoiSoiDaDay">Nội soi Dạ dày không đau</option>
+                            <option value="NoiSoiDaiTrang">Nội soi Đại tràng không đau</option>
+                            <option value="ComboNoiSoi">Combo Nội soi Tiêu hóa (Dạ dày + Đại tràng)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">GỬI YÊU CẦU TƯ VẤN</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Contact -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3 data-i18n="common.hospitalName">BỆNH VIỆN ĐA KHOA QUỐC TẾ TÂN AN</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="common.address">Số 136C Tỉnh lộ 827,
+                            Phường Tân An, Tây Ninh (Long An cũ)</span>
+                    </p>
+                    <p><i class="fas fa-phone-alt"></i> <span data-i18n="common.hotline">Hotline</span>: <span
+                            class="hotline">0272 3 550 507</span></p>
+                    <p><i class="fas fa-phone-alt"></i> <span data-i18n="common.emergency">Cấp cứu</span>: <span
+                            class="hotline">0272 3 550 115</span></p>
+                    <p><i class="fas fa-envelope"></i> Email: info@tananhospital.vn </p>
+                    <p><i class="fas fa-clock"></i> <span data-i18n="common.workingHours">Giờ làm việc: Thứ 2 - Chủ
+                            Nhật: 7:30 - 17:00</span></p>
+                </div>
+
+                <div class="footer-links">
+                    <h3 data-i18n="footer.systemTitle">HỆ THỐNG</h3>
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav.home">Trang chủ</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">Về chúng tôi</a></li>
+                        <li><a href="package-details.html" data-i18n="quickActions.healthPackages">Gói khám</a></li>
+                        <li><a href="#" data-i18n="footer.career">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3 data-i18n="footer.usefulLinks">LIÊN KẾT HỮU ÍCH</h3>
+                    <ul>
+                        <li><a href="doctors.html" data-i18n="quickActions.findDoctor">Tìm Bác Sĩ</a></li>
+                        <li><a href="index.html#booking" data-i18n="quickActions.bookAppt">Đặt Hẹn Khám Bệnh</a></li>
+                        <li><a href="#" data-i18n="footer.qa">Hỏi Đáp Y Khoa</a></li>
+                        <li><a href="news.html" data-i18n="nav.news">Tin Tức & Sự Kiện</a></li>
+                        <li><a href="#" data-i18n="footer.careerOpp">Cơ Hội Nghề Nghiệp</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Map & Contact Form Grid -->
+            <div class="footer-bottom-grid"
+                style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 30px; align-items: stretch;">
+
+                <!-- Google Maps Card -->
+                <div class="footer-card"
+                    style="flex: 1; min-width: 300px; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column;">
+                    <h3 style="text-align: center; margin-bottom: 15px; font-weight: 700; color: #333;"
+                        data-i18n="footer.mapTitle">VỊ TRÍ BỆNH VIỆN
+                    </h3>
+                    <div style="flex-grow: 1; position: relative; min-height: 350px;">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12000.745696109608!2d106.41952391990549!3d10.519977685397096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310ab72385f606b3%3A0x3f48c61fbf566805!2zQuG7h25oIHZp4buHbiDEkGEga2hvYSBUw6JuIEFu!5e0!3m2!1svi!2s!4v1769573620015!5m2!1svi!2s"
+                            width="100%" height="100%"
+                            style="border:0; border-radius: 8px; position: absolute; top: 0; left: 0;"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <!-- Registration Form Card -->
+                <div class="footer-card" id="booking"
+                    style="flex: 0 0 30%; max-width: 350px; min-width: 280px; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; scroll-margin-top: 120px;">
+                    <h3 style="text-align: center; margin-bottom: 15px; font-weight: 700; color: #333;"
+                        data-i18n="footer.formTitle">ĐĂNG KÝ TƯ VẤN NHANH</h3>
+                    <form id="consultation-form"
+                        style="display: flex; flex-direction: column; gap: 10px; flex-grow: 1; justify-content: center;">
+                        <input type="text" class="form-control" name="ho_ten" placeholder="Họ và tên *" required
+                            style="padding: 10px; border: 1px solid #ddd; border-radius: 6px;"
+                            data-i18n-placeholder="footer.formName">
+                        <input type="tel" class="form-control" name="so_dien_thoai" placeholder="Số điện thoại *"
+                            required style="padding: 10px; border: 1px solid #ddd; border-radius: 6px;"
+                            data-i18n-placeholder="footer.formPhone">
+                        <input type="email" class="form-control" name="email" placeholder="Email (nếu có)"
+                            style="padding: 10px; border: 1px solid #ddd; border-radius: 6px;"
+                            data-i18n-placeholder="footer.formEmail">
+                        <select class="form-control" name="chuyen_khoa"
+                            style="padding: 10px; border: 1px solid #ddd; border-radius: 6px; color: #555;">
+                            <option value="" data-i18n="footer.formSelect">-- Chọn Dịch vụ đăng ký --</option>
+                            <option value="Khám tổng quát" data-i18n="dropdown.checkup">Khám tổng quát</option>
+                            <option value="Nội soi tiêu hóa" data-i18n="dropdown.endoscopy">Nội soi tiêu hóa</option>
+                            <option value="Tầm soát ung thư" data-i18n="services.cancer">Tầm soát ung thư</option>
+                            <option value="Tư vấn sức khỏe" data-i18n="footer.formHealthConsult">Tư vấn sức khỏe
+                            </option>
+                            <option value="Khác" data-i18n="footer.formOther">Khác</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary btn-block"
+                            style="padding: 10px; font-weight: bold;" data-i18n="footer.formSubmit">GỬI YÊU CẦU</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                &copy; 2026 Bệnh Viện Đa Khoa Quốc Tế Tân An. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Widget -->
+    <div class="floating-contact">
+        <a href="https://zalo.me/0858133507" target="_blank" class="contact-btn btn-zalo" data-tooltip="Chat Zalo"
+            data-i18n-tooltip="tooltip.zalo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo">
+        </a>
+        <a href="https://m.me/benhviendakhoatanan" target="_blank" class="contact-btn btn-messenger"
+            data-tooltip="Chat Messenger" data-i18n-tooltip="tooltip.messenger">
+            <i class="fab fa-facebook-messenger"></i>
+        </a>
+        <a href="tel:02723661115" class="contact-btn btn-phone" data-tooltip="Gọi Cấp Cứu"
+            data-i18n-tooltip="tooltip.emergency">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="index.html#booking" class="contact-btn btn-booking" style="background: #28a745;"
+            data-tooltip="Đăng ký khám ngay" data-i18n-tooltip="tooltip.booking">
+            <i class="fas fa-calendar-check"></i>
+        </a>
+        <a href="#" class="contact-btn btn-back-to-top" style="background: #555; display: none;"
+            data-tooltip="Lên đầu trang" data-i18n-tooltip="tooltip.top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+
+    <script src="lang-switcher.js"></script>
+    <script src="script.js"></script>
+    <script src="reviews.js"></script>
+    <script>
+        // Simple script for accordion in this page only
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

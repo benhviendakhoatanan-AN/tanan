@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/logo-favicon.webp" type="image/png">
+    <title>Trung Tâm Tiêm Chủng - BV Đa Khoa Quốc Tế Tân An</title>
+    <meta name="description"
+        content="Trung tâm tiêm chủng Bệnh viện Đa khoa Quốc tế Tân An – Dịch vụ tiêm chủng vaccine cho trẻ em và người lớn, đầy đủ các loại vaccine nhập khẩu chính hãng.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+    <style>
+        .vacc-hero {
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.8)),
+                url('assets/logo.webp'),
+                url('assets/hero-bg-final.webp');
+            background-size: cover, 400px, cover;
+            background-position: center, center, center;
+            background-repeat: no-repeat;
+            background-blend-mode: normal, overlay, normal;
+            height: 65vh;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .vacc-hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .vacc-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 25px;
+            color: #444;
+        }
+
+        /* Intro cards */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .intro-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .intro-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .intro-card .card-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--light-blue, #e8f4fd);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        .intro-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .intro-card p {
+            font-size: 0.92rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Vaccine packages grid */
+        .vacc-packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+            gap: 30px;
+            margin-top: 35px;
+        }
+
+        .vacc-package-card {
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .vacc-package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.14);
+        }
+
+        .vacc-package-card.featured {
+            border: 2px solid var(--primary-color);
+        }
+
+        .vacc-card-header {
+            background: linear-gradient(135deg, var(--primary-color), #1a7ab8);
+            color: white;
+            padding: 22px 20px;
+            text-align: center;
+        }
+
+        .vacc-card-header .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.25);
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .vacc-card-header h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: #fff !important;
+        }
+
+        .vacc-card-header .age-range {
+            font-size: 0.88rem;
+            opacity: 0.9;
+            color: #fff !important;
+        }
+
+        .vacc-card-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Package detail table inside card */
+        .vacc-detail-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        .vacc-detail-table thead th {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+        }
+
+        .vacc-detail-table tbody td {
+            padding: 9px 8px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+            color: #444;
+        }
+
+        .vacc-detail-table tbody tr:hover {
+            background: #f0f8ff;
+        }
+
+        .vacc-detail-table .age-group-row td {
+            background: #e8f4fd;
+            font-weight: 700;
+            color: var(--primary-color);
+            padding: 8px;
+            font-size: 0.82rem;
+        }
+
+        .vacc-detail-table .dose-col {
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .vacc-card-footer {
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            border-top: 1px solid #eee;
+        }
+
+        .vacc-card-footer .total-doses {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .vacc-card-footer .total-doses strong {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        /* Process steps */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .process-step {
+            position: relative;
+        }
+
+        .process-step .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .process-step h3 {
+            color: var(--primary-color);
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+
+        .process-step p {
+            font-size: 0.88rem;
+            color: #666;
+        }
+
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: -15px;
+            width: 30px;
+            height: 2px;
+            background: #ddd;
+        }
+
+        /* Schedule table */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+            font-size: 0.9rem;
+        }
+
+        .schedule-table thead th {
+            background: var(--primary-color);
+            color: white;
+            padding: 14px 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .schedule-table tbody td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+
+        .schedule-table tbody tr:hover {
+            background: #f0f8ff;
+        }
+
+        .schedule-table .age-col {
+            font-weight: 600;
+            color: var(--primary-color);
+            white-space: nowrap;
+        }
+
+        /* Notes box */
+        .notes-box {
+            background: #fff9e6;
+            border-left: 4px solid #f0ad4e;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .notes-box h4 {
+            color: #e67e22;
+            margin-bottom: 10px;
+        }
+
+        .notes-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .notes-box ul li {
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Accordion */
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 16px;
+            transition: 0.4s;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .accordion.active,
+        .accordion:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .vacc-hero h1 {
+                font-size: 2rem;
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-step:not(:last-child)::after {
+                display: none;
+            }
+
+            .schedule-table {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="container top-bar-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/logo.webp" alt="Bệnh Viện Đa Khoa Quốc Tế Tân An" class="logo-img">
+                    </a>
+                </div>
+                <div class="header-hotlines"
+                    style="display: flex; flex-direction: column; justify-content: center; margin: 0 auto; padding-left: 30px;">
+                    <div class="hotline-item emergency" style="display: flex; align-items: center; margin-bottom: 3px;">
+                        <i class="fas fa-phone-volume hotline-icon"
+                            style="color: red; font-size: 1.2rem; margin-right: 8px; animation: ring 1.5s infinite;"></i>
+                        <div class="hotline-text-group" style="display: flex; align-items: baseline;">
+                            <span class="hotline-label"
+                                style="color: red; font-weight: 700; font-size: 0.9rem; margin-right: 6px;"
+                                data-i18n="common.emergency">CẤP CỨU:</span>
+                            <span class="hotline-number" style="color: red; font-weight: 700; font-size: 1.2rem;">(0272)
+                                3 661 115</span>
+                        </div>
+                    </div>
+                    <div class="hotline-item booking" style="display: flex; align-items: center;">
+                        <i class="fas fa-headset hotline-icon"
+                            style="color: #28a745; font-size: 1.2rem; margin-right: 8px;"></i>
+                        <div class="hotline-text-group" style="display: flex; align-items: baseline;">
+                            <span class="hotline-label"
+                                style="color: #28a745; font-weight: 700; font-size: 0.9rem; margin-right: 6px;"
+                                data-i18n="common.hotline">HOTLINE:</span>
+                            <span class="hotline-number"
+                                style="color: #28a745; font-weight: 700; font-size: 1.2rem;">(0272) 3 550 507</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-tools">
+                    <div class="lang-switch">
+                        <a href="#" class="active" data-i18n="lang.vietnamese"><span
+                                class="flag-icon flag-icon-vn"></span> TIẾNG VIỆT</a>
+                        <a href="#" data-i18n="lang.english"><span class="flag-icon flag-icon-gb"></span> ENGLISH</a>
+                        <a href="#" data-i18n="lang.khmer"><span class="flag-icon flag-icon-kh"></span> KHMER</a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-nav">
+            <div class="container nav-container">
+                <ul class="nav-list">
+                    <li><a href="index.html" data-i18n="nav.home">TRANG CHỦ</a></li>
+                    <li><a href="about.html" data-i18n="nav.about">GIỚI THIỆU CHUNG</a></li>
+                    <li><a href="noi-soi.html" data-i18n="nav.endoscopy">NỘI SOI TIÊU HOÁ</a></li>
+                    <li class="dropdown">
+                        <a href="dich-vu-y-khoa.html"><span data-i18n="nav.services">DỊCH VỤ Y KHOA</span> <i
+                                class="fas fa-chevron-down" style="font-size: 0.7em; margin-left: 5px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li class="mega-col">
+                                <div class="mega-col-title">Chuyên Khoa Nội</div>
+                                <ul>
+                                    <li><a href="dich-vu-y-khoa.html">Khoa Sản Phụ Khoa</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Khoa Nội Nhi & Nhi Sơ Sinh</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Khoa Nội Tổng Quát</a></li>
+                                    <li class="mega-nested"><a href="dich-vu-y-khoa.html">Nội Hô Hấp & Phổi</a></li>
+                                    <li class="mega-nested"><a href="dich-vu-y-khoa.html">Nội Tiết & Tiểu Đường</a></li>
+                                    <li class="mega-nested"><a href="dich-vu-y-khoa.html">Nội Cơ Xương Khớp</a></li>
+                                    <li class="mega-nested"><a href="dich-vu-y-khoa.html">Nội Thận</a></li>
+                                    <li class="mega-nested"><a href="dich-vu-y-khoa.html">Nội Tim Mạch</a></li>
+                                    <li class="mega-nested"><a href="dich-vu-y-khoa.html">Nội Tiêu Hoá</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">CK Tiêu Hóa & Gan Mật</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Y Học Cổ Truyền</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Gây Mê Hồi Sức</a></li>
+                                </ul>
+                            </li>
+                            <li class="mega-col">
+                                <div class="mega-col-title">Chuyên Khoa Ngoại</div>
+                                <ul>
+                                    <li><a href="dich-vu-y-khoa.html">Ngoại Tổng Quát</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Chấn Thương Chỉnh Hình</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Khoa Tiết Niệu</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Tai Mũi Họng</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Mắt & PT Khúc Xạ</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Răng Hàm Mặt</a></li>
+                                </ul>
+                            </li>
+                            <li class="mega-col">
+                                <div class="mega-col-title">CLS & Hỗ Trợ</div>
+                                <ul>
+                                    <li><a href="dich-vu-y-khoa.html">Chẩn Đoán Hình Ảnh</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Xét Nghiệm & Ngân Hàng Máu</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Vật Lý Trị Liệu & PHCN</a></li>
+                                    <li><a href="noi-soi.html">Nội Soi Tiêu Hóa</a></li>
+                                </ul>
+                            </li>
+                            <li class="mega-col">
+                                <div class="mega-col-title">Trung Tâm & DV Khác</div>
+                                <ul>
+                                    <li><a href="tiem-chung.html">Trung Tâm Tiêm Chủng</a></li>
+                                    <li><a href="package-details.html">Khám Tổng Quát</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Tầm Soát Ung Thư</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Tầm Soát Đột Quỵ</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Khám SK Doanh Nghiệp</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Khám SK Lái Xe</a></li>
+                                    <li><a href="#" style="color: var(--primary-color); font-weight: 600;">Cấp Cứu 24/7
+                                            ☎</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="news.html" data-i18n="nav.news">TIN TỨC</a></li>
+                    <li><a href="contact.html" data-i18n="nav.contact">LIÊN HỆ</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="vacc-hero">
+        <div class="container">
+            <h1><i class="fas fa-syringe" style="margin-right: 15px;"></i>TRUNG TÂM TIÊM CHỦNG</h1>
+            <p>Bảo vệ sức khỏe gia đình bạn với vaccine chính hãng, quy trình an toàn chuẩn quốc tế</p>
+            <a href="#booking" class="btn btn-primary btn-lg">ĐĂNG KÝ TIÊM CHỦNG</a>
+        </div>
+    </section>
+
+    <!-- Giới thiệu -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title text-center">TẠI SAO CHỌN TIÊM CHỦNG TẠI BỆNH VIỆN TÂN AN?</h2>
+            <p class="text-center" style="max-width: 750px; margin: 0 auto 10px; color: #555;">
+                Trung tâm Tiêm chủng Bệnh viện Đa khoa Quốc tế Tân An cung cấp dịch vụ tiêm chủng toàn diện cho trẻ em
+                và người lớn, với nguồn vaccine nhập khẩu chính hãng, bảo quản theo tiêu chuẩn quốc tế.
+            </p>
+            <div class="intro-grid">
+                <div class="intro-card">
+                    <div class="card-icon"><i class="fas fa-shield-virus"></i></div>
+                    <h3>Vaccine Chính Hãng</h3>
+                    <p>100% vaccine nhập khẩu từ các hãng uy tín: GSK, Sanofi, Pfizer, MSD. Bảo quản đúng dây chuyền
+                        lạnh 2-8°C.</p>
+                </div>
+                <div class="intro-card">
+                    <div class="card-icon"><i class="fas fa-user-md"></i></div>
+                    <h3>Bác Sĩ Khám Sàng Lọc</h3>
+                    <p>Mỗi trẻ/người lớn đều được bác sĩ chuyên khoa khám sàng lọc kỹ trước khi tiêm, đảm bảo an toàn
+                        tuyệt đối.</p>
+                </div>
+                <div class="intro-card">
+                    <div class="card-icon"><i class="fas fa-hospital"></i></div>
+                    <h3>Xử Trí Phản Ứng Sau Tiêm</h3>
+                    <p>Theo dõi 30 phút sau tiêm. Trang bị đầy đủ thuốc và thiết bị cấp cứu sốc phản vệ tại chỗ.</p>
+                </div>
+                <div class="intro-card">
+                    <div class="card-icon"><i class="fas fa-calendar-check"></i></div>
+                    <h3>Nhắc Lịch Tiêm Chủng</h3>
+                    <p>Hệ thống nhắc lịch tự động giúp phụ huynh không bỏ lỡ mũi tiêm nào cho con. Quản lý sổ tiêm chủng
+                        điện tử.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lịch tiêm chủng trẻ em -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">CÁC LOẠI VACCINE TẠI TRUNG TÂM</h2>
+            <p class="text-center" style="color: #555; margin-bottom: 10px;">Vaccine nhập khẩu chính hãng – Bảo quản
+                đúng dây chuyền lạnh</p>
+            <div style="overflow-x: auto;">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Độ tuổi</th>
+                            <th>Phòng bệnh</th>
+                            <th>Tên Vaccine</th>
+                            <th>Nước sản xuất</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="age-col" rowspan="3">2 tháng</td>
+                            <td>Tiêu chảy do Rotavirus</td>
+                            <td><strong>Rotarix</strong></td>
+                            <td>Bỉ</td>
+                        </tr>
+                        <tr>
+                            <td>Bạch hầu, Ho gà, Uốn ván, Bại liệt, Viêm gan B & các bệnh do vi khuẩn HIB (6in1)</td>
+                            <td><strong>Infanrix Hexa</strong></td>
+                            <td>Bỉ</td>
+                        </tr>
+                        <tr>
+                            <td>Hội chứng nhiễm trùng, Viêm màng não, Viêm phổi, Nhiễm khuẩn huyết, Viêm tai giữa cho
+                                Phế cầu</td>
+                            <td><strong>Synflorix</strong></td>
+                            <td>Bỉ</td>
+                        </tr>
+                        <tr>
+                            <td class="age-col" rowspan="2">6 tháng</td>
+                            <td>Viêm màng não do Não mô cầu</td>
+                            <td><strong>VA-Mengoc-BC</strong></td>
+                            <td>Cuba</td>
+                        </tr>
+                        <tr>
+                            <td>Cúm</td>
+                            <td><strong>Influvac Tetra</strong></td>
+                            <td>Hà Lan</td>
+                        </tr>
+                        <tr>
+                            <td class="age-col" rowspan="3">9 tháng</td>
+                            <td>Sởi</td>
+                            <td><strong>MVVac</strong></td>
+                            <td>Việt Nam</td>
+                        </tr>
+                        <tr>
+                            <td>Viêm não Nhật Bản</td>
+                            <td><strong>Imojev</strong></td>
+                            <td>Pháp</td>
+                        </tr>
+                        <tr>
+                            <td>Viêm màng não do Mô cầu tuýp A, C, Y, W</td>
+                            <td><strong>Menactra</strong></td>
+                            <td>Mỹ</td>
+                        </tr>
+                        <tr>
+                            <td class="age-col" rowspan="3">12 tháng</td>
+                            <td>Thủy đậu</td>
+                            <td><strong>Varivax</strong></td>
+                            <td>Mỹ</td>
+                        </tr>
+                        <tr>
+                            <td>Sởi – Quai bị – Rubella (3in1)</td>
+                            <td><strong>MMR-III</strong></td>
+                            <td>Mỹ</td>
+                        </tr>
+                        <tr>
+                            <td>Viêm gan A, B</td>
+                            <td><strong>Twinrix</strong></td>
+                            <td>Mỹ</td>
+                        </tr>
+                        <tr>
+                            <td class="age-col" rowspan="2">24 tháng</td>
+                            <td>Thương hàn</td>
+                            <td><strong>Typhim Vi</strong></td>
+                            <td>Pháp</td>
+                        </tr>
+                        <tr>
+                            <td>Tả</td>
+                            <td><strong>Morcvax</strong></td>
+                            <td>Việt Nam</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gói vaccine -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title text-center">CÁC GÓI VACCINE TIÊM CHỦNG</h2>
+            <p class="text-center" style="color: #555; margin-bottom: 10px;">Tiết kiệm chi phí – Đầy đủ mũi tiêm – An
+                tâm tuyệt đối</p>
+
+            <div class="vacc-packages-grid">
+                <!-- Gói 1: 3 tháng -->
+                <div class="vacc-package-card">
+                    <div class="vacc-card-header">
+                        <h3>GÓI VẮC-XIN 3 THÁNG</h3>
+                        <div class="age-range"><i class="fas fa-baby"></i> Cho bé từ 2 tháng tuổi</div>
+                    </div>
+                    <div class="vacc-card-body">
+                        <table class="vacc-detail-table">
+                            <thead>
+                                <tr>
+                                    <th>Độ tuổi</th>
+                                    <th>Phòng bệnh</th>
+                                    <th>Tên Vắc-xin</th>
+                                    <th>Nước SX</th>
+                                    <th class="dose-col">Số mũi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="age-group-row">
+                                    <td colspan="5">2 THÁNG TUỔI</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Tiêu chảy do Rotavirus</td>
+                                    <td><strong>Rotarix</strong></td>
+                                    <td>Bỉ</td>
+                                    <td class="dose-col">2</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Bạch hầu, Ho gà, Uốn ván, Bại liệt, Viêm gan B & bệnh do vi khuẩn HIB (6in1)
+                                    </td>
+                                    <td><strong>Infanrix Hexa</strong></td>
+                                    <td>Bỉ</td>
+                                    <td class="dose-col">2</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Nhiễm trùng, Viêm màng não, Viêm phổi, Nhiễm khuẩn huyết, Viêm tai giữa cho Phế
+                                        cầu</td>
+                                    <td><strong>Synflorix</strong></td>
+                                    <td>Bỉ</td>
+                                    <td class="dose-col">2</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="vacc-card-footer">
+                        <div class="total-doses">Tổng: <strong>6 mũi</strong></div>
+                        <a href="#booking" class="btn btn-primary" style="padding: 8px 20px;">ĐĂNG KÝ</a>
+                    </div>
+                </div>
+
+                <!-- Gói 2: 6 tháng -->
+                <div class="vacc-package-card">
+                    <div class="vacc-card-header" style="background: linear-gradient(135deg, #1a7ab8, #0d5a8e);">
+                        <h3>GÓI VẮC-XIN 6 THÁNG</h3>
+                        <div class="age-range"><i class="fas fa-baby"></i> Cho bé từ 2 – 6 tháng tuổi</div>
+                    </div>
+                    <div class="vacc-card-body">
+                        <table class="vacc-detail-table">
+                            <thead>
+                                <tr>
+                                    <th>Độ tuổi</th>
+                                    <th>Phòng bệnh</th>
+                                    <th>Tên Vắc-xin</th>
+                                    <th>Nước SX</th>
+                                    <th class="dose-col">Số mũi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="age-group-row">
+                                    <td colspan="5">2 THÁNG</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Tiêu chảy do Rotavirus</td>
+                                    <td><strong>Rotarix</strong></td>
+                                    <td>Bỉ</td>
+                                    <td class="dose-col">2</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Bạch hầu, Ho gà, Uốn ván, Bại liệt, Viêm gan B & bệnh do vi khuẩn HIB (6in1)
+                                    </td>
+                                    <td><strong>Infanrix Hexa</strong></td>
+                                    <td>Bỉ</td>
+                                    <td class="dose-col">3</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Nhiễm trùng, Viêm màng não, Viêm phổi, Nhiễm khuẩn huyết, Viêm tai giữa cho Phế
+                                        cầu</td>
+                                    <td><strong>Synflorix</strong></td>
+                                    <td>Bỉ</td>
+                                    <td class="dose-col">3</td>
+                                </tr>
+                                <tr class="age-group-row">
+                                    <td colspan="5">6 THÁNG</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Viêm màng não do Não mô cầu</td>
+                                    <td><strong>VA-Mengoc-BC</strong></td>
+                                    <td>Cuba</td>
+                                    <td class="dose-col">1</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Cúm</td>
+                                    <td><strong>Influvac Tetra</strong></td>
+                                    <td>Hà Lan</td>
+                                    <td class="dose-col">1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="vacc-card-footer">
+                        <div class="total-doses">Tổng: <strong>10 mũi</strong></div>
+                        <a href="#booking" class="btn btn-primary" style="padding: 8px 20px;">ĐĂNG KÝ</a>
+                    </div>
+                </div>
+
+                <!-- Gói 3: 12 tháng -->
+                <div class="vacc-package-card featured">
+                    <div class="vacc-card-header" style="background: linear-gradient(135deg, #2698d6, #3ab0e8);">
+                        <div class="badge">PHỔ BIẾN</div>
+                        <h3>GÓI VẮC-XIN 12 THÁNG</h3>
+                        <div class="age-range"><i class="fas fa-baby"></i> Cho bé từ 2 – 12 tháng tuổi</div>
+                    </div>
+                    <div class="vacc-card-body">
+                        <table class="vacc-detail-table">
+                            <thead>
+                                <tr>
+                                    <th>Độ tuổi</th>
+                                    <th>Phòng bệnh</th>
+                                    <th>Tên Vắc-xin</th>
+                                    <th>Nước SX</th>
+                                    <th class="dose-col">Số mũi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="age-group-row">
+                                    <td colspan="5">2 THÁNG</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Tiêu chảy do Rotavirus</td>
+                                    <td><strong>Rotarix</strong></td>
+                                    <td>Bỉ</td>
+                                    <td class="dose-col">2</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Bạch hầu, Ho gà, Uốn ván, Bại liệt, Viêm gan B & bệnh do vi khuẩn HIB (6in1)
+                                    </td>
+                                    <td><strong>Infanrix Hexa</strong></td>
+                                    <td>Bỉ</td>
+                                    <td class="dose-col">3</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Nhiễm trùng, Viêm màng não, Viêm phổi, Nhiễm khuẩn huyết, Viêm tai giữa cho Phế
+                                        cầu</td>
+                                    <td><strong>Synflorix</strong></td>
+                                    <td>Bỉ</td>
+                                    <td class="dose-col">3</td>
+                                </tr>
+                                <tr class="age-group-row">
+                                    <td colspan="5">6 THÁNG</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Viêm màng não do Não mô cầu</td>
+                                    <td><strong>VA-Mengoc-BC</strong></td>
+                                    <td>Cuba</td>
+                                    <td class="dose-col">2</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Cúm</td>
+                                    <td><strong>Influvac Tetra</strong></td>
+                                    <td>Hà Lan</td>
+                                    <td class="dose-col">2</td>
+                                </tr>
+                                <tr class="age-group-row">
+                                    <td colspan="5">9 THÁNG</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Sởi</td>
+                                    <td><strong>MVVac</strong></td>
+                                    <td>Việt Nam</td>
+                                    <td class="dose-col">1</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Viêm não Nhật Bản</td>
+                                    <td><strong>Imojev</strong></td>
+                                    <td>Pháp</td>
+                                    <td class="dose-col">2</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Viêm màng não do Mô cầu tuýp A, C, Y, W</td>
+                                    <td><strong>Menactra</strong></td>
+                                    <td>Mỹ</td>
+                                    <td class="dose-col">1</td>
+                                </tr>
+                                <tr class="age-group-row">
+                                    <td colspan="5">12 THÁNG</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Thủy đậu</td>
+                                    <td><strong>Varivax</strong></td>
+                                    <td>Mỹ</td>
+                                    <td class="dose-col">1</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Sởi – Quai bị – Rubella (3in1)</td>
+                                    <td><strong>MMR-III</strong></td>
+                                    <td>Mỹ</td>
+                                    <td class="dose-col">1</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Viêm gan A, B</td>
+                                    <td><strong>Twinrix</strong></td>
+                                    <td>Mỹ</td>
+                                    <td class="dose-col">1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="vacc-card-footer">
+                        <div class="total-doses">Tổng: <strong>19 mũi</strong></div>
+                        <a href="#booking" class="btn btn-primary" style="padding: 8px 20px;">ĐĂNG KÝ</a>
+                    </div>
+                </div>
+
+                <!-- Gói 4: 24 tháng -->
+                <div class="vacc-package-card featured">
+                    <div class="vacc-card-header" style="background: linear-gradient(135deg, #004aad, #003080);">
+                        <div class="badge">TOÀN DIỆN NHẤT</div>
+                        <h3>GÓI VẮC-XIN 24 THÁNG</h3>
+                        <div class="age-range"><i class="fas fa-star"></i> Trọn gói 2 năm đầu đời</div>
+                    </div>
+                    <div class="vacc-card-body">
+                        <table class="vacc-detail-table">
+                            <thead>
+                                <tr>
+                                    <th>Độ tuổi</th>
+                                    <th>Phòng bệnh</th>
+                                    <th>Tên Vắc-xin</th>
+                                    <th>Nước SX</th>
+                                    <th class="dose-col">Số mũi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="age-group-row">
+                                    <td colspan="5">2 THÁNG</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Tiêu chảy do Rotavirus</td>
+                                    <td><strong>Rotarix</strong></td>
+                                    <td>Bỉ</td>
+                                    <td class="dose-col">2</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Bạch hầu, Ho gà, Uốn ván, Bại liệt, Viêm gan B & bệnh do vi khuẩn HIB (6in1)
+                                    </td>
+                                    <td><strong>Infanrix Hexa</strong></td>
+                                    <td>Bỉ</td>
+                                    <td class="dose-col">4</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Nhiễm trùng, Viêm màng não, Viêm phổi, Nhiễm khuẩn huyết, Viêm tai giữa cho Phế
+                                        cầu</td>
+                                    <td><strong>Synflorix</strong></td>
+                                    <td>Bỉ</td>
+                                    <td class="dose-col">4</td>
+                                </tr>
+                                <tr class="age-group-row">
+                                    <td colspan="5">6 THÁNG</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Viêm màng não do Não mô cầu</td>
+                                    <td><strong>VA-Mengoc-BC</strong></td>
+                                    <td>Cuba</td>
+                                    <td class="dose-col">2</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Cúm</td>
+                                    <td><strong>Influvac Tetra</strong></td>
+                                    <td>Hà Lan</td>
+                                    <td class="dose-col">3</td>
+                                </tr>
+                                <tr class="age-group-row">
+                                    <td colspan="5">9 THÁNG</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Sởi</td>
+                                    <td><strong>MVVac</strong></td>
+                                    <td>Việt Nam</td>
+                                    <td class="dose-col">1</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Viêm não Nhật Bản</td>
+                                    <td><strong>Imojev</strong></td>
+                                    <td>Pháp</td>
+                                    <td class="dose-col">2</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Viêm màng não do Mô cầu tuýp A, C, Y, W</td>
+                                    <td><strong>Menactra</strong></td>
+                                    <td>Mỹ</td>
+                                    <td class="dose-col">2</td>
+                                </tr>
+                                <tr class="age-group-row">
+                                    <td colspan="5">12 THÁNG</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Thủy đậu</td>
+                                    <td><strong>Varivax</strong></td>
+                                    <td>Mỹ</td>
+                                    <td class="dose-col">2</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Sởi – Quai bị – Rubella (3in1)</td>
+                                    <td><strong>MMR-III</strong></td>
+                                    <td>Mỹ</td>
+                                    <td class="dose-col">1</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Viêm gan A, B</td>
+                                    <td><strong>Twinrix</strong></td>
+                                    <td>Mỹ</td>
+                                    <td class="dose-col">2</td>
+                                </tr>
+                                <tr class="age-group-row">
+                                    <td colspan="5">24 THÁNG</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Thương hàn</td>
+                                    <td><strong>Typhim Vi</strong></td>
+                                    <td>Pháp</td>
+                                    <td class="dose-col">1</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Tả</td>
+                                    <td><strong>Morcvax</strong></td>
+                                    <td>Việt Nam</td>
+                                    <td class="dose-col">2</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="vacc-card-footer">
+                        <div class="total-doses">Tổng: <strong>28 mũi</strong></div>
+                        <a href="#booking" class="btn btn-primary" style="padding: 8px 20px;">ĐĂNG KÝ</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lưu ý -->
+            <div class="notes-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> Lưu ý quan trọng</h4>
+                <ul>
+                    <li>Gói vaccine đã bao gồm phí tiêm, phí vaccine, phí bảo quản vaccine và phí khám sàng lọc với bác
+                        sĩ.</li>
+                    <li>Gói vaccine không chuyển nhượng, không thay đổi sang loại vaccine khác, không hoàn trả dưới mọi
+                        hình thức.</li>
+                    <li>Không bao gồm các vaccine BCG (Lao sơ sinh) và Viêm gan B mũi 0 (tiêm tại nhà hộ sinh).</li>
+                    <li>Giá có thể thay đổi theo thời điểm và nguồn cung vaccine. Vui lòng liên hệ để được tư vấn chi
+                        tiết.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quy trình tiêm chủng -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">QUY TRÌNH TIÊM CHỦNG AN TOÀN</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Đăng Ký & Tiếp Nhận</h3>
+                    <p>Đăng ký trực tuyến hoặc tại quầy. Xác nhận thông tin và lịch sử tiêm chủng.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Khám Sàng Lọc</h3>
+                    <p>Bác sĩ chuyên khoa khám, đo nhiệt độ, kiểm tra sức khỏe tổng quát trước khi tiêm.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Tiêm Vaccine</h3>
+                    <p>Điều dưỡng thực hiện tiêm đúng kỹ thuật, đúng liều, đúng đường dùng.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Theo Dõi Sau Tiêm</h3>
+                    <p>Theo dõi tại phòng chờ 30 phút. Hướng dẫn chăm sóc sau tiêm và hẹn mũi tiếp theo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="section bg-primary text-white">
+        <div class="container">
+            <div class="grid-4 text-center">
+                <div>
+                    <h2 style="font-size: 3rem; margin-bottom: 5px;">50,000+</h2>
+                    <p>Mũi tiêm đã thực hiện</p>
+                </div>
+                <div>
+                    <h2 style="font-size: 3rem; margin-bottom: 5px;">100%</h2>
+                    <p>Vaccine chính hãng</p>
+                </div>
+                <div>
+                    <h2 style="font-size: 3rem; margin-bottom: 5px;">30+</h2>
+                    <p>Loại vaccine có sẵn</p>
+                </div>
+                <div>
+                    <h2 style="font-size: 3rem; margin-bottom: 5px;">24/7</h2>
+                    <p>Hỗ trợ sau tiêm</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title text-center">CÂU HỎI THƯỜNG GẶP VỀ TIÊM CHỦNG</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <button class="accordion">1. Trẻ sơ sinh bao nhiêu ngày tuổi thì bắt đầu tiêm chủng?</button>
+                <div class="panel">
+                    <p>Trẻ nên được tiêm vaccine Viêm gan B mũi 0 trong 24 giờ đầu sau sinh và vaccine BCG (phòng Lao)
+                        trong tháng đầu tiên. Từ 2 tháng tuổi, bé bắt đầu lịch tiêm chủng mở rộng với vaccine 6 trong 1,
+                        Rotavirus, Phế cầu.</p>
+                </div>
+
+                <button class="accordion">2. Tiêm vaccine có tác dụng phụ không?</button>
+                <div class="panel">
+                    <p>Các phản ứng thường gặp sau tiêm là sốt nhẹ, sưng đau tại chỗ tiêm, quấy khóc – thường tự hết sau
+                        1-2 ngày. Phản ứng nặng (sốc phản vệ) rất hiếm gặp. Tại BV Tân An, đội ngũ y tế luôn sẵn sàng xử
+                        trí mọi tình huống.</p>
+                </div>
+
+                <button class="accordion">3. Trẻ bị sốt nhẹ có tiêm được không?</button>
+                <div class="panel">
+                    <p>Nếu trẻ sốt nhẹ dưới 38.5°C và không có triệu chứng bệnh lý nặng, bác sĩ sẽ đánh giá và quyết
+                        định có nên tiêm hay hoãn lại. Trường hợp sốt cao hoặc đang dùng kháng sinh, nên hoãn tiêm cho
+                        đến khi trẻ khỏe hẳn.</p>
+                </div>
+
+                <button class="accordion">4. Có thể tiêm nhiều mũi vaccine cùng lúc không?</button>
+                <div class="panel">
+                    <p>Có. Theo khuyến cáo của WHO, việc tiêm đồng thời nhiều vaccine (ở các vị trí khác nhau) là an
+                        toàn và hiệu quả, giúp trẻ được bảo vệ sớm hơn và giảm số lần đến tiêm.</p>
+                </div>
+
+                <button class="accordion">5. Nếu trẻ tiêm trễ lịch thì phải làm sao?</button>
+                <div class="panel">
+                    <p>Nếu trẻ bị trễ lịch tiêm, không cần tiêm lại từ đầu. Bác sĩ sẽ lên lịch tiêm bù phù hợp để trẻ
+                        được bảo vệ đầy đủ nhất có thể. Hãy mang sổ tiêm chủng đến để bác sĩ tư vấn cụ thể.</p>
+                </div>
+
+                <button class="accordion">6. Người lớn có cần tiêm vaccine không?</button>
+                <div class="panel">
+                    <p>Có. Người lớn cần tiêm phòng Cúm hàng năm, Viêm gan A-B (nếu chưa có miễn dịch), HPV (nữ dưới 26
+                        tuổi), Phế cầu (người cao tuổi), Zona thần kinh (người ≥ 50 tuổi). Phụ nữ chuẩn bị mang thai nên
+                        tiêm đủ các mũi Rubella, Cúm, Sởi trước khi mang thai.</p>
+                </div>
+
+                <button class="accordion">7. Chi phí tiêm vaccine có được bảo hiểm y tế chi trả không?</button>
+                <div class="panel">
+                    <p>Vaccine trong chương trình tiêm chủng mở rộng quốc gia được miễn phí. Các vaccine dịch vụ (nhập
+                        khẩu) hiện chưa được BHYT chi trả. Tuy nhiên, BV Tân An có các gói tiêm trọn gói giúp tiết kiệm
+                        chi phí đáng kể so với tiêm lẻ.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA & Form -->
+    <section id="booking" class="section bg-light">
+        <div class="container text-center">
+            <h2 class="section-title">ĐĂNG KÝ TƯ VẤN TIÊM CHỦNG</h2>
+            <p class="mb-20">Để lại thông tin, chuyên viên sẽ liên hệ tư vấn lịch tiêm phù hợp cho bé và gia đình bạn.
+            </p>
+
+            <div class="contact-form-container"
+                style="max-width: 500px; margin: 0 auto; padding: 30px; border-radius: 10px; background: white; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                <form id="vaccination-form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="Họ tên"
+                            placeholder="Họ và tên phụ huynh / người tiêm *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" name="Số điện thoại" placeholder="Số điện thoại *"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="Tên bé" placeholder="Tên bé (nếu tiêm cho trẻ)">
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" name="Gói quan tâm">
+                            <option value="">Chọn gói vaccine quan tâm...</option>
+                            <option value="HPV">Gói HPV Gardasil 9</option>
+                            <option value="1-6thang">Gói Trẻ 1-6 tháng</option>
+                            <option value="1-12thang">Gói Trẻ 1-12 tháng</option>
+                            <option value="12-24thang">Gói Trẻ 12-24 tháng</option>
+                            <option value="ToanDien">Gói Toàn diện 1-24 tháng</option>
+                            <option value="NguoiLon">Gói Vaccine Người lớn</option>
+                            <option value="TiemLe">Tiêm lẻ (tư vấn)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">GỬI YÊU CẦU TƯ VẤN</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3 data-i18n="common.hospitalName">BỆNH VIỆN ĐA KHOA QUỐC TẾ TÂN AN</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="common.address">Số 136C Tỉnh lộ 827,
+                            Phường Tân An, Tây Ninh (Long An cũ)</span></p>
+                    <p><i class="fas fa-phone-alt"></i> <span data-i18n="common.hotline">Hotline</span>: <span
+                            class="hotline">0272 3 550 507</span></p>
+                    <p><i class="fas fa-phone-alt"></i> <span data-i18n="common.emergency">Cấp cứu</span>: <span
+                            class="hotline">0272 3 550 115</span></p>
+                    <p><i class="fas fa-envelope"></i> Email: info@tananhospital.vn</p>
+                    <p><i class="fas fa-clock"></i> <span data-i18n="common.workingHours">Giờ làm việc: Thứ 2 - Chủ
+                            Nhật: 7:30 - 17:00</span></p>
+                </div>
+                <div class="footer-links">
+                    <h3 data-i18n="footer.systemTitle">HỆ THỐNG</h3>
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav.home">Trang chủ</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">Về chúng tôi</a></li>
+                        <li><a href="package-details.html" data-i18n="quickActions.healthPackages">Gói khám</a></li>
+                        <li><a href="#" data-i18n="footer.career">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 data-i18n="footer.usefulLinks">LIÊN KẾT HỮU ÍCH</h3>
+                    <ul>
+                        <li><a href="doctors.html" data-i18n="quickActions.findDoctor">Tìm Bác Sĩ</a></li>
+                        <li><a href="index.html#booking" data-i18n="quickActions.bookAppt">Đặt Hẹn Khám Bệnh</a></li>
+                        <li><a href="#" data-i18n="footer.qa">Hỏi Đáp Y Khoa</a></li>
+                        <li><a href="news.html" data-i18n="nav.news">Tin Tức & Sự Kiện</a></li>
+                        <li><a href="#" data-i18n="footer.careerOpp">Cơ Hội Nghề Nghiệp</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom-grid"
+                style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 30px; align-items: stretch;">
+                <div class="footer-card"
+                    style="flex: 1; min-width: 300px; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column;">
+                    <h3 style="text-align: center; margin-bottom: 15px; font-weight: 700; color: #333;"
+                        data-i18n="footer.mapTitle">VỊ TRÍ BỆNH VIỆN</h3>
+                    <div style="flex-grow: 1; position: relative; min-height: 350px;">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12000.745696109608!2d106.41952391990549!3d10.519977685397096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310ab72385f606b3%3A0x3f48c61fbf566805!2zQuG7h25oIHZp4buHbiDEkGEga2hvYSBUw6JuIEFu!5e0!3m2!1svi!2s!4v1769573620015!5m2!1svi!2s"
+                            width="100%" height="100%"
+                            style="border:0; border-radius: 8px; position: absolute; top: 0; left: 0;"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <div class="footer-card" id="footer-booking"
+                    style="flex: 0 0 30%; max-width: 350px; min-width: 280px; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column;">
+                    <h3 style="text-align: center; margin-bottom: 15px; font-weight: 700; color: #333;"
+                        data-i18n="footer.formTitle">ĐĂNG KÝ TƯ VẤN NHANH</h3>
+                    <form id="consultation-form"
+                        style="display: flex; flex-direction: column; gap: 10px; flex-grow: 1; justify-content: center;">
+                        <input type="text" class="form-control" name="ho_ten" placeholder="Họ và tên *" required
+                            style="padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                        <input type="tel" class="form-control" name="so_dien_thoai" placeholder="Số điện thoại *"
+                            required style="padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                        <input type="email" class="form-control" name="email" placeholder="Email (nếu có)"
+                            style="padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                        <select class="form-control" name="chuyen_khoa"
+                            style="padding: 10px; border: 1px solid #ddd; border-radius: 6px; color: #555;">
+                            <option value="">-- Chọn Dịch vụ đăng ký --</option>
+                            <option value="Tiêm chủng trẻ em">Tiêm chủng trẻ em</option>
+                            <option value="Tiêm chủng người lớn">Tiêm chủng người lớn</option>
+                            <option value="Tiêm HPV">Tiêm HPV</option>
+                            <option value="Tư vấn vaccine">Tư vấn vaccine</option>
+                            <option value="Khác">Khác</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary btn-block"
+                            style="padding: 10px; font-weight: bold;">GỬI YÊU CẦU</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Bệnh Viện Đa Khoa Quốc Tế Tân An. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Widget -->
+    <div class="floating-contact">
+        <a href="https://zalo.me/0858133507" target="_blank" class="contact-btn btn-zalo" data-tooltip="Chat Zalo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo">
+        </a>
+        <a href="https://m.me/benhviendakhoatanan" target="_blank" class="contact-btn btn-messenger"
+            data-tooltip="Chat Messenger">
+            <i class="fab fa-facebook-messenger"></i>
+        </a>
+        <a href="tel:02723661115" class="contact-btn btn-phone" data-tooltip="Gọi Cấp Cứu">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="index.html#booking" class="contact-btn btn-booking" style="background: #28a745;"
+            data-tooltip="Đăng ký khám ngay">
+            <i class="fas fa-calendar-check"></i>
+        </a>
+        <a href="#" class="contact-btn btn-back-to-top" style="background: #555; display: none;"
+            data-tooltip="Lên đầu trang">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+
+    <script src="lang-switcher.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Accordion
+        var acc = document.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
