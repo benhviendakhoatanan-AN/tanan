@@ -1,0 +1,86 @@
+<!-- ==================== SPECIALTIES TAB ==================== -->
+<section id="tab-specialties" class="admin-tab">
+    <div class="tab-header">
+        <h1>🩺 Quản lý Chuyên khoa</h1>
+    </div>
+
+    <div class="sub-tabs">
+        <button class="sub-tab active" onclick="adminPanel.switchSpecialtySubTab('grid')">Grid Ion (8 Chính)</button>
+        <button class="sub-tab" onclick="adminPanel.switchSpecialtySubTab('list')">Danh sách chi tiết</button>
+    </div>
+
+    <!-- Grid Sub-tab -->
+    <div id="spec-subtab-grid" style="display: block;">
+        <div class="data-table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Icon</th>
+                        <th>Tên chuyên khoa</th>
+                        <th>Link</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody id="spec-grid-tbody">
+                    <!-- Dynamic -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- List Sub-tab -->
+    <div id="spec-subtab-list" style="display: none;">
+        <div class="info-box">
+            <p>💡 Danh sách chuyên khoa chi tiết (hiển thị 4 cột).</p>
+        </div>
+        <div class="data-table-container">
+            <div class="form-row">
+                <input type="text" id="new-spec-list-item" placeholder="Tên chuyên khoa mới...">
+                <select id="new-spec-list-col">
+                    <option value="1">Cột 1 (Nội Tổng hợp)</option>
+                    <option value="2">Cột 2 (Ngoại - Sản - Nhi)</option>
+                    <option value="3">Cột 3 (Cận lâm sàng)</option>
+                    <option value="4">Cột 4 (Hỗ trợ)</option>
+                </select>
+                <button class="btn btn-primary" onclick="adminPanel.addSpecialtyList()">+ Thêm</button>
+            </div>
+            <div class="spec-list-preview" id="spec-list-preview"
+                style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 20px;">
+                <!-- Dynamic columns -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Specialty Grid Modal -->
+    <div id="spec-grid-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sửa chuyên khoa</h2>
+                <span class="close-modal" onclick="adminPanel.closeSpecGridModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="spec-grid-form" onsubmit="event.preventDefault(); adminPanel.saveSpecGrid();">
+                    <input type="hidden" id="spec-grid-id">
+                    <div class="form-group">
+                        <label>Tên chuyên khoa</label>
+                        <input type="text" id="spec-grid-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Icon URL (Ảnh tròn)</label>
+                        <div class="image-input-group">
+                            <input type="text" id="spec-grid-image" required>
+                            <button type="button" class="btn btn-outline"
+                                onclick="adminPanel.openMediaPixel('spec-grid-image')">🖼️</button>
+                        </div>
+                        <div class="image-preview" id="spec-grid-preview"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Link liên kết</label>
+                        <input type="text" id="spec-grid-link">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Lưu thay đổi</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

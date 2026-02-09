@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - BV Tân An</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo-favicon.webp">
+    <link rel="stylesheet" href="admin.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        window.onerror = function (msg, url, line, col, error) {
+            var extra = !col ? '' : '\nCột: ' + col;
+            extra += !error ? '' : '\nStack: ' + error.stack;
+            alert("Lỗi: " + msg + "\nURL: " + url + "\nDòng: " + line + extra);
+            return false;
+        };
+    </script>
+</head>
+
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="admin-login">
+        <div class="login-container">
+            <div class="login-header">
+                <img src="assets/Logo.webp" alt="Logo" class="login-logo">
+                <h1>Admin Panel</h1>
+                <p>Đăng nhập để quản lý website</p>
+            </div>
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" placeholder="Nhập mật khẩu" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+                <button type="button" class="btn btn-outline btn-block" style="margin-top: 10px;"
+                    onclick="document.getElementById('login-screen').style.display='none';document.getElementById('admin-dashboard').style.display='flex';">
+                    🚑 Vào nhanh (Debug Mode)
+                </button>
+                <p id="login-error" class="error-message" style="display: none;">Mật khẩu không đúng!</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="admin-dashboard" class="admin-dashboard" style="display: none;">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <img src="assets/Logo.webp" alt="Logo" class="sidebar-logo">
+                <h2>CMS Admin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-tab="dashboard">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="content">
+                    <span class="nav-icon">📝</span>
+                    <span>Nội dung</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="products">
+                    <span class="nav-icon">📦</span>
+                    <span>Sản phẩm</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="equipment">
+                    <span class="nav-icon">🔬</span>
+                    <span>Trang thiết bị</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="specialties">
+                    <span class="nav-icon">🩺</span>
+                    <span>Chuyên khoa</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="pages">
+                    <span class="nav-icon">📄</span>
+                    <span>Trang</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="reviews">
+                    <span class="nav-icon">⭐</span>
+                    <span>Đánh giá</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="users">
+                    <span class="nav-icon">👥</span>
+                    <span>Người dùng</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="appearance">
+                    <span class="nav-icon">🎨</span>
+                    <span>Giao diện</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="media">
+                    <span class="nav-icon">🖼️</span>
+                    <span>Thư viện Media</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="messages">
+                    <span class="nav-icon">💬</span>
+                    <span>Tin nhắn</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="categories">
+                    <span class="nav-icon">🏷️</span>
+                    <span>Danh mục</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="seo">
+                    <span class="nav-icon">🔍</span>
+                    <span>SEO & Marketing</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="tools">
+                    <span class="nav-icon">🔧</span>
+                    <span>Công cụ</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="settings">
+                    <span class="nav-icon">⚙️</span>
+                    <span>Cấu hình</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="logout-btn" class="btn btn-outline btn-block">Đăng xuất</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+
+            <!-- ==================== DASHBOARD TAB ==================== -->
+            <section id="tab-dashboard" class="admin-tab active">
+                <div class="tab-header">
+                    <h1>📊 Dashboard</h1>
+                    <span class="date-display" id="current-date"></span>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">👁️</div>
+                        <div class="stat-info">
+                            <h3 id="stat-views">0</h3>
+                            <p>Lượt xem tháng này</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📰</div>
+                        <div class="stat-info">
+                            <h3 id="stat-articles">0</h3>
+                            <p>Bài viết</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📦</div>
+                        <div class="stat-info">
+                            <h3 id="stat-products">0</h3>
+                            <p>Sản phẩm/Dịch vụ</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-info">
+                            <h3 id="stat-reviews">0</h3>
+                            <p>Đánh giá</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="dashboard-row">
+                    <div class="chart-container">
+                        <h3>📈 Traffic 7 ngày qua</h3>
+                        <canvas id="trafficChart"></canvas>
+                    </div>
+                    <div class="notifications-container">
+                        <h3>🔔 Thông báo quan trọng</h3>
+                        <div id="notifications-list" class="notifications-list">
+                            <!-- Dynamic content -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <h3>⚡ Thao tác nhanh</h3>
+                    <div class="action-buttons">
+                        <button class="action-btn" onclick="adminPanel.quickAction('newArticle')">
+                            ✏️ Viết bài mới
+                        </button>
+                        <button class="action-btn" onclick="adminPanel.quickAction('newProduct')">
+                            ➕ Thêm sản phẩm
+                        </button>
+                        <button class="action-btn" onclick="adminPanel.quickAction('viewSite')">
+                            🌐 Xem website
+                        </button>
+                        <button class="action-btn" onclick="adminPanel.quickAction('seoCheck')">
+                            🔍 Kiểm tra SEO
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== CONTENT TAB ==================== -->
+            <section id="tab-content" class="admin-tab">
+                <div class="tab-header">
+                    <h1>📝 Quản lý Bài viết</h1>
+                    <button id="add-article-btn" class="btn btn-primary">+ Thêm bài viết</button>
+                </div>
+
+                <!-- Filters -->
+                <div class="filters-bar">
+                    <select id="filter-category">
+                        <option value="">Tất cả danh mục</option>
+                        <option value="Tin tức">Tin tức</option>
+                        <option value="Sức khỏe">Sức khỏe</option>
+                        <option value="Khuyến mãi">Khuyến mãi</option>
+                    </select>
+                    <input type="text" id="search-articles" placeholder="🔍 Tìm kiếm bài viết...">
+                </div>
+
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Ngày</th>
+                                <th>Tiêu đề</th>
+                                <th>Danh mục</th>
+                                <th>Tags</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="articles-tbody">
+                        </tbody>
+                    </table>
+                    <div id="articles-loading" class="loading-state">
+                        <p>Đang tải...</p>
+                    </div>
+                    <div id="articles-empty" class="empty-state" style="display: none;">
+                        <p>Chưa có bài viết nào.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== PRODUCTS TAB ==================== -->
+            <section id="tab-products" class="admin-tab">
+                <div class="tab-header">
+                    <h1>📦 Quản lý Sản phẩm & Dịch vụ</h1>
+                    <button id="add-product-btn" class="btn btn-primary">+ Thêm sản phẩm</button>
+                </div>
+
+                <!-- Sub-tabs -->
+                <div class="sub-tabs">
+                    <button class="sub-tab active" data-subtab="packages">Gói khám</button>
+                    <button class="sub-tab" data-subtab="services">Dịch vụ y khoa</button>
+                </div>
+
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Tên</th>
+                                <th>Mô tả</th>
+                                <th>Giá</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products-tbody">
+                        </tbody>
+                    </table>
+                    <div id="products-empty" class="empty-state" style="display: none;">
+                        <p>Chưa có sản phẩm nào.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== EQUIPMENT TAB ==================== -->
+            <section id="tab-equipment" class="admin-tab">
+                <div class="tab-header">
+                    <h1>🔬 Quản lý Trang thiết bị</h1>
+                    <button id="add-equipment-btn" class="btn btn-primary" onclick="adminPanel.openEquipmentModal()">+
+                        Thêm thiết bị</button>
+                </div>
+
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Hình ảnh</th>
+                                <th>Tên thiết bị (Caption)</th>
+                                <th>Thứ tự</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="equipment-tbody">
+                            <!-- Dynamic content -->
+                        </tbody>
+                    </table>
+                    <div id="equipment-empty" class="empty-state" style="display: none;">
+                        <p>Chưa có thiết bị nào.</p>
+                    </div>
+                </div>
+
+                <!-- Equipment Modal -->
+                <div id="equipment-modal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 id="equipment-modal-title">Thêm thiết bị mới</h2>
+                            <span class="close-modal" onclick="adminPanel.closeEquipmentModal()">&times;</span>
+                        </div>
+                        <div class="modal-body">
+                            <form id="equipment-form" onsubmit="event.preventDefault(); adminPanel.saveEquipment();">
+                                <input type="hidden" id="equipment-id">
+                                <div class="form-group">
+                                    <label>Tên thiết bị (Caption hiển thị)</label>
+                                    <input type="text" id="equipment-caption" placeholder="VD: Hệ thống Nội soi NBI..."
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Hình ảnh URL</label>
+                                    <div class="image-input-group">
+                                        <input type="text" id="equipment-image"
+                                            placeholder="URL hình ảnh hoặc chọn từ thư viện" required>
+                                        <button type="button" class="btn btn-outline"
+                                            onclick="adminPanel.openMediaPixel('equipment-image')">🖼️</button>
+                                    </div>
+                                    <div class="image-preview" id="equipment-image-preview"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Đường dẫn chi tiết (Link)</label>
+                                    <input type="text" id="equipment-link" placeholder="#">
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="equipment-active" checked>
+                                        <span>Hiển thị trên slider</span>
+                                    </label>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-outline"
+                                        onclick="adminPanel.closeEquipmentModal()">Hủy</button>
+                                    <button type="submit" class="btn btn-primary">Lưu thiết bị</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== SPECIALTIES TAB ==================== -->
+            <section id="tab-specialties" class="admin-tab">
+                <div class="tab-header">
+                    <h1>🩺 Quản lý Chuyên khoa</h1>
+                </div>
+
+                <div class="sub-tabs">
+                    <button class="sub-tab active" onclick="adminPanel.switchSpecialtySubTab('grid')">Grid Ion (8
+                        Chính)</button>
+                    <button class="sub-tab" onclick="adminPanel.switchSpecialtySubTab('list')">Danh sách chi
+                        tiết</button>
+                </div>
+
+                <!-- Grid Sub-tab -->
+                <div id="spec-subtab-grid" style="display: block;">
+                    <div class="data-table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Icon</th>
+                                    <th>Tên chuyên khoa</th>
+                                    <th>Link</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody id="spec-grid-tbody">
+                                <!-- Dynamic -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- List Sub-tab -->
+                <div id="spec-subtab-list" style="display: none;">
+                    <div class="info-box">
+                        <p>💡 Danh sách chuyên khoa chi tiết (hiển thị 4 cột).</p>
+                    </div>
+                    <div class="data-table-container">
+                        <div class="form-row">
+                            <input type="text" id="new-spec-list-item" placeholder="Tên chuyên khoa mới...">
+                            <select id="new-spec-list-col">
+                                <option value="1">Cột 1 (Nội Tổng hợp)</option>
+                                <option value="2">Cột 2 (Ngoại - Sản - Nhi)</option>
+                                <option value="3">Cột 3 (Cận lâm sàng)</option>
+                                <option value="4">Cột 4 (Hỗ trợ)</option>
+                            </select>
+                            <button class="btn btn-primary" onclick="adminPanel.addSpecialtyList()">+ Thêm</button>
+                        </div>
+                        <div class="spec-list-preview" id="spec-list-preview"
+                            style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 20px;">
+                            <!-- Dynamic columns -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Specialty Grid Modal -->
+                <div id="spec-grid-modal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Sửa chuyên khoa</h2>
+                            <span class="close-modal" onclick="adminPanel.closeSpecGridModal()">&times;</span>
+                        </div>
+                        <div class="modal-body">
+                            <form id="spec-grid-form" onsubmit="event.preventDefault(); adminPanel.saveSpecGrid();">
+                                <input type="hidden" id="spec-grid-id">
+                                <div class="form-group">
+                                    <label>Tên chuyên khoa</label>
+                                    <input type="text" id="spec-grid-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Icon URL (Ảnh tròn)</label>
+                                    <div class="image-input-group">
+                                        <input type="text" id="spec-grid-image" required>
+                                        <button type="button" class="btn btn-outline"
+                                            onclick="adminPanel.openMediaPixel('spec-grid-image')">🖼️</button>
+                                    </div>
+                                    <div class="image-preview" id="spec-grid-preview"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Link liên kết</label>
+                                    <input type="text" id="spec-grid-link">
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Lưu thay đổi</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== PAGES TAB ==================== -->
+            <section id="tab-pages" class="admin-tab">
+                <div class="tab-header">
+                    <h1>📄 Quản lý Trang</h1>
+                </div>
+
+                <div class="pages-grid">
+                    <div class="page-card" onclick="adminPanel.editPage('home')">
+                        <div class="page-icon">🏠</div>
+                        <h3>Trang chủ</h3>
+                        <p>index.html</p>
+                        <span class="page-status active">Đang hoạt động</span>
+                    </div>
+                    <div class="page-card" onclick="adminPanel.editPage('about')">
+                        <div class="page-icon">ℹ️</div>
+                        <h3>Giới thiệu</h3>
+                        <p>about.html</p>
+                        <span class="page-status active">Đang hoạt động</span>
+                    </div>
+                    <div class="page-card" onclick="adminPanel.editPage('endoscopy')">
+                        <div class="page-icon">🏥</div>
+                        <h3>Nội soi</h3>
+                        <p>noi-soi.html</p>
+                        <span class="page-status active">Đang hoạt động</span>
+                    </div>
+                    <div class="page-card" onclick="adminPanel.editPage('packages')">
+                        <div class="page-icon">📋</div>
+                        <h3>Chi tiết gói khám</h3>
+                        <p>package-details.html</p>
+                        <span class="page-status active">Đang hoạt động</span>
+                    </div>
+                    <div class="page-card" onclick="adminPanel.editPage('news')">
+                        <div class="page-icon">📰</div>
+                        <h3>Tin tức</h3>
+                        <p>news.html</p>
+                        <span class="page-status active">Đang hoạt động</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== REVIEWS TAB ==================== -->
+            <section id="tab-reviews" class="admin-tab">
+                <div class="tab-header">
+                    <h1>⭐ Quản lý Đánh giá</h1>
+                    <button id="add-review-btn" class="btn btn-primary">+ Thêm đánh giá</button>
+                </div>
+
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Tên</th>
+                                <th>Địa điểm</th>
+                                <th>Đánh giá</th>
+                                <th>Nội dung</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reviews-tbody">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ==================== USERS TAB ==================== -->
+            <section id="tab-users" class="admin-tab">
+                <div class="tab-header">
+                    <h1>👥 Quản lý Người dùng</h1>
+                    <button id="add-user-btn" class="btn btn-primary">+ Thêm người dùng</button>
+                </div>
+
+                <div class="info-box">
+                    <p>💡 Hệ thống đang chạy ở chế độ đơn người dùng. Để thêm nhiều người dùng với phân quyền, cần tích
+                        hợp backend.</p>
+                </div>
+
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Tên</th>
+                                <th>Email</th>
+                                <th>Vai trò</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-tbody">
+                            <tr>
+                                <td><strong>Admin</strong></td>
+                                <td>admin@bvtanan.vn</td>
+                                <td><span class="badge badge-primary">Quản trị viên</span></td>
+                                <td><span class="badge badge-success">Hoạt động</span></td>
+                                <td class="actions">
+                                    <button class="btn-edit" onclick="adminPanel.editUser('admin')">Sửa</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ==================== APPEARANCE TAB ==================== -->
+            <section id="tab-appearance" class="admin-tab">
+                <div class="tab-header">
+                    <h1>🎨 Giao diện</h1>
+                </div>
+
+                <!-- Theme Settings -->
+                <div class="settings-card">
+                    <h3>🎨 Tùy chỉnh Theme</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Màu chính (Primary Color)</label>
+                            <div class="color-picker-row">
+                                <input type="color" id="theme-primary" value="#004aad">
+                                <input type="text" id="theme-primary-hex" value="#004aad" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Màu phụ (Secondary Color)</label>
+                            <div class="color-picker-row">
+                                <input type="color" id="theme-secondary" value="#e8f4fd">
+                                <input type="text" id="theme-secondary-hex" value="#e8f4fd" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="adminPanel.saveTheme()">Lưu Theme</button>
+                </div>
+
+                <!-- Menu Management -->
+                <div class="settings-card">
+                    <h3>📋 Quản lý Menu</h3>
+                    <div id="menu-items" class="menu-editor">
+                        <!-- Dynamic menu items -->
+                    </div>
+                    <button class="btn btn-outline" onclick="adminPanel.addMenuItem()">+ Thêm mục menu</button>
+                </div>
+
+                <!-- Widget Settings -->
+                <div class="settings-card">
+                    <h3>🧩 Widgets</h3>
+                    <div class="widget-toggles">
+                        <label class="toggle-item">
+                            <input type="checkbox" id="widget-reviews" checked>
+                            <span>Hiển thị Đánh giá</span>
+                        </label>
+                        <label class="toggle-item">
+                            <input type="checkbox" id="widget-news" checked>
+                            <span>Hiển thị Tin tức</span>
+                        </label>
+                        <label class="toggle-item">
+                            <input type="checkbox" id="widget-cta" checked>
+                            <span>Hiển thị CTA Button</span>
+                        </label>
+                        <label class="toggle-item">
+                            <input type="checkbox" id="widget-chat" checked>
+                            <span>Hiển thị Chat Widget</span>
+                        </label>
+                    </div>
+                    <button class="btn btn-primary" onclick="adminPanel.saveWidgets()">Lưu Widgets</button>
+                </div>
+            </section>
+
+            <!-- ==================== SEO TAB ==================== -->
+            <section id="tab-seo" class="admin-tab">
+                <div class="tab-header">
+                    <h1>🔍 SEO & Marketing</h1>
+                </div>
+
+                <!-- Google Analytics -->
+                <div class="settings-card">
+                    <h3>📊 Google Analytics</h3>
+                    <div class="form-group">
+                        <label>Google Analytics ID (GA4)</label>
+                        <input type="text" id="ga-id" placeholder="G-XXXXXXXXXX">
+                        <small>Ví dụ: G-ABC123XYZ</small>
+                    </div>
+                    <button class="btn btn-primary" onclick="adminPanel.saveGA()">Lưu & Kích hoạt</button>
+                    <p id="ga-status" class="success-message" style="display:none;">✅ Đã kích hoạt Google Analytics</p>
+                </div>
+
+                <!-- Search Console -->
+                <div class="settings-card">
+                    <h3>🔎 Google Search Console</h3>
+                    <div class="form-group">
+                        <label>Verification Code</label>
+                        <input type="text" id="gsc-code" placeholder="google-site-verification=...">
+                        <small>Lấy mã từ Search Console → Settings → Ownership verification</small>
+                    </div>
+                    <button class="btn btn-primary" onclick="adminPanel.saveGSC()">Lưu Verification</button>
+                </div>
+
+                <!-- Keyword Tracking -->
+                <div class="settings-card">
+                    <h3>🎯 Theo dõi Từ khóa</h3>
+                    <div class="keywords-list" id="tracked-keywords">
+                        <!-- Dynamic keywords -->
+                    </div>
+                    <div class="form-row">
+                        <input type="text" id="new-keyword" placeholder="Nhập từ khóa mới...">
+                        <button class="btn btn-outline" onclick="adminPanel.addKeyword()">+ Thêm</button>
+                    </div>
+                </div>
+
+                <!-- SEO Checklist -->
+                <div class="settings-card">
+                    <h3>✅ SEO Checklist</h3>
+                    <div class="seo-checklist-dashboard" id="seo-checklist-main">
+                        <!-- Dynamic checklist -->
+                    </div>
+            </section>
+
+            <!-- ==================== MEDIA LIBRARY TAB ==================== -->
+            <section id="tab-media" class="admin-tab">
+                <div class="tab-header">
+                    <h1>🖼️ Thư viện Media</h1>
+                    <button id="upload-media-btn" class="btn btn-primary">+ Tải lên</button>
+                </div>
+
+                <!-- Media Stats -->
+                <div class="media-stats">
+                    <div class="stat-mini">
+                        <span class="stat-number" id="media-total">0</span>
+                        <span class="stat-label">Tổng file</span>
+                    </div>
+                    <div class="stat-mini">
+                        <span class="stat-number" id="media-images">0</span>
+                        <span class="stat-label">Hình ảnh</span>
+                    </div>
+                    <div class="stat-mini">
+                        <span class="stat-number" id="media-docs">0</span>
+                        <span class="stat-label">Tài liệu</span>
+                    </div>
+                </div>
+
+                <!-- Media Filters -->
+                <div class="filters-bar">
+                    <select id="filter-media-type">
+                        <option value="">Tất cả loại file</option>
+                        <option value="image">Hình ảnh</option>
+                        <option value="document">Tài liệu</option>
+                        <option value="video">Video</option>
+                    </select>
+                    <input type="text" id="search-media" placeholder="🔍 Tìm kiếm file...">
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="grid"
+                            onclick="adminPanel.setMediaView('grid')">⊞</button>
+                        <button class="view-btn" data-view="list" onclick="adminPanel.setMediaView('list')">☰</button>
+                    </div>
+                </div>
+
+                <!-- Media Grid -->
+                <div class="media-grid" id="media-grid">
+                    <!-- Sample media items -->
+                    <div class="media-item" onclick="adminPanel.selectMedia(this)">
+                        <div class="media-thumb">
+                            <img src="assets/Logo.webp" alt="Logo">
+                        </div>
+                        <div class="media-info">
+                            <span class="media-name">Logo.webp</span>
+                            <span class="media-size">24 KB</span>
+                        </div>
+                    </div>
+                    <div class="media-item" onclick="adminPanel.selectMedia(this)">
+                        <div class="media-thumb">
+                            <img src="assets/hero-bg.webp" alt="Hero">
+                        </div>
+                        <div class="media-info">
+                            <span class="media-name">hero-bg.webp</span>
+                            <span class="media-size">156 KB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upload Zone -->
+                <div class="upload-zone" id="upload-zone" style="display: none;">
+                    <div class="upload-content">
+                        <span class="upload-icon">📁</span>
+                        <h3>Kéo thả file vào đây</h3>
+                        <p>hoặc click để chọn file</p>
+                        <input type="file" id="media-upload-input" multiple accept="image/*,.pdf,.doc,.docx">
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== MESSAGES TAB ==================== -->
+            <section id="tab-messages" class="admin-tab">
+                <div class="tab-header">
+                    <h1>💬 Tin nhắn & Liên hệ</h1>
+                    <div class="header-actions">
+                        <span class="badge badge-primary" id="unread-count">3 chưa đọc</span>
+                    </div>
+                </div>
+
+                <!-- Messages Filters -->
+                <div class="filters-bar">
+                    <select id="filter-messages">
+                        <option value="">Tất cả tin nhắn</option>
+                        <option value="unread">Chưa đọc</option>
+                        <option value="starred">Đánh dấu sao</option>
+                        <option value="archived">Đã lưu trữ</option>
+                    </select>
+                    <input type="text" id="search-messages" placeholder="🔍 Tìm kiếm tin nhắn...">
+                </div>
+
+                <!-- Messages List -->
+                <div class="messages-list" id="messages-list">
+                    <div class="message-item unread" onclick="adminPanel.viewMessage('1')">
+                        <div class="message-avatar">👤</div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <strong>Nguyễn Văn A</strong>
+                                <span class="message-time">2 giờ trước</span>
+                            </div>
+                            <p class="message-subject">Hỏi về gói khám tổng quát</p>
+                            <p class="message-preview">Tôi muốn đăng ký gói khám tổng quát cho gia đình 4 người...</p>
+                        </div>
+                        <button class="message-star"
+                            onclick="event.stopPropagation(); adminPanel.starMessage('1')">☆</button>
+                    </div>
+                    <div class="message-item unread" onclick="adminPanel.viewMessage('2')">
+                        <div class="message-avatar">👤</div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <strong>Trần Thị B</strong>
+                                <span class="message-time">5 giờ trước</span>
+                            </div>
+                            <p class="message-subject">Đặt lịch nội soi</p>
+                            <p class="message-preview">Xin cho hỏi chi phí nội soi đại tràng và thời gian thực hiện...
+                            </p>
+                        </div>
+                        <button class="message-star starred"
+                            onclick="event.stopPropagation(); adminPanel.starMessage('2')">★</button>
+                    </div>
+                    <div class="message-item" onclick="adminPanel.viewMessage('3')">
+                        <div class="message-avatar">👤</div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <strong>Lê Văn C</strong>
+                                <span class="message-time">1 ngày trước</span>
+                            </div>
+                            <p class="message-subject">Xin thông tin bảo hiểm</p>
+                            <p class="message-preview">Bệnh viện có liên kết với bảo hiểm Bảo Việt không ạ?...</p>
+                        </div>
+                        <button class="message-star"
+                            onclick="event.stopPropagation(); adminPanel.starMessage('3')">☆</button>
+                    </div>
+                </div>
+
+                <!-- No Messages State -->
+                <div class="empty-state" id="messages-empty" style="display: none;">
+                    <p>📭 Không có tin nhắn nào</p>
+                </div>
+            </section>
+
+            <!-- ==================== CATEGORIES TAB ==================== -->
+            <section id="tab-categories" class="admin-tab">
+                <div class="tab-header">
+                    <h1>🏷️ Danh mục & Tags</h1>
+                </div>
+
+                <div class="categories-layout">
+                    <!-- Categories Section -->
+                    <div class="settings-card">
+                        <h3>📁 Danh mục bài viết</h3>
+                        <div class="category-list" id="category-list">
+                            <div class="category-item">
+                                <span class="cat-name">Tin tức</span>
+                                <span class="cat-count">12 bài</span>
+                                <div class="cat-actions">
+                                    <button class="btn-edit" onclick="adminPanel.editCategory('tintuc')">Sửa</button>
+                                    <button class="btn-delete"
+                                        onclick="adminPanel.deleteCategory('tintuc')">Xóa</button>
+                                </div>
+                            </div>
+                            <div class="category-item">
+                                <span class="cat-name">Sức khỏe</span>
+                                <span class="cat-count">8 bài</span>
+                                <div class="cat-actions">
+                                    <button class="btn-edit" onclick="adminPanel.editCategory('suckhoe')">Sửa</button>
+                                    <button class="btn-delete"
+                                        onclick="adminPanel.deleteCategory('suckhoe')">Xóa</button>
+                                </div>
+                            </div>
+                            <div class="category-item">
+                                <span class="cat-name">Khuyến mãi</span>
+                                <span class="cat-count">5 bài</span>
+                                <div class="cat-actions">
+                                    <button class="btn-edit" onclick="adminPanel.editCategory('khuyenmai')">Sửa</button>
+                                    <button class="btn-delete"
+                                        onclick="adminPanel.deleteCategory('khuyenmai')">Xóa</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="add-category-form">
+                            <input type="text" id="new-category" placeholder="Tên danh mục mới...">
+                            <button class="btn btn-primary" onclick="adminPanel.addCategory()">+ Thêm</button>
+                        </div>
+                    </div>
+
+                    <!-- Tags Section -->
+                    <div class="settings-card">
+                        <h3>🏷️ Tags phổ biến</h3>
+                        <div class="tags-cloud" id="tags-cloud">
+                            <span class="tag-item" onclick="adminPanel.editTag('noi-soi')">nội soi
+                                <small>(15)</small></span>
+                            <span class="tag-item" onclick="adminPanel.editTag('benh-vien')">bệnh viện
+                                <small>(12)</small></span>
+                            <span class="tag-item" onclick="adminPanel.editTag('kham-suc-khoe')">khám sức khỏe
+                                <small>(10)</small></span>
+                            <span class="tag-item" onclick="adminPanel.editTag('sieu-am')">siêu âm
+                                <small>(8)</small></span>
+                            <span class="tag-item" onclick="adminPanel.editTag('xet-nghiem')">xét nghiệm
+                                <small>(7)</small></span>
+                            <span class="tag-item" onclick="adminPanel.editTag('bao-hiem')">bảo hiểm
+                                <small>(5)</small></span>
+                        </div>
+                        <div class="add-category-form">
+                            <input type="text" id="new-tag" placeholder="Tag mới...">
+                            <button class="btn btn-outline" onclick="adminPanel.addTag()">+ Thêm tag</button>
+                        </div>
+                    </div>
+
+                    <!-- Product Categories -->
+                    <div class="settings-card">
+                        <h3>📦 Danh mục dịch vụ</h3>
+                        <div class="category-list" id="service-category-list">
+                            <div class="category-item">
+                                <span class="cat-name">Gói khám</span>
+                                <span class="cat-count">9 dịch vụ</span>
+                                <div class="cat-actions">
+                                    <button class="btn-edit">Sửa</button>
+                                </div>
+                            </div>
+                            <div class="category-item">
+                                <span class="cat-name">Nội soi</span>
+                                <span class="cat-count">5 dịch vụ</span>
+                                <div class="cat-actions">
+                                    <button class="btn-edit">Sửa</button>
+                                </div>
+                            </div>
+                            <div class="category-item">
+                                <span class="cat-name">Siêu âm</span>
+                                <span class="cat-count">4 dịch vụ</span>
+                                <div class="cat-actions">
+                                    <button class="btn-edit">Sửa</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== TOOLS TAB ==================== -->
+            <section id="tab-tools" class="admin-tab">
+                <div class="tab-header">
+                    <h1>🔧 Công cụ</h1>
+                </div>
+
+                <!-- Backup Section -->
+                <div class="settings-card">
+                    <h3>💾 Sao lưu & Khôi phục</h3>
+                    <p style="color: #666; margin-bottom: 16px;">Sao lưu dữ liệu website để bảo vệ nội dung của bạn.</p>
+
+                    <div class="backup-actions">
+                        <button class="btn btn-primary" onclick="adminPanel.createBackup()">
+                            📥 Tạo bản sao lưu
+                        </button>
+                        <button class="btn btn-outline" onclick="adminPanel.restoreBackup()">
+                            📤 Khôi phục từ file
+                        </button>
+                    </div>
+
+                    <div class="backup-history">
+                        <h4>📋 Lịch sử sao lưu</h4>
+                        <div class="backup-list" id="backup-list">
+                            <div class="backup-item">
+                                <span class="backup-date">27/01/2026 09:30</span>
+                                <span class="backup-size">256 KB</span>
+                                <button class="btn-edit" onclick="adminPanel.downloadBackup('1')">Tải về</button>
+                            </div>
+                            <div class="backup-item">
+                                <span class="backup-date">25/01/2026 14:15</span>
+                                <span class="backup-size">245 KB</span>
+                                <button class="btn-edit" onclick="adminPanel.downloadBackup('2')">Tải về</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Import/Export -->
+                <div class="settings-card">
+                    <h3>📦 Import / Export</h3>
+                    <div class="import-export-grid">
+                        <div class="export-section">
+                            <h4>Xuất dữ liệu</h4>
+                            <div class="export-options">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" id="export-articles" checked>
+                                    <span>Bài viết</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" id="export-products" checked>
+                                    <span>Sản phẩm/Dịch vụ</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" id="export-reviews" checked>
+                                    <span>Đánh giá</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" id="export-settings" checked>
+                                    <span>Cài đặt</span>
+                                </label>
+                            </div>
+                            <button class="btn btn-primary" onclick="adminPanel.exportData()">📤 Xuất JSON</button>
+                            <button class="btn btn-outline" onclick="adminPanel.exportCSV()">📊 Xuất CSV</button>
+                        </div>
+                        <div class="import-section">
+                            <h4>Nhập dữ liệu</h4>
+                            <div class="import-zone">
+                                <input type="file" id="import-file" accept=".json,.csv">
+                                <p>Chọn file JSON hoặc CSV để nhập</p>
+                            </div>
+                            <button class="btn btn-primary" onclick="adminPanel.importData()">📥 Nhập dữ liệu</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Maintenance Mode -->
+                <div class="settings-card">
+                    <h3>🚧 Chế độ Bảo trì</h3>
+                    <div class="maintenance-toggle">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="maintenance-mode">
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <div class="toggle-info">
+                            <strong>Bật chế độ bảo trì</strong>
+                            <p>Khi bật, người dùng sẽ thấy trang thông báo bảo trì thay vì website.</p>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top: 16px;">
+                        <label>Thông báo bảo trì</label>
+                        <textarea id="maintenance-message" rows="3"
+                            placeholder="Website đang được bảo trì, vui lòng quay lại sau..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Site Health -->
+                <div class="settings-card">
+                    <h3>🏥 Kiểm tra Sức khỏe Website</h3>
+                    <div class="health-status">
+                        <div class="health-score">
+                            <span class="health-number" id="health-score">85</span>
+                            <span class="health-label">Điểm sức khỏe</span>
+                        </div>
+                        <div class="health-checks">
+                            <div class="health-item passed">
+                                <span class="health-icon">✓</span>
+                                <span>SSL/HTTPS hoạt động</span>
+                            </div>
+                            <div class="health-item passed">
+                                <span class="health-icon">✓</span>
+                                <span>Hình ảnh đã tối ưu WebP</span>
+                            </div>
+                            <div class="health-item passed">
+                                <span class="health-icon">✓</span>
+                                <span>Responsive trên mobile</span>
+                            </div>
+                            <div class="health-item warning">
+                                <span class="health-icon">!</span>
+                                <span>Chưa cài Google Analytics</span>
+                            </div>
+                            <div class="health-item failed">
+                                <span class="health-icon">✗</span>
+                                <span>Thiếu sitemap.xml</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline" onclick="adminPanel.runHealthCheck()">🔄 Kiểm tra lại</button>
+                </div>
+
+                <!-- Activity Log -->
+                <div class="settings-card">
+                    <h3>📜 Nhật ký hoạt động</h3>
+                    <div class="activity-log" id="activity-log">
+                        <div class="activity-item">
+                            <span class="activity-time">14:30</span>
+                            <span class="activity-action">Đăng nhập admin</span>
+                            <span class="activity-user">Admin</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">14:25</span>
+                            <span class="activity-action">Cập nhật bài viết "Nội soi tiêu hóa"</span>
+                            <span class="activity-user">Admin</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">13:45</span>
+                            <span class="activity-action">Thêm sản phẩm mới</span>
+                            <span class="activity-user">Admin</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">10:30</span>
+                            <span class="activity-action">Thay đổi cài đặt theme</span>
+                            <span class="activity-user">Admin</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline" onclick="adminPanel.clearActivityLog()">🗑️ Xóa nhật ký</button>
+                </div>
+            </section>
+
+            <!-- ==================== SETTINGS TAB ==================== -->
+            <section id="tab-settings" class="admin-tab">
+                <div class="tab-header">
+                    <h1>⚙️ Cấu hình Hệ thống</h1>
+                </div>
+
+                <!-- Site Info -->
+                <div class="settings-card">
+                    <h3>🌐 Thông tin Website</h3>
+                    <div class="form-group">
+                        <label>Tên Website</label>
+                        <input type="text" id="site-name" value="Bệnh viện Đa khoa Quốc tế Tân An">
+                    </div>
+                    <div class="form-group">
+                        <label>Slogan</label>
+                        <input type="text" id="site-slogan" value="Chuẩn Nhật - Chất lượng Quốc tế">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Hotline Tổng đài (Xanh)</label>
+                            <input type="tel" id="site-hotline" value="0272 3 550 507">
+                        </div>
+                        <div class="form-group">
+                            <label>Hotline Cấp cứu (Đỏ)</label>
+                            <input type="tel" id="site-emergency" value="0272 3 66 55 88">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email liên hệ</label>
+                        <input type="email" id="site-email" value="info@bvtanan.vn">
+                    </div>
+                    <div class="form-group">
+                        <label>Địa chỉ</label>
+                        <input type="text" id="site-address"
+                            value="Số 136C Tỉnh lộ 827, Phường Tân An, Tây Ninh (Long An cũ)">
+                    </div>
+
+                    <h4 style="margin-top: 20px; margin-bottom: 10px;">Mạng xã hội</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fab fa-facebook"></i> Facebook URL</label>
+                            <input type="url" id="social-facebook" placeholder="https://facebook.com/...">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fab fa-youtube"></i> YouTube URL</label>
+                            <input type="url" id="social-youtube" placeholder="https://youtube.com/...">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fab fa-linkedin"></i> Zalo/LinkedIn URL</label>
+                            <input type="url" id="social-zalo" placeholder="https://zalo.me/...">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fab fa-tiktok"></i> TikTok URL</label>
+                            <input type="url" id="social-tiktok" placeholder="https://tiktok.com/...">
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="adminPanel.saveSiteInfo()">Lưu thông tin</button>
+                </div>
+
+                <!-- SEO Files Editor -->
+                <div class="settings-card">
+                    <h3>📂 File cấu hình SEO (Robots & Sitemap)</h3>
+                    <div class="info-box">
+                        <p>ℹ️ Vì đây là website tĩnh, sau khi chỉnh sửa, bạn cần nhấn <b>"Tải về"</b> và upload file lên
+                            hosting (thư mục gốc).</p>
+                    </div>
+
+                    <!-- Robots.txt -->
+                    <div class="form-group" style="margin-top: 20px;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                            <label>File <b>robots.txt</b></label>
+                            <button class="btn btn-sm btn-outline" onclick="adminPanel.downloadSEOFile('robots')">⬇️ Tải
+                                robots.txt</button>
+                        </div>
+                        <textarea id="seo-robots-content" rows="6"
+                            style="font-family: monospace; background: #f4f6f8;"></textarea>
+                    </div>
+
+                    <!-- Sitemap.xml -->
+                    <div class="form-group">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                            <label>File <b>sitemap.xml</b></label>
+                            <button class="btn btn-sm btn-outline" onclick="adminPanel.downloadSEOFile('sitemap')">⬇️
+                                Tải sitemap.xml</button>
+                        </div>
+                        <textarea id="seo-sitemap-content" rows="10"
+                            style="font-family: monospace; background: #f4f6f8;"></textarea>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="adminPanel.saveSEOFiles()">Lưu nội dung
+                        (LocalStorage)</button>
+                </div>
+
+                <!-- SEO Default -->
+                <div class="settings-card">
+                    <h3>🔍 SEO Mặc định</h3>
+                    <div class="form-group">
+                        <label>Meta Title mặc định</label>
+                        <input type="text" id="default-meta-title"
+                            value="Bệnh viện Đa khoa Quốc tế Tân An | Chuẩn Nhật Bản">
+                        <small><span id="meta-title-len">0</span>/60 ký tự</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Meta Description mặc định</label>
+                        <textarea id="default-meta-desc"
+                            rows="3">Bệnh viện Đa khoa Quốc tế Tân An - Đơn vị y tế chuẩn Nhật Bản tại Long An. Dịch vụ nội soi tiêu hóa, siêu âm tim thai, khám sức khỏe định kỳ.</textarea>
+                        <small><span id="meta-desc-len">0</span>/160 ký tự</small>
+                    </div>
+                    <button class="btn btn-primary" onclick="adminPanel.saveSEODefaults()">Lưu SEO</button>
+                </div>
+
+                <!-- SSL & Security -->
+                <div class="settings-card">
+                    <h3>🔒 Bảo mật & SSL</h3>
+                    <div class="security-status">
+                        <div class="status-item">
+                            <span class="status-icon" id="ssl-status">🔒</span>
+                            <div>
+                                <strong>SSL Certificate</strong>
+                                <p id="ssl-info">Kiểm tra tại hosting panel</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <p>⚠️ Cấu hình SSL và HTTPS cần thực hiện trên hosting panel (cPanel, Plesk, hoặc
+                            Netlify/Vercel).</p>
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="settings-card">
+                    <h3>🔑 Đổi mật khẩu</h3>
+                    <form id="change-password-form">
+                        <div class="form-group">
+                            <label>Mật khẩu hiện tại</label>
+                            <input type="password" id="current-password" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Mật khẩu mới</label>
+                                <input type="password" id="new-password" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Xác nhận mật khẩu</label>
+                                <input type="password" id="confirm-password" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Đổi mật khẩu</button>
+                        <p id="password-success" class="success-message" style="display: none;">✅ Đã đổi mật khẩu!</p>
+                        <p id="password-error" class="error-message" style="display: none;"></p>
+                    </form>
+                </div>
+
+                <!-- Google Sheets -->
+                <div class="settings-card">
+                    <h3>📊 Google Sheets Backend</h3>
+                    <form id="sheets-config-form">
+                        <div class="form-group">
+                            <label>Google Apps Script URL</label>
+                            <input type="url" id="sheets-url" placeholder="https://script.google.com/...">
+                            <small>Xem hướng dẫn trong file GOOGLE_SHEETS_SETUP.md</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Lưu cấu hình</button>
+                        <p id="config-success" class="success-message" style="display: none;">✅ Đã lưu!</p>
+                    </form>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- ==================== MODALS ==================== -->
+
+    <!-- Article Modal -->
+    <div id="article-modal" class="modal" style="display: none;">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2 id="article-modal-title">Thêm bài viết mới</h2>
+                <button class="modal-close" id="close-article-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="article-form">
+                    <input type="hidden" id="article-id">
+
+                    <!-- SEO Section -->
+                    <div class="form-section">
+                        <h3 class="section-title">🔍 Cài đặt SEO</h3>
+                        <div class="form-group">
+                            <label>Từ khóa chính (Focus Keyword) *</label>
+                            <input type="text" id="article-keyword" required placeholder="VD: nội soi tiêu hóa">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Meta Title</label>
+                                <input type="text" id="article-meta-title" maxlength="60">
+                                <small><span id="article-title-count">0</span>/60</small>
+                            </div>
+                            <div class="form-group">
+                                <label>Danh mục</label>
+                                <select id="article-category">
+                                    <option value="Tin tức">Tin tức</option>
+                                    <option value="Sức khỏe">Sức khỏe</option>
+                                    <option value="Khuyến mãi">Khuyến mãi</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Meta Description</label>
+                            <textarea id="article-meta-desc" maxlength="160" rows="2"></textarea>
+                            <small><span id="article-desc-count">0</span>/160</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Tags (phân cách bằng dấu phẩy)</label>
+                            <input type="text" id="article-tags" placeholder="sức khỏe, nội soi, bệnh viện">
+                        </div>
+                    </div>
+
+                    <!-- Content Section -->
+                    <div class="form-section">
+                        <h3 class="section-title">📝 Nội dung</h3>
+                        <div class="form-group">
+                            <label>Tiêu đề H1 *</label>
+                            <input type="text" id="article-h1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mô tả ngắn (Summary/Excerpt)</label>
+                            <textarea id="article-excerpt" rows="3"
+                                placeholder="Đoạn tóm tắt hiển thị trên danh sách tin tức..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Nội dung</label>
+                            <div class="editor-toolbar">
+                                <button type="button" class="toolbar-btn" data-action="h2">H2</button>
+                                <button type="button" class="toolbar-btn" data-action="h3">H3</button>
+                                <span class="toolbar-divider"></span>
+                                <button type="button" class="toolbar-btn" data-action="bold"><b>B</b></button>
+                                <button type="button" class="toolbar-btn" data-action="italic"><i>I</i></button>
+                                <button type="button" class="toolbar-btn" data-action="ul">• List</button>
+                                <button type="button" class="toolbar-btn" data-action="link">🔗</button>
+                                <button type="button" class="toolbar-btn" data-action="image">🖼️</button>
+                                <span class="toolbar-divider"></span>
+                                <button type="button" class="toolbar-btn" data-action="preview">👁️</button>
+                            </div>
+                            <textarea id="article-content" rows="10"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Media Section -->
+                    <div class="form-section">
+                        <h3 class="section-title">🖼️ Hình ảnh</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>URL hình ảnh đại diện</label>
+                                <input type="text" id="article-image" placeholder="assets/image.webp">
+                            </div>
+                            <div class="form-group">
+                                <label>Alt Text (SEO)</label>
+                                <input type="text" id="article-image-alt">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEO Score -->
+                    <div class="seo-score-panel">
+                        <h3 class="section-title">📊 Điểm SEO</h3>
+                        <div id="article-seo-score">
+                            <div class="seo-score-circle" id="article-score-circle">
+                                <span id="article-score-value">0</span>
+                            </div>
+                            <div class="seo-checklist" id="article-seo-checklist"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" id="cancel-article">Hủy</button>
+                        <button type="submit" class="btn btn-primary">Lưu bài viết</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="product-modal-title">Thêm sản phẩm</h2>
+                <button class="modal-close" id="close-product-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="product-form">
+                    <input type="hidden" id="product-id">
+                    <div class="form-group">
+                        <label>Tên sản phẩm/dịch vụ *</label>
+                        <input type="text" id="product-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Loại</label>
+                        <select id="product-type">
+                            <option value="package">Gói khám</option>
+                            <option value="service">Dịch vụ y khoa</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Mô tả ngắn</label>
+                        <textarea id="product-desc" rows="3"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Giá (VNĐ)</label>
+                            <input type="number" id="product-price" placeholder="0">
+                        </div>
+                        <div class="form-group">
+                            <label>Giá khuyến mãi</label>
+                            <input type="number" id="product-sale-price" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Nội dung chi tiết</label>
+                        <textarea id="product-content" rows="5"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="product-active" checked>
+                            Đang hoạt động
+                        </label>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" id="cancel-product">Hủy</button>
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Editor Modal -->
+    <div id="page-modal" class="modal" style="display: none;">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2 id="page-modal-title">Chỉnh sửa trang</h2>
+                <button class="modal-close" id="close-page-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="info-box">
+                    <p>⚠️ Để chỉnh sửa nội dung trang, bạn cần edit trực tiếp file HTML hoặc sử dụng công cụ code
+                        editor.</p>
+                </div>
+                <div class="form-group">
+                    <label>File</label>
+                    <input type="text" id="page-file" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Meta Title</label>
+                    <input type="text" id="page-title">
+                </div>
+                <div class="form-group">
+                    <label>Meta Description</label>
+                    <textarea id="page-description" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline" onclick="adminPanel.closePageModal()">Đóng</button>
+                    <button type="button" class="btn btn-primary" onclick="adminPanel.savePageMeta()">Lưu SEO</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="reviews.js"></script>
+    <script src="admin.js?v=debug2"></script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+/* Reasons Carousel */
+.reasons-slider {
+    overflow: hidden;
+    padding: 20px 0;
+    position: relative;
+}
+
+.reasons-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.reasons-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px; /* Spacing between slides visually if needed */
+}
+
+/* Grid for 4 items in a row */
+.reasons-slide-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.reasons-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.reason-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: none;
+}
+
+.reason-dot.active {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* Responsive adjustment for the slide grid */
+@media (max-width: 900px) {
+    .reasons-slide-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2x2 on tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .reasons-slide-grid {
+        grid-template-columns: 1fr; /* Stack on mobile */
+    }
+}

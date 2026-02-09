@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ - Bệnh Viện Đa Khoa Quốc Tế Tân An</title>
+    <meta name="description"
+        content="Liên hệ đặt lịch khám tại Bệnh viện Đa khoa Quốc tế Tân An. Hotline: 0272 3 550 507. Địa chỉ: Số 136C Tỉnh lộ 827, Phường Tân An, Tây Ninh.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Flags -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo-favicon.webp">
+    <style>
+        .contact-hero {
+            /* Branding: Overlay logo slightly visible in the background */
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.8)),
+                /* White overlay */
+                url('assets/logo.webp'),
+                /* Logo Watermark */
+                url('assets/consultation.webp');
+            /* Hero Image */
+            background-size: cover, 400px, cover;
+            background-position: center, center, center;
+            background-repeat: no-repeat, no-repeat, no-repeat;
+            background-blend-mode: normal, overlay, normal;
+
+            padding: 80px 0;
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        .contact-hero h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <!-- Top Bar: Logo, Search, Utility -->
+        <div class="top-bar">
+            <div class="container top-bar-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/logo.webp" alt="Bệnh Viện Đa Khoa Quốc Tế Tân An" class="logo-img">
+                    </a>
+                </div>
+                <div class="header-hotlines"
+                    style="display: flex; flex-direction: column; justify-content: center; margin: 0 auto; padding-left: 30px;">
+                    <div class="hotline-item emergency" style="display: flex; align-items: center; margin-bottom: 3px;">
+                        <i class="fas fa-phone-volume hotline-icon"
+                            style="color: red; font-size: 1.2rem; margin-right: 8px; animation: ring 1.5s infinite;"></i>
+                        <div class="hotline-text-group" style="display: flex; align-items: baseline;">
+                            <span class="hotline-label"
+                                style="color: red; font-weight: 700; font-size: 0.9rem; margin-right: 6px;"
+                                data-i18n="common.emergency">CẤP
+                                CỨU:</span>
+                            <span class="hotline-number" style="color: red; font-weight: 700; font-size: 1.2rem;">(0272)
+                                3 661 115</span>
+                        </div>
+                    </div>
+                    <div class="hotline-item booking" style="display: flex; align-items: center;">
+                        <i class="fas faheadset hotline-icon"
+                            style="color: #28a745; font-size: 1.2rem; margin-right: 8px;"></i>
+                        <div class="hotline-text-group" style="display: flex; align-items: baseline;">
+                            <span class="hotline-label"
+                                style="color: #28a745; font-weight: 700; font-size: 0.9rem; margin-right: 6px;"
+                                data-i18n="common.hotline">HOTLINE:</span>
+                            <span class="hotline-number"
+                                style="color: #28a745; font-weight: 700; font-size: 1.2rem;">(0272) 3 550 507</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header-tools">
+                    <div class="lang-switch">
+                        <a href="#" class="active" data-i18n="lang.vietnamese"><span
+                                class="flag-icon flag-icon-vn"></span> TIẾNG VIỆT</a>
+                        <a href="#" data-i18n="lang.english"><span class="flag-icon flag-icon-gb"></span> ENGLISH</a>
+                        <a href="#" data-i18n="lang.khmer"><span class="flag-icon flag-icon-kh"></span> KHMER</a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="main-nav">
+            <div class="container nav-container">
+                <ul class="nav-list">
+                    <li><a href="index.html" data-i18n="nav.home">TRANG CHỦ</a></li>
+                    <li><a href="about.html" data-i18n="nav.about">GIỚI THIỆU CHUNG</a></li>
+                    <li><a href="noi-soi.html" data-i18n="nav.endoscopy">NỘI SOI TIÊU HOÁ</a></li>
+                    <li class="dropdown">
+                        <a href="dich-vu-y-khoa.html"><span data-i18n="nav.services">DỊCH VỤ Y KHOA</span> <i
+                                class="fas fa-chevron-down" style="font-size: 0.7em; margin-left: 5px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li class="mega-col">
+                                <div class="mega-col-title">Chuyên Khoa Nội</div>
+                                <ul>
+                                    <li><a href="dich-vu-y-khoa.html">Khoa Sản Phụ Khoa</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Khoa Nội Nhi & Nhi Sơ Sinh</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Khoa Nội Tổng Quát</a></li>
+                                    <li class="mega-nested"><a href="dich-vu-y-khoa.html">Nội Hô Hấp & Phổi</a></li>
+                                    <li class="mega-nested"><a href="dich-vu-y-khoa.html">Nội Tiết & Tiểu Đường</a></li>
+                                    <li class="mega-nested"><a href="dich-vu-y-khoa.html">Nội Cơ Xương Khớp</a></li>
+                                    <li class="mega-nested"><a href="dich-vu-y-khoa.html">Nội Thận</a></li>
+                                    <li class="mega-nested"><a href="dich-vu-y-khoa.html">Nội Tim Mạch</a></li>
+                                    <li class="mega-nested"><a href="dich-vu-y-khoa.html">Nội Tiêu Hoá</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">CK Tiêu Hóa & Gan Mật</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Y Học Cổ Truyền</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Gây Mê Hồi Sức</a></li>
+                                </ul>
+                            </li>
+                            <li class="mega-col">
+                                <div class="mega-col-title">Chuyên Khoa Ngoại</div>
+                                <ul>
+                                    <li><a href="dich-vu-y-khoa.html">Ngoại Tổng Quát</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Chấn Thương Chỉnh Hình</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Khoa Tiết Niệu</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Tai Mũi Họng</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Mắt & PT Khúc Xạ</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Răng Hàm Mặt</a></li>
+                                </ul>
+                            </li>
+                            <li class="mega-col">
+                                <div class="mega-col-title">CLS & Hỗ Trợ</div>
+                                <ul>
+                                    <li><a href="dich-vu-y-khoa.html">Chẩn Đoán Hình Ảnh</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Xét Nghiệm & Ngân Hàng Máu</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Vật Lý Trị Liệu & PHCN</a></li>
+                                    <li><a href="noi-soi.html">Nội Soi Tiêu Hóa</a></li>
+                                </ul>
+                            </li>
+                            <li class="mega-col">
+                                <div class="mega-col-title">Trung Tâm & DV Khác</div>
+                                <ul>
+                                    <li><a href="tiem-chung.html">Trung Tâm Tiêm Chủng</a></li>
+                                    <li><a href="package-details.html">Khám Tổng Quát</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Tầm Soát Ung Thư</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Tầm Soát Đột Quỵ</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Khám SK Doanh Nghiệp</a></li>
+                                    <li><a href="dich-vu-y-khoa.html">Khám SK Lái Xe</a></li>
+                                    <li><a href="#" style="color: var(--primary-color); font-weight: 600;">Cấp Cứu 24/7
+                                            ☎</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="news.html" data-i18n="nav.news">TIN TỨC</a></li>
+                    <li><a href="contact.html" data-i18n="nav.contact">LIÊN HỆ</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>LIÊN HỆ</h1>
+            <p style="font-size: 1.2rem; margin-top: 10px; font-weight: 500;">Chúng tôi luôn sẵn sàng lắng nghe và phục
+                vụ bạn</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <div class="contact-page">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Info Column -->
+                <div class="contact-info-box">
+                    <h2 style="margin-bottom: 30px;">THÔNG TIN LIÊN HỆ</h2>
+
+                    <div class="contact-info-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-details">
+                            <h3>ĐỊA CHỈ</h3>
+                            <p>Số 136C Tỉnh lộ 827, Phường Tân An, Tây Ninh (Long An cũ)</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="contact-details">
+                            <h3>HOTLINE</h3>
+                            <p class="hotline" style="font-size: 1.2rem;">0272 3 550 507</p>
+                            <p>Cấp cứu: <span class="hotline">0272 3 550 115</span></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-details">
+                            <h3>EMAIL</h3>
+                            <p>info@tananhospital.vn</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div class="contact-details">
+                            <h3>GIỜ LÀM VIỆC</h3>
+                            <p>Thứ 2 - Chủ Nhật: 7:30 - 17:00</p>
+                            <p>Cấp cứu: 24/7</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Column -->
+                <div class="contact-form-box">
+                    <h2 style="margin-bottom: 30px;">ĐẶT LỊCH KHÁM / TƯ VẤN</h2>
+                    <form id="contact-booking-form">
+                        <div class="form-group">
+                            <label>Họ và tên *</label>
+                            <input type="text" class="form-control" name="ho_ten" placeholder="Nhập họ tên của bạn"
+                                required>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group">
+                                <label>Số điện thoại *</label>
+                                <input type="tel" class="form-control" name="so_dien_thoai"
+                                    placeholder="Nhập số điện thoại" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control" name="email" placeholder="Nhập email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Chuyên khoa quan tâm</label>
+                            <select class="form-control" name="chuyen_khoa">
+                                <option>-- Chọn chuyên khoa --</option>
+                                <option>Khám tổng quát</option>
+                                <option>Nội soi tiêu hóa</option>
+                                <option>Sản - Phụ khoa</option>
+                                <option>Nhi khoa</option>
+                                <option>Khác</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Ngày dự kiến khám</label>
+                            <input type="date" class="form-control" name="ngay_kham">
+                        </div>
+                        <div class="form-group">
+                            <label>Lời nhắn</label>
+                            <textarea class="form-control" name="loi_nhan"
+                                placeholder="Nhập nội dung cần tư vấn..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">GỬI ĐĂNG KÝ</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Map -->
+            <div class="map-section">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15000!2d106.4188329105551!3d10.520957963810789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310ab66b35fc23ff%3A0x8b8c72d7d920ae41!2zMTM2QyDEkFQ4MjcsIEtodSBwaOG7kSBCw6xuaCwgVMOibiBBbiwgTG9uZyBBbiA4MjEwMCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1769479115278!5m2!1svi!2s"
+                    width="100%" height="450"
+                    style="border:0; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);" allowfullscreen=""
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer & Contact -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3 data-i18n="common.hospitalName">BỆNH VIỆN ĐA KHOA QUỐC TẾ TÂN AN</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="common.address">Số 136C Tỉnh lộ 827,
+                            Phường Tân An, Tây Ninh (Long An cũ)</span>
+                    </p>
+                    <p><i class="fas fa-phone-alt"></i> <span data-i18n="common.hotline">Hotline</span>: <span
+                            class="hotline">0272 3 550 507</span></p>
+                    <p><i class="fas fa-phone-alt"></i> <span data-i18n="common.emergency">Cấp cứu</span>: <span
+                            class="hotline">0272 3 550 115</span></p>
+                    <p><i class="fas fa-envelope"></i> Email: info@tananhospital.vn </p>
+                    <p><i class="fas fa-clock"></i> <span data-i18n="common.workingHours">Giờ làm việc: Thứ 2 - Chủ
+                            Nhật: 7:30 - 17:00</span></p>
+                </div>
+
+                <div class="footer-links">
+                    <h3 data-i18n="footer.systemTitle">HỆ THỐNG</h3>
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav.home">Trang chủ</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">Về chúng tôi</a></li>
+                        <li><a href="package-details.html" data-i18n="quickActions.healthPackages">Gói khám</a></li>
+                        <li><a href="#" data-i18n="footer.career">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3 data-i18n="footer.usefulLinks">LIÊN KẾT HỮU ÍCH</h3>
+                    <ul>
+                        <li><a href="doctors.html" data-i18n="quickActions.findDoctor">Tìm Bác Sĩ</a></li>
+                        <li><a href="index.html#booking" data-i18n="quickActions.bookAppt">Đặt Hẹn Khám Bệnh</a></li>
+                        <li><a href="#" data-i18n="footer.qa">Hỏi Đáp Y Khoa</a></li>
+                        <li><a href="news.html" data-i18n="nav.news">Tin Tức & Sự Kiện</a></li>
+                        <li><a href="#" data-i18n="footer.careerOpp">Cơ Hội Nghề Nghiệp</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Map & Contact Form Grid -->
+            <div class="footer-bottom-grid"
+                style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 30px; align-items: stretch;">
+
+                <!-- Google Maps Card -->
+                <div class="footer-card"
+                    style="flex: 1; min-width: 300px; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column;">
+                    <h3 style="text-align: center; margin-bottom: 15px; font-weight: 700; color: #333;"
+                        data-i18n="footer.mapTitle">VỊ TRÍ BỆNH VIỆN
+                    </h3>
+                    <div style="flex-grow: 1; position: relative; min-height: 350px;">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12000.745696109608!2d106.41952391990549!3d10.519977685397096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310ab72385f606b3%3A0x3f48c61fbf566805!2zQuG7h25oIHZp4buHbiDEkGEga2hvYSBUw6JuIEFu!5e0!3m2!1svi!2s!4v1769573620015!5m2!1svi!2s"
+                            width="100%" height="100%"
+                            style="border:0; border-radius: 8px; position: absolute; top: 0; left: 0;"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <!-- Registration Form Card -->
+                <div class="footer-card" id="booking"
+                    style="flex: 0 0 30%; max-width: 350px; min-width: 280px; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; scroll-margin-top: 120px;">
+                    <h3 style="text-align: center; margin-bottom: 15px; font-weight: 700; color: #333;"
+                        data-i18n="footer.formTitle">ĐĂNG KÝ TƯ VẤN NHANH</h3>
+                    <form id="consultation-form"
+                        style="display: flex; flex-direction: column; gap: 10px; flex-grow: 1; justify-content: center;">
+                        <input type="text" class="form-control" name="ho_ten" placeholder="Họ và tên *" required
+                            style="padding: 10px; border: 1px solid #ddd; border-radius: 6px;"
+                            data-i18n-placeholder="footer.formName">
+                        <input type="tel" class="form-control" name="so_dien_thoai" placeholder="Số điện thoại *"
+                            required style="padding: 10px; border: 1px solid #ddd; border-radius: 6px;"
+                            data-i18n-placeholder="footer.formPhone">
+                        <input type="email" class="form-control" name="email" placeholder="Email (nếu có)"
+                            style="padding: 10px; border: 1px solid #ddd; border-radius: 6px;"
+                            data-i18n-placeholder="footer.formEmail">
+                        <select class="form-control" name="chuyen_khoa"
+                            style="padding: 10px; border: 1px solid #ddd; border-radius: 6px; color: #555;">
+                            <option value="" data-i18n="footer.formSelect">-- Chọn Dịch vụ đăng ký --</option>
+                            <option value="Khám tổng quát" data-i18n="dropdown.checkup">Khám tổng quát</option>
+                            <option value="Nội soi tiêu hóa" data-i18n="dropdown.endoscopy">Nội soi tiêu hóa</option>
+                            <option value="Tầm soát ung thư" data-i18n="services.cancer">Tầm soát ung thư</option>
+                            <option value="Tư vấn sức khỏe" data-i18n="footer.formHealthConsult">Tư vấn sức khỏe
+                            </option>
+                            <option value="Khác" data-i18n="footer.formOther">Khác</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary btn-block"
+                            style="padding: 10px; font-weight: bold;" data-i18n="footer.formSubmit">GỬI YÊU CẦU</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                &copy; 2026 Bệnh Viện Đa Khoa Quốc Tế Tân An. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Widget -->
+    <div class="floating-contact">
+        <a href="https://zalo.me/0858133507" target="_blank" class="contact-btn btn-zalo" data-tooltip="Chat Zalo"
+            data-i18n-tooltip="tooltip.zalo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo">
+        </a>
+        <a href="https://m.me/benhviendakhoatanan" target="_blank" class="contact-btn btn-messenger"
+            data-tooltip="Chat Messenger" data-i18n-tooltip="tooltip.messenger">
+            <i class="fab fa-facebook-messenger"></i>
+        </a>
+        <a href="tel:02723661115" class="contact-btn btn-phone" data-tooltip="Gọi Cấp Cứu"
+            data-i18n-tooltip="tooltip.emergency">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="index.html#booking" class="contact-btn btn-booking" style="background: #28a745;"
+            data-tooltip="Đăng ký khám ngay" data-i18n-tooltip="tooltip.booking">
+            <i class="fas fa-calendar-check"></i>
+        </a>
+        <a href="#" class="contact-btn btn-back-to-top" style="background: #555; display: none;"
+            data-tooltip="Lên đầu trang" data-i18n-tooltip="tooltip.top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+
+    <script src="lang-switcher.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

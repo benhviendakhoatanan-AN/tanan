@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Gói Tầm Soát Sức Khỏe - Bệnh Viện Đa Khoa Quốc Tế Tân An</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Flags -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo-favicon.webp">
+    <style>
+        .details-hero {
+            /* Branding: Overlay logo slightly visible in the background */
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.8)),
+                /* White overlay */
+                url('assets/logo.webp'),
+                /* Logo Watermark */
+                url('assets/consultation.webp');
+            /* Hero Image */
+            background-size: cover, 400px, cover;
+            background-position: center, center, center;
+            background-repeat: no-repeat, no-repeat, no-repeat;
+            background-blend-mode: normal, overlay, normal;
+
+            padding: 120px 0 80px;
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        .details-hero h1 {
+            color: var(--primary-color);
+            max-width: 900px;
+            margin: 0 auto 20px;
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .details-hero p {
+            font-size: 1.3rem;
+            opacity: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .package-section {
+            padding: 80px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .package-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .package-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+            background: var(--secondary-color);
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .package-title h2 {
+            margin-bottom: 5px;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .package-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .package-target {
+            background: #fff;
+            padding: 20px;
+            border-left: 5px solid var(--accent-color);
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .detail-list-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .detail-icon {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            min-width: 30px;
+            text-align: center;
+            padding-top: 5px;
+        }
+
+        .detail-content h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        .detail-content p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .cta-box {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Disclaimer in footer */
+        .disclaimer {
+            font-size: 0.85rem;
+            font-style: italic;
+            text-align: center;
+            opacity: 0.7;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <!-- Header -->
+    <header class="header">
+        <!-- Top Bar: Logo, Search, Utility -->
+        <div class="top-bar">
+            <div class="container top-bar-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/logo.webp" alt="Bệnh Viện Đa Khoa Quốc Tế Tân An" class="logo-img">
+                    </a>
+                </div>
+                <div class="header-hotlines"
+                    style="display: flex; flex-direction: column; justify-content: center; margin: 0 auto; padding-left: 30px;">
+                    <div class="hotline-item emergency" style="display: flex; align-items: center; margin-bottom: 3px;">
+                        <i class="fas fa-phone-volume hotline-icon"
+                            style="color: red; font-size: 1.2rem; margin-right: 8px; animation: ring 1.5s infinite;"></i>
+                        <div class="hotline-text-group" style="display: flex; align-items: baseline;">
+                            <span class="hotline-label"
+                                style="color: red; font-weight: 700; font-size: 0.9rem; margin-right: 6px;"
+                                data-i18n="common.emergency">CẤP
+                                CỨU:</span>
+                            <span class="hotline-number" style="color: red; font-weight: 700; font-size: 1.2rem;">(0272)
+                                3 661 115</span>
+                        </div>
+                    </div>
+                    <div class="hotline-item booking" style="display: flex; align-items: center;">
+                        <i class="fas faheadset hotline-icon"
+                            style="color: #28a745; font-size: 1.2rem; margin-right: 8px;"></i>
+                        <div class="hotline-text-group" style="display: flex; align-items: baseline;">
+                            <span class="hotline-label"
+                                style="color: #28a745; font-weight: 700; font-size: 0.9rem; margin-right: 6px;"
+                                data-i18n="common.hotline">HOTLINE:</span>
+                            <span class="hotline-number"
+                                style="color: #28a745; font-weight: 700; font-size: 1.2rem;">(0272) 3 550 507</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header-tools">
+                    <div class="lang-switch">
+                        <a href="#" class="active" data-i18n="lang.vietnamese"><span
+                                class="flag-icon flag-icon-vn"></span> TIẾNG VIỆT</a>
+                        <a href="#" data-i18n="lang.english"><span class="flag-icon flag-icon-gb"></span> ENGLISH</a>
+                        <a href="#" data-i18n="lang.khmer"><span class="flag-icon flag-icon-kh"></span> KHMER</a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="main-nav">
+            <div class="container nav-container">
+                <ul class="nav-list">
+                    <li><a href="index.html" data-i18n="nav.home">TRANG CHỦ</a></li>
+                    <li><a href="about.html" data-i18n="nav.about">GIỚI THIỆU CHUNG</a></li>
+                    <li><a href="noi-soi.html" data-i18n="nav.endoscopy">NỘI SOI TIÊU HOÁ</a></li>
+                    <li class="dropdown">
+                        <a href="dich-vu-y-khoa.html"><span data-i18n="nav.services">DỊCH VỤ Y KHOA</span> <i
+                                class="fas fa-chevron-down" style="font-size: 0.7em; margin-left: 5px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" data-i18n="dropdown.emergency">Cấp Cứu 24/7</a></li>
+                            <li><a href="package-details.html" data-i18n="dropdown.checkup">Khám Tổng Quát</a></li>
+                            <li><a href="noi-soi.html" data-i18n="dropdown.endoscopy">Nội Soi Tiêu Hóa</a></li>
+                            <li><a href="#" data-i18n="dropdown.obgyn">Khoa Sản - Phụ Khoa</a></li>
+                            <li><a href="#" data-i18n="dropdown.pediatric">Khoa Nhi</a></li>
+                            <li><a href="#" data-i18n="dropdown.cardiology">Tim Mạch</a></li>
+                            <li><a href="#" data-i18n="dropdown.orthopedic">Cơ Xương Khớp</a></li>
+                            <li><a href="#" data-i18n="dropdown.imaging">Chẩn Đoán Hình Ảnh</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="news.html" data-i18n="nav.news">TIN TỨC</a></li>
+                    <li><a href="contact.html" data-i18n="nav.contact">LIÊN HỆ</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="section">
+        <div class="container">
+            <h1 class="text-center mb-40" data-i18n="packages.title">CHI TIẾT CÁC GÓI KHÁM SỨC KHỎE TOÀN DIỆN - ĐẦU TƯ
+                THÔNG MINH CHO CUỘC SỐNG KHOẺ MẠNH</h1>
+            <p>Khám sức khỏe định kỳ giúp phát hiện sớm các nguy cơ tiềm ẩn, từ đó có phác đồ điều trị kịp thời và hiệu
+                quả, giúp bạn an tâm tận hưởng cuộc sống.</p>
+        </div>
+    </section>
+
+    <!-- GÓI NỘI SOI TIÊU HÓA -->
+    <section class="package-section" style="background: linear-gradient(135deg, #e8f4fd 0%, #fff 100%);">
+        <div class="container">
+            <h2 class="section-title text-center" style="margin-bottom: 50px;">
+                <i class="fas fa-procedures" style="color: var(--primary-color);"></i> GÓI NỘI SOI TIÊU HÓA
+            </h2>
+
+            <!-- Nội soi Dạ dày -->
+            <div id="noisoi-daday" style="margin-bottom: 60px;">
+                <div class="package-header">
+                    <div class="package-title">
+                        <h2 data-i18n="packages.endoscopy.stomach.title">NỘI SOI DẠ DÀY</h2>
+                        <span data-i18n="packages.endoscopy.stomach.subtitle">Không đau - Tiền mê an toàn</span>
+                    </div>
+                    <div class="package-price">1.500.000 VNĐ</div>
+                </div>
+
+                <div class="package-target">
+                    <strong>Đối tượng phù hợp:</strong> Người có triệu chứng đau thượng vị, ợ chua, ợ hơi, đầy bụng, khó
+                    tiêu, buồn nôn kéo dài. Người thường xuyên sử dụng thuốc giảm đau, rượu bia. Người muốn kiểm tra vi
+                    khuẩn HP.
+                </div>
+
+                <div class="detail-list">
+                    <div class="detail-list-item">
+                        <div class="detail-icon"><i class="fas fa-user-md"></i></div>
+                        <div class="detail-content">
+                            <h4>Khám với bác sĩ chuyên khoa Tiêu hóa</h4>
+                            <p>Bác sĩ đánh giá triệu chứng, tiền sử bệnh và tư vấn chỉ định nội soi phù hợp.</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-list-item">
+                        <div class="detail-icon"><i class="fas fa-microscope"></i></div>
+                        <div class="detail-content">
+                            <h4>Nội soi NBI phóng đại</h4>
+                            <p>Công nghệ Narrow Band Imaging giúp phát hiện các tổn thương niêm mạc dạ dày ở giai đoạn
+                                rất sớm, độ phóng đại lên đến 100-135 lần.</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-list-item">
+                        <div class="detail-icon"><i class="fas fa-bacteria"></i></div>
+                        <div class="detail-content">
+                            <h4>Test vi khuẩn HP (Helicobacter Pylori)</h4>
+                            <p>Xét nghiệm phát hiện vi khuẩn HP - nguyên nhân chính gây viêm loét dạ dày và ung thư dạ
+                                dày.</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-list-item">
+                        <div class="detail-icon"><i class="fas fa-file-medical-alt"></i></div>
+                        <div class="detail-content">
+                            <h4>Trả kết quả & Tư vấn điều trị</h4>
+                            <p>Bác sĩ giải thích kết quả nội soi, tư vấn phác đồ điều trị và chế độ ăn uống phù hợp.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-box">
+                    <a href="noi-soi.html#booking" class="btn btn-outline">ĐĂNG KÝ NỘI SOI DẠ DÀY</a>
+                </div>
+            </div>
+
+            <!-- Tầm soát Ung thư Dạ dày -->
+            <div id="noisoi-tamsoat" style="margin-bottom: 60px;">
+                <div class="package-header"
+                    style="background: linear-gradient(135deg, #004aad 0%, #002a70 100%); color: white;">
+                    <div class="package-title">
+                        <h2 style="color: white; margin-bottom: 5px;">TẦM SOÁT UNG THƯ DẠ DÀY</h2>
+                        <span style="opacity: 0.9;">Gói chuyên sâu - KHUYÊN DÙNG</span>
+                    </div>
+                    <div class="package-price" style="color: #FFD700;">3.100.000 VNĐ</div>
+                </div>
+
+                <div class="package-target">
+                    <strong>Đối tượng phù hợp:</strong> Người từ 45 tuổi trở lên. Người có tiền sử gia đình mắc ung thư
+                    dạ dày. Người nhiễm vi khuẩn HP mãn tính, viêm loét dạ dày tái phát nhiều lần. Người có lối sống
+                    nguy cơ cao (hút thuốc, uống rượu, ăn mặn).
+                </div>
+
+                <p class="mb-20 text-center" style="font-size: 1.1rem; color: var(--primary-color);"><strong><i
+                            class="fas fa-check-circle"></i> Bao gồm toàn bộ danh mục Gói Nội soi Dạ dày, cộng
+                        thêm:</strong></p>
+
+                <div class="detail-list">
+                    <div class="detail-list-item">
+                        <div class="detail-icon"><i class="fas fa-cut"></i></div>
+                        <div class="detail-content">
+                            <h4>Sinh thiết tế bào (nếu có tổn thương)</h4>
+                            <p>Lấy mẫu mô từ các vị trí nghi ngờ để phân tích tế bào, giúp chẩn đoán chính xác bản chất
+                                tổn thương (lành tính hay ác tính).</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-list-item">
+                        <div class="detail-icon"><i class="fas fa-flask"></i></div>
+                        <div class="detail-content">
+                            <h4>Giải phẫu bệnh chuyên sâu</h4>
+                            <p>Mẫu sinh thiết được đọc bởi chuyên gia Giải phẫu bệnh đầu ngành, cho kết quả chẩn đoán
+                                tin cậy nhất.</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-list-item">
+                        <div class="detail-icon"><i class="fas fa-dna"></i></div>
+                        <div class="detail-content">
+                            <h4>Tầm soát dấu ấn ung thư</h4>
+                            <p>Xét nghiệm các chỉ số CEA, CA 19-9, CA 72-4... giúp định hướng phát hiện sớm ung thư
+                                đường tiêu hóa.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-box">
+                    <a href="noi-soi.html#booking" class="btn btn-primary">ĐĂNG KÝ TẦM SOÁT UNG THƯ DẠ DÀY</a>
+                </div>
+            </div>
+
+            <!-- Nội soi Đại tràng -->
+            <div id="noisoi-daitrang">
+                <div class="package-header">
+                    <div class="package-title">
+                        <h2>NỘI SOI ĐẠI TRÀNG</h2>
+                        <span>Không đau - Tiền mê an toàn</span>
+                    </div>
+                    <div class="package-price">2.500.000 VNĐ</div>
+                </div>
+
+                <div class="package-target">
+                    <strong>Đối tượng phù hợp:</strong> Người từ 45 tuổi trở lên cần tầm soát định kỳ. Người có triệu
+                    chứng rối loạn tiêu hóa, táo bón/tiêu chảy kéo dài, đi ngoài phân có máu, đau bụng dưới. Người có
+                    tiền sử gia đình mắc ung thư đại trực tràng hoặc polyp.
+                </div>
+
+                <div class="detail-list">
+                    <div class="detail-list-item">
+                        <div class="detail-icon"><i class="fas fa-user-md"></i></div>
+                        <div class="detail-content">
+                            <h4>Khám với bác sĩ chuyên khoa Tiêu hóa</h4>
+                            <p>Bác sĩ đánh giá triệu chứng, tiền sử bệnh và hướng dẫn chuẩn bị đại tràng trước nội soi.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="detail-list-item">
+                        <div class="detail-icon"><i class="fas fa-search-plus"></i></div>
+                        <div class="detail-content">
+                            <h4>Nội soi toàn bộ đại trực tràng</h4>
+                            <p>Quan sát từ hậu môn đến manh tràng, phát hiện polyp, viêm loét, khối u và các tổn thương
+                                khác với độ chính xác cao.</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-list-item">
+                        <div class="detail-icon"><i class="fas fa-ribbon"></i></div>
+                        <div class="detail-content">
+                            <h4>Tầm soát Polyp & Ung thư</h4>
+                            <p>Phát hiện sớm polyp đại tràng - tổn thương tiền ung thư có thể cắt bỏ ngay trong quá
+                                trình nội soi, ngăn ngừa ung thư hóa.</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-list-item">
+                        <div class="detail-icon"><i class="fas fa-prescription-bottle-alt"></i></div>
+                        <div class="detail-content">
+                            <h4>Thuốc làm sạch ruột</h4>
+                            <p>Cung cấp đầy đủ thuốc nhuận tràng chuyên dụng và hướng dẫn chi tiết cách uống để đại
+                                tràng sạch, giúp bác sĩ quan sát rõ ràng nhất.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-box">
+                    <a href="noi-soi.html#booking" class="btn btn-outline">ĐĂNG KÝ NỘI SOI ĐẠI TRÀNG</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gói Cơ Bản -->
+    <section id="basic" class="package-section">
+        <div class="container">
+            <div class="package-header">
+                <div class="package-title">
+                    <h2>GÓI CƠ BẢN</h2>
+                    <span>Chăm sóc sức khỏe thiết yếu nhất</span>
+                </div>
+                <div class="package-price">2.500.000 VNĐ</div>
+            </div>
+
+            <div class="package-target">
+                <strong>Đối tượng phù hợp:</strong> Người trẻ tuổi (dưới 40), muốn kiểm tra tổng quát hàng năm hoặc
+                người mới bắt đầu quan tâm đến sức khỏe định kỳ.
+            </div>
+
+            <div class="detail-list">
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-stethoscope"></i></div>
+                    <div class="detail-content">
+                        <h4>Khám Nội tổng quát</h4>
+                        <p>Đánh giá thể trạng chung, phát hiện dấu hiệu bất thường về tim mạch, hô hấp, tiêu hóa... qua
+                            thăm khám lâm sàng.</p>
+                    </div>
+                </div>
+
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-vial"></i></div>
+                    <div class="detail-content">
+                        <h4>Xét nghiệm máu cơ bản (15 chỉ số)</h4>
+                        <p>Kiểm tra công thức máu, đường huyết, mỡ máu, chức năng gan (AST, ALT), thận (Ure,
+                            Creatinine), acid uric... để đánh giá nguy cơ các bệnh lý chuyển hóa như tiểu đường, gout,
+                            suy thận, gan nhiễm mỡ.</p>
+                    </div>
+                </div>
+
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-file-medical-alt"></i></div>
+                    <div class="detail-content">
+                        <h4>Siêu âm ổ bụng tổng quát</h4>
+                        <p>Tầm soát sơ bộ hình thái và phát hiện các bất thường (u, nang, sỏi) tại gan, mật, tụy, lách,
+                            thận, bàng quang.</p>
+                    </div>
+                </div>
+
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-x-ray"></i></div>
+                    <div class="detail-content">
+                        <h4>Chụp X-Quang ngực thẳng</h4>
+                        <p>Phát hiện các tổn thương cơ bản ở phổi (lao, u phổi), bóng tim, trung thất và xương sườn.</p>
+                    </div>
+                </div>
+
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-heartbeat"></i></div>
+                    <div class="detail-content">
+                        <h4>Điện tim đồ (ECG)</h4>
+                        <p>Ghi lại hoạt động điện của tim, giúp phát hiện rối loạn nhịp tim, thiếu máu cơ tim và các
+                            bệnh lý tim mạch khác.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <a href="#contact" class="btn btn-outline">TƯ VẤN CHI TIẾT GÓI CƠ BẢN</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gói Nâng Cao -->
+    <section id="advanced" class="package-section bg-light">
+        <div class="container">
+            <div class="package-header">
+                <div class="package-title">
+                    <h2>GÓI NÂNG CAO</h2>
+                    <span>Tầm soát chuyên sâu & Ung thư</span>
+                </div>
+                <div class="package-price">5.500.000 VNĐ</div>
+            </div>
+
+            <div class="package-target">
+                <strong>Đối tượng phù hợp:</strong> Người trung niên (trên 40 tuổi), có yếu tố nguy cơ (hút thuốc, uống
+                rượu bia, tiền sử gia đình có bệnh), hoặc muốn kiểm tra chuyên sâu hơn.
+            </div>
+
+            <p class="mb-20 text-center" style="font-size: 1.1rem; color: var(--primary-color);"><strong><i
+                        class="fas fa-check-circle"></i> Bao gồm toàn bộ danh mục Gói Cơ Bản, cộng thêm:</strong></p>
+
+            <div class="detail-list">
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-search-plus"></i></div>
+                    <div class="detail-content">
+                        <h4>Tầm soát dấu ấn ung thư</h4>
+                        <p>Xét nghiệm các chỉ số AFP (Gan), CEA (Đại tràng/Phổi), CA 19-9 (Tụy/Dạ dày)... giúp định
+                            hướng chẩn đoán sớm ung thư.</p>
+                    </div>
+                </div>
+
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-wave-square"></i></div>
+                    <div class="detail-content">
+                        <h4>Siêu âm tuyến giáp</h4>
+                        <p>Phát hiện các bất thường phổ biến như nhân giáp, u nang, viêm tuyến giáp, bướu cổ.</p>
+                    </div>
+                </div>
+
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-microscope"></i></div>
+                    <div class="detail-content">
+                        <h4>Nội soi dạ dày (gây mê)</h4>
+                        <p>Phương pháp vàng để chẩn đoán chính xác các bệnh lý thực quản, dạ dày, tá tràng (viêm, loét,
+                            polyp, vi khuẩn HP, ung thư sớm). Thực hiện êm ái, không đau.</p>
+                    </div>
+                </div>
+
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-apple-alt"></i></div>
+                    <div class="detail-content">
+                        <h4>Tư vấn dinh dưỡng</h4>
+                        <p>Bác sĩ chuyên khoa phân tích chỉ số cơ thể và đưa ra lời khuyên về chế độ ăn uống khoa học
+                            phù hợp với tình trạng sức khỏe.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <a href="#contact" class="btn btn-primary">ĐẶT LỊCH GÓI NÂNG CAO NGAY</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gói VIP -->
+    <section id="vip" class="package-section">
+        <div class="container">
+            <div class="package-header"
+                style="background: linear-gradient(135deg, #004aad 0%, #002a70 100%); color: white;">
+                <div class="package-title">
+                    <h2 style="color: white; margin-bottom: 5px;">GÓI TOÀN DIỆN VIP</h2>
+                    <span style="opacity: 0.9;">Đẳng cấp chăm sóc sức khỏe 5 sao</span>
+                </div>
+                <div class="package-price" style="color: #FFD700;">12.000.000 VNĐ</div>
+            </div>
+
+            <div class="package-target">
+                <strong>Đối tượng phù hợp:</strong> Người muốn kiểm tra sức khỏe toàn diện nhất, tầm soát ung thư sớm,
+                người có triệu chứng phức tạp hoặc muốn trải nghiệm dịch vụ chăm sóc cao cấp.
+            </div>
+
+            <p class="mb-20 text-center" style="font-size: 1.1rem; color: var(--primary-color);"><strong><i
+                        class="fas fa-check-double"></i> Bao gồm toàn bộ danh mục Gói Nâng Cao, cộng thêm:</strong></p>
+
+            <div class="detail-list">
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-procedures"></i></div>
+                    <div class="detail-content">
+                        <h4>Nội soi đại tràng (gây mê)</h4>
+                        <p>Tầm soát polyp và ung thư đại trực tràng - một trong những loại ung thư tiêu hóa phổ biến
+                            nhất. Kỹ thuật NBI giúp phát hiện tổn thương dù là nhỏ nhất.</p>
+                    </div>
+                </div>
+
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-brain"></i></div>
+                    <div class="detail-content">
+                        <h4>Chụp MRI Sọ não / Cột sống</h4>
+                        <p>Công nghệ chẩn đoán hình ảnh cao cấp nhất hiện nay, giúp đánh giá chi tiết cấu trúc não bộ,
+                            cột sống, phát hiện khối u, thoát vị đĩa đệm, tổn thương mạch máu não mức độ nhỏ.</p>
+                    </div>
+                </div>
+
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-dna"></i></div>
+                    <div class="detail-content">
+                        <h4>Xét nghiệm Gen tầm soát nguy cơ Ung thư</h4>
+                        <p>Phân tích các đột biến gen di truyền để đánh giá nguy cơ mắc một số loại ung thư trong tương
+                            lai, giúp chủ động phòng ngừa.</p>
+                    </div>
+                </div>
+
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-crown"></i></div>
+                    <div class="detail-content">
+                        <h4>Chế độ chăm sóc VIP</h4>
+                        <p>Được hướng dẫn viên y tế riêng dẫn đường, thăm khám tại khu vực riêng tư, báo cáo kết quả chi
+                            tiết bản cứng + mềm, và tư vấn 1:1 chuyên sâu với chuyên gia đầu ngành.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <a href="#contact" class="btn btn-outline" style="border-width: 2px;">TƯ VẤN VIP 1:1</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gói Chuyên Sâu Nữ -->
+    <section id="specialized-female" class="package-section bg-light">
+        <div class="container">
+            <div class="package-header"
+                style="background: linear-gradient(135deg, #d81b60 0%, #ad1457 100%); color: white;">
+                <div class="package-title">
+                    <h2 style="color: white; margin-bottom: 5px;">GÓI TẦM SOÁT CHUYÊN SÂU (NỮ)</h2>
+                    <span style="opacity: 0.9;">Tầm soát toàn diện danh cho Phụ nữ</span>
+                </div>
+                <div class="package-price" style="color: #fff;">13.235.000 VNĐ</div>
+            </div>
+
+            <div class="package-target">
+                <strong>Đối tượng phù hợp:</strong> Phụ nữ mong muốn tầm soát sức khỏe toàn diện, chuyên sâu về các bệnh
+                lý phụ khoa, tuyến giáp, tim mạch và ung thư.
+            </div>
+
+            <div class="detail-list">
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-user-md"></i></div>
+                    <div class="detail-content">
+                        <h4>Khám và tư vấn chuyên khoa</h4>
+                        <p>Tìm hiểu bệnh sử, đánh giá thể trạng, đo sinh hiệu, tư vấn kết quả và kê toa thuốc (nếu có).
+                        </p>
+                    </div>
+                </div>
+
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-venus"></i></div>
+                    <div class="detail-content">
+                        <h4>Khám Phụ khoa & Tầm soát CA</h4>
+                        <p>Khám phụ khoa tổng quát và xét nghiệm Pap smear nhúng dịch để phát hiện sớm ung thư cổ tử
+                            cung.</p>
+                    </div>
+                </div>
+
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-vial"></i></div>
+                    <div class="detail-content">
+                        <h4>Xét nghiệm máu & Nước tiểu chuyên sâu</h4>
+                        <p>Bao gồm: Công thức máu, Tổng phân tích nước tiểu, Định nhóm máu (ABO-Rh), Đường huyết
+                            (Glucose, HbA1c), Chức năng thận (Ure, Creatinine, Điện giải đồ), Chức năng gan (Bilirubin,
+                            Men gan AST/ALT/GGT), Mỡ máu (Bộ 4 chỉ số), Tầm soát Gout (Acid Uric).</p>
+                    </div>
+                </div>
+
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-microscope"></i></div>
+                    <div class="detail-content">
+                        <h4>Tầm soát chức năng Tuyến giáp & Các bệnh Gan</h4>
+                        <p>Xét nghiệm hormone tuyến giáp (TSH, FT4) và dấu ấn viêm gan siêu vi B (HBsAg, HBsAb, HBc
+                            total).</p>
+                    </div>
+                </div>
+
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-radiation"></i></div>
+                    <div class="detail-content">
+                        <h4>Chẩn đoán hình ảnh & thăm dò chức năng</h4>
+                        <p>
+                            - <strong>Siêu âm Doppler:</strong> Tim (Van tim), Động mạch cảnh, Hệ động mạch đốt sống
+                            thân nền.<br>
+                            - <strong>Siêu âm:</strong> Ổ bụng tổng quát, Tuyến giáp.<br>
+                            - <strong>Chụp MSCT:</strong> Phổi liều thấp tầm soát u (128 dãy).<br>
+                            - <strong>Chụp MRI:</strong> Sọ não - mạch não không tiêm chất tương phản (1.5T).<br>
+                            - Nội soi thực quản, dạ dày, tá tràng<br>
+                            - Nội soi trực tràng, đại tràng<br>
+                            - Tầm soát ung thư hệ tiêu hoá<br>
+                            - Đo mật độ xương, Điện tim thường qui.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <a href="#contact" class="btn btn-primary" style="background-color: #d81b60; border-color: #d81b60;">ĐẶT
+                    LỊCH GÓI CHUYÊN SÂU NỮ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gói Chuyên Sâu Nam -->
+    <section id="specialized-male" class="package-section">
+        <div class="container">
+            <div class="package-header"
+                style="background: linear-gradient(135deg, #004aad 0%, #003380 100%); color: white;">
+                <div class="package-title">
+                    <h2 style="color: white; margin-bottom: 5px;">GÓI TẦM SOÁT CHUYÊN SÂU (NAM)</h2>
+                    <span style="opacity: 0.9;">Tầm soát toàn diện dành cho Nam giới</span>
+                </div>
+                <div class="package-price" style="color: #fff;">12.925.000 VNĐ</div>
+            </div>
+
+            <div class="package-target">
+                <strong>Đối tượng phù hợp:</strong> Nam giới mong muốn tầm soát sâu rộng các bệnh lý tim mạch, phổi, gan
+                mật và chức năng cơ quan quan trọng.
+            </div>
+
+            <div class="detail-list">
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-user-md"></i></div>
+                    <div class="detail-content">
+                        <h4>Khám và tư vấn chuyên khoa</h4>
+                        <p>Tìm hiểu bệnh sử, đánh giá thể trạng, đo sinh hiệu, tư vấn kết quả và kê toa thuốc (nếu có).
+                        </p>
+                    </div>
+                </div>
+
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-vial"></i></div>
+                    <div class="detail-content">
+                        <h4>Xét nghiệm máu & Nước tiểu chuyên sâu</h4>
+                        <p>Bao gồm: Công thức máu, Tổng phân tích nước tiểu, Định nhóm máu (ABO-Rh), Đường huyết
+                            (Glucose, HbA1c), Chức năng thận (Ure, Creatinine, Điện giải đồ), Chức năng gan (Bilirubin,
+                            Men gan AST/ALT/GGT), Mỡ máu (Bộ 4 chỉ số), Tầm soát Gout (Acid Uric).</p>
+                    </div>
+                </div>
+
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-microscope"></i></div>
+                    <div class="detail-content">
+                        <h4>Tầm soát chức năng Tuyến giáp & Các bệnh Gan</h4>
+                        <p>Xét nghiệm hormone tuyến giáp (TSH, FT4) và dấu ấn viêm gan siêu vi B (HBsAg, HBsAb, HBc
+                            total).</p>
+                    </div>
+                </div>
+
+                <div class="detail-list-item">
+                    <div class="detail-icon"><i class="fas fa-radiation"></i></div>
+                    <div class="detail-content">
+                        <h4>Chẩn đoán hình ảnh & thăm dò chức năng</h4>
+                        <p>
+                            - <strong>Siêu âm Doppler:</strong> Tim (Van tim), Động mạch cảnh, Hệ động mạch đốt sống
+                            thân nền.<br>
+                            - <strong>Siêu âm:</strong> Ổ bụng tổng quát, Tuyến giáp.<br>
+                            - <strong>Chụp MSCT:</strong> Phổi liều thấp tầm soát u (128 dãy).<br>
+                            - <strong>Chụp MRI:</strong> Sọ não - mạch não không tiêm chất tương phản (1.5T).<br>
+                            - Nội soi thực quản, dạ dày, tá tràng<br>
+                            - Nội soi trực tràng, đại tràng<br>
+                            - Tầm soát ung thư hệ tiêu hoá<br>
+                            - Đo mật độ xương, Điện tim thường qui.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <a href="#contact" class="btn btn-primary">ĐẶT LỊCH GÓI CHUYÊN SÂU NAM</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Contact -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3 data-i18n="common.hospitalName">BỆNH VIỆN ĐA KHOA QUỐC TẾ TÂN AN</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="common.address">Số 136C Tỉnh lộ 827,
+                            Phường Tân An, Tây Ninh (Long An cũ)</span>
+                    </p>
+                    <p><i class="fas fa-phone-alt"></i> <span data-i18n="common.hotline">Hotline</span>: <span
+                            class="hotline">0272 3 550 507</span></p>
+                    <p><i class="fas fa-phone-alt"></i> <span data-i18n="common.emergency">Cấp cứu</span>: <span
+                            class="hotline">0272 3 550 115</span></p>
+                    <p><i class="fas fa-envelope"></i> Email: info@tananhospital.vn </p>
+                    <p><i class="fas fa-clock"></i> <span data-i18n="common.workingHours">Giờ làm việc: Thứ 2 - Chủ
+                            Nhật: 7:30 - 17:00</span></p>
+                </div>
+
+                <div class="footer-links">
+                    <h3 data-i18n="footer.systemTitle">HỆ THỐNG</h3>
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav.home">Trang chủ</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">Về chúng tôi</a></li>
+                        <li><a href="package-details.html" data-i18n="quickActions.healthPackages">Gói khám</a></li>
+                        <li><a href="#" data-i18n="footer.career">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3 data-i18n="footer.usefulLinks">LIÊN KẾT HỮU ÍCH</h3>
+                    <ul>
+                        <li><a href="doctors.html" data-i18n="quickActions.findDoctor">Tìm Bác Sĩ</a></li>
+                        <li><a href="index.html#booking" data-i18n="quickActions.bookAppt">Đặt Hẹn Khám Bệnh</a></li>
+                        <li><a href="#" data-i18n="footer.qa">Hỏi Đáp Y Khoa</a></li>
+                        <li><a href="news.html" data-i18n="nav.news">Tin Tức & Sự Kiện</a></li>
+                        <li><a href="#" data-i18n="footer.careerOpp">Cơ Hội Nghề Nghiệp</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Map & Contact Form Grid -->
+            <div class="footer-bottom-grid"
+                style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 30px; align-items: stretch;">
+
+                <!-- Google Maps Card -->
+                <div class="footer-card"
+                    style="flex: 1; min-width: 300px; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column;">
+                    <h3 style="text-align: center; margin-bottom: 15px; font-weight: 700; color: #333;"
+                        data-i18n="footer.mapTitle">VỊ TRÍ BỆNH VIỆN
+                    </h3>
+                    <div style="flex-grow: 1; position: relative; min-height: 350px;">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12000.745696109608!2d106.41952391990549!3d10.519977685397096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310ab72385f606b3%3A0x3f48c61fbf566805!2zQuG7h25oIHZp4buHbiDEkGEga2hvYSBUw6JuIEFu!5e0!3m2!1svi!2s!4v1769573620015!5m2!1svi!2s"
+                            width="100%" height="100%"
+                            style="border:0; border-radius: 8px; position: absolute; top: 0; left: 0;"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <!-- Registration Form Card -->
+                <div class="footer-card" id="booking"
+                    style="flex: 0 0 30%; max-width: 350px; min-width: 280px; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; scroll-margin-top: 120px;">
+                    <h3 style="text-align: center; margin-bottom: 15px; font-weight: 700; color: #333;"
+                        data-i18n="footer.formTitle">ĐĂNG KÝ TƯ VẤN NHANH</h3>
+                    <form id="consultation-form"
+                        style="display: flex; flex-direction: column; gap: 10px; flex-grow: 1; justify-content: center;">
+                        <input type="text" class="form-control" name="ho_ten" placeholder="Họ và tên *" required
+                            style="padding: 10px; border: 1px solid #ddd; border-radius: 6px;"
+                            data-i18n-placeholder="footer.formName">
+                        <input type="tel" class="form-control" name="so_dien_thoai" placeholder="Số điện thoại *"
+                            required style="padding: 10px; border: 1px solid #ddd; border-radius: 6px;"
+                            data-i18n-placeholder="footer.formPhone">
+                        <input type="email" class="form-control" name="email" placeholder="Email (nếu có)"
+                            style="padding: 10px; border: 1px solid #ddd; border-radius: 6px;"
+                            data-i18n-placeholder="footer.formEmail">
+                        <select class="form-control" name="chuyen_khoa"
+                            style="padding: 10px; border: 1px solid #ddd; border-radius: 6px; color: #555;">
+                            <option value="" data-i18n="footer.formSelect">-- Chọn Dịch vụ đăng ký --</option>
+                            <option value="Khám tổng quát" data-i18n="dropdown.checkup">Khám tổng quát</option>
+                            <option value="Nội soi tiêu hóa" data-i18n="dropdown.endoscopy">Nội soi tiêu hóa</option>
+                            <option value="Tầm soát ung thư" data-i18n="services.cancer">Tầm soát ung thư</option>
+                            <option value="Tư vấn sức khỏe" data-i18n="footer.formHealthConsult">Tư vấn sức khỏe
+                            </option>
+                            <option value="Khác" data-i18n="footer.formOther">Khác</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary btn-block"
+                            style="padding: 10px; font-weight: bold;" data-i18n="footer.formSubmit">GỬI YÊU CẦU</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                &copy; 2026 Bệnh Viện Đa Khoa Quốc Tế Tân An. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Widget -->
+    <div class="floating-contact">
+        <a href="https://zalo.me/0858133507" target="_blank" class="contact-btn btn-zalo" data-tooltip="Chat Zalo"
+            data-i18n-tooltip="tooltip.zalo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo">
+        </a>
+        <a href="https://m.me/benhviendakhoatanan" target="_blank" class="contact-btn btn-messenger"
+            data-tooltip="Chat Messenger" data-i18n-tooltip="tooltip.messenger">
+            <i class="fab fa-facebook-messenger"></i>
+        </a>
+        <a href="tel:02723661115" class="contact-btn btn-phone" data-tooltip="Gọi Cấp Cứu"
+            data-i18n-tooltip="tooltip.emergency">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="index.html#booking" class="contact-btn btn-booking" style="background: #28a745;"
+            data-tooltip="Đăng ký khám ngay" data-i18n-tooltip="tooltip.booking">
+            <i class="fas fa-calendar-check"></i>
+        </a>
+        <a href="#" class="contact-btn btn-back-to-top" style="background: #555; display: none;"
+            data-tooltip="Lên đầu trang" data-i18n-tooltip="tooltip.top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+
+    <script src="lang-switcher.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

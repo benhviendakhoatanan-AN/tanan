@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/logo-favicon.webp" type="image/png">
+    <title>Trang Thiết Bị Y Tế - BV Tân An</title>
+    <meta name="description"
+        content="Khám phá hệ thống trang thiết bị y tế hiện đại tại Bệnh viện Đa khoa Quốc tế Tân An. MRI 1.5 Tesla, CT Scanner 128 lát cắt, AI chẩn đoán và nhiều công nghệ tiên tiến.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Flags -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+    <style>
+        /* Equipment Page Hero - Same as services-hero */
+        .equipment-hero {
+            background-image:
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85)),
+                url('assets/hero-bg-vn-v2.webp');
+            background-size: cover;
+            background-position: center;
+            height: auto;
+            padding: 80px 0;
+            min-height: 300px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .equipment-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+        }
+
+        .equipment-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #555;
+        }
+
+        /* Equipment Categories */
+        .equipment-category {
+            margin-bottom: 40px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), #00a8e8);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        .category-header h2 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        /* Equipment Grid */
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .equipment-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .equipment-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 74, 173, 0.15);
+        }
+
+        .equipment-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .equipment-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .equipment-card:hover .equipment-img img {
+            transform: scale(1.05);
+        }
+
+        .equipment-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-color);
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .equipment-content {
+            padding: 25px;
+        }
+
+        .equipment-content h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .equipment-content p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .equipment-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .equipment-features li {
+            padding: 8px 0;
+            font-size: 0.9rem;
+            color: #555;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .equipment-features li:last-child {
+            border-bottom: none;
+        }
+
+        .equipment-features li i {
+            color: var(--accent-color);
+            margin-top: 3px;
+        }
+
+        /* Highlight Stats */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0066cc 100%);
+            padding: 40px 0;
+            color: #fff;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Technology Highlights */
+        .tech-highlight {
+            background: #f8fbff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .tech-highlight.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .tech-img {
+            flex: 0 0 45%;
+            max-width: 45%;
+        }
+
+        .tech-img img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-content {
+            flex: 1;
+        }
+
+        .tech-content h3 {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin: 0 0 0 0;
+        }
+
+        .tech-content p {
+            color: #666;
+            line-height: 1.5;
+            margin: 0 0 5px 0;
+            font-size: 0.9rem;
+        }
+
+        .tech-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tech-list li {
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #444;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .tech-list li i {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tech-highlight,
+            .tech-highlight.reverse {
+                flex-direction: column;
+            }
+
+            .tech-img {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .equipment-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .equipment-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Footer Info Compact Spacing */
+        .footer-info p {
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <!-- Top Bar: Logo, Search, Utility -->
+        <div class="top-bar">
+            <div class="container top-bar-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/logo.webp" alt="Bệnh Viện Đa Khoa Quốc Tế Tân An" class="logo-img">
+                    </a>
+                </div>
+                <div class="header-hotlines"
+                    style="display: flex; flex-direction: column; justify-content: center; margin: 0 auto; padding-left: 30px;">
+                    <div class="hotline-item emergency" style="display: flex; align-items: center; margin-bottom: 3px;">
+                        <i class="fas fa-phone-volume hotline-icon"
+                            style="color: red; font-size: 1.2rem; margin-right: 8px; animation: ring 1.5s infinite;"></i>
+                        <div class="hotline-text-group" style="display: flex; align-items: baseline;">
+                            <span class="hotline-label"
+                                style="color: red; font-weight: 700; font-size: 0.9rem; margin-right: 6px;"
+                                data-i18n="common.emergency">CẤP CỨU:</span>
+                            <span class="hotline-number" style="color: red; font-weight: 700; font-size: 1.2rem;">(0272)
+                                3 661 115</span>
+                        </div>
+                    </div>
+                    <div class="hotline-item booking" style="display: flex; align-items: center;">
+                        <i class="fas fa-headset hotline-icon"
+                            style="color: #28a745; font-size: 1.2rem; margin-right: 8px;"></i>
+                        <div class="hotline-text-group" style="display: flex; align-items: baseline;">
+                            <span class="hotline-label"
+                                style="color: #28a745; font-weight: 700; font-size: 0.9rem; margin-right: 6px;"
+                                data-i18n="common.hotline">HOTLINE:</span>
+                            <span class="hotline-number"
+                                style="color: #28a745; font-weight: 700; font-size: 1.2rem;">(0272) 3 550 507</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header-tools">
+                    <div class="lang-switch">
+                        <a href="#" class="active" data-i18n="lang.vietnamese"><span
+                                class="flag-icon flag-icon-vn"></span> TIẾNG VIỆT</a>
+                        <a href="#" data-i18n="lang.english"><span class="flag-icon flag-icon-gb"></span> ENGLISH</a>
+                        <a href="#" data-i18n="lang.khmer"><span class="flag-icon flag-icon-kh"></span> KHMER</a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="main-nav">
+            <div class="container nav-container">
+                <ul class="nav-list">
+                    <li><a href="index.html" data-i18n="nav.home">TRANG CHỦ</a></li>
+                    <li><a href="about.html" data-i18n="nav.about">GIỚI THIỆU CHUNG</a></li>
+                    <li><a href="noi-soi.html" data-i18n="nav.endoscopy">NỘI SOI TIÊU HOÁ</a></li>
+                    <li class="dropdown">
+                        <a href="dich-vu-y-khoa.html"><span data-i18n="nav.services">DỊCH VỤ Y KHOA</span> <i
+                                class="fas fa-chevron-down" style="font-size: 0.7em; margin-left: 5px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" data-i18n="dropdown.emergency">Cấp Cứu 24/7</a></li>
+                            <li><a href="package-details.html" data-i18n="dropdown.checkup">Khám Tổng Quát</a></li>
+                            <li><a href="noi-soi.html" data-i18n="dropdown.endoscopy">Nội Soi Tiêu Hóa</a></li>
+                            <li><a href="#" data-i18n="dropdown.obgyn">Khoa Sản - Phụ Khoa</a></li>
+                            <li><a href="#" data-i18n="dropdown.pediatric">Khoa Nhi</a></li>
+                            <li><a href="#" data-i18n="dropdown.cardiology">Tim Mạch</a></li>
+                            <li><a href="#" data-i18n="dropdown.orthopedic">Cơ Xương Khớp</a></li>
+                            <li><a href="#" data-i18n="dropdown.imaging">Chẩn Đoán Hình Ảnh</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="news.html" data-i18n="nav.news">TIN TỨC</a></li>
+                    <li><a href="contact.html" data-i18n="nav.contact">LIÊN HỆ</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="equipment-hero">
+        <div class="container">
+            <h1>TRANG THIẾT BỊ Y TẾ HIỆN ĐẠI</h1>
+            <p>Hệ thống máy móc tiên tiến nhất, ứng dụng trí tuệ nhân tạo (AI) trong chẩn đoán và điều trị</p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Thiết bị y tế hiện đại</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">99%</span>
+                    <span class="stat-label">Độ chính xác chẩn đoán AI</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Hệ thống Robot tự động</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Hoạt động liên tục</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Imaging Technology -->
+    <section class="section">
+        <div class="container">
+            <div class="equipment-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-x-ray"></i>
+                    </div>
+                    <h2>Chẩn Đoán Hình Ảnh</h2>
+                </div>
+
+                <div class="tech-highlight">
+                    <div class="tech-img">
+                        <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/uploaded_media_1769591299879.jpg"
+                            alt="Hệ thống MRI 1.5 Tesla">
+                    </div>
+                    <div class="tech-content">
+                        <h3>Hệ thống MRI 1.5 Tesla từ Philips</h3>
+                        <p>Máy cộng hưởng từ thế hệ mới, tích hợp AI phân tích hình ảnh, chẩn đoán chính xác bệnh lý
+                            thần kinh, cột sống và mô mềm.</p>
+                        <ul class="tech-list">
+                            <li><i class="fas fa-check-circle"></i> Hình ảnh sắc nét, độ phân giải cao</li>
+                            <li><i class="fas fa-check-circle"></i> Giảm tiếng ồn, thoải mái hơn</li>
+                            <li><i class="fas fa-check-circle"></i> Thời gian chụp nhanh</li>
+                            <li><i class="fas fa-check-circle"></i> AI phân tích tự động</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="equipment-grid">
+                    <div class="equipment-card">
+                        <div class="equipment-img">
+                            <img src="assets/ct-scanner.jpg" alt="CT Scanner 128 lát cắt">
+                            <span class="equipment-badge">Cao cấp</span>
+                        </div>
+                        <div class="equipment-content">
+                            <h3>CT Scanner 128 Lát Cắt</h3>
+                            <p>Máy chụp cắt lớp vi tính 128 lát cắt, cho phép tầm soát ung thư và bệnh lý tim mạch với
+                                độ chính xác cao.</p>
+                            <ul class="equipment-features">
+                                <li><i class="fas fa-check"></i> Tầm soát ung thư toàn thân</li>
+                                <li><i class="fas fa-check"></i> Chụp mạch vành không xâm lấn</li>
+                                <li><i class="fas fa-check"></i> Liều phóng xạ thấp</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="equipment-card">
+                        <div class="equipment-img">
+                            <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/uploaded_media_1_1769663978644.jpg"
+                                alt="Siêu âm 5D">
+                        </div>
+                        <div class="equipment-content">
+                            <h3>Hệ thống Siêu âm 5D từ GE Healthcare</h3>
+                            <p>Công nghệ siêu âm 5D tiên tiến, chẩn đoán dị tật thai nhi với độ chính xác cao, tích hợp
+                                trí tuệ nhân tạo.</p>
+                            <ul class="equipment-features">
+                                <li><i class="fas fa-check"></i> Hình ảnh thai nhi 5D sống động</li>
+                                <li><i class="fas fa-check"></i> Phát hiện dị tật sớm</li>
+                                <li><i class="fas fa-check"></i> Đo lường chính xác</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="equipment-card">
+                        <div class="equipment-img">
+                            <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/uploaded_media_0_1769663978644.jpg"
+                                alt="Siêu âm tim bào thai">
+                        </div>
+                        <div class="equipment-content">
+                            <h3>Máy Siêu âm Tim Bào Thai GE</h3>
+                            <p>Thiết bị siêu âm tim thai chuyên dụng, hiện đại nhất của hãng GE Healthcare (Mỹ).</p>
+                            <ul class="equipment-features">
+                                <li><i class="fas fa-check"></i> Phát hiện dị tật tim bẩm sinh</li>
+                                <li><i class="fas fa-check"></i> Hình ảnh 4D thời gian thực</li>
+                                <li><i class="fas fa-check"></i> Đo lường dòng chảy tim thai</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab & Testing -->
+            <div class="equipment-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h2>Xét Nghiệm Tự Động Hóa</h2>
+                </div>
+
+                <div class="tech-highlight reverse">
+                    <div class="tech-img">
+                        <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/uploaded_media_1_1769592934333.jpg"
+                            alt="Hệ thống Robot vận chuyển mẫu">
+                    </div>
+                    <div class="tech-content">
+                        <h3>Robot Vận chuyển Mẫu Tự động</h3>
+                        <p>Robot tự động vận chuyển mẫu xét nghiệm, giảm sai sót và tăng tốc độ xử lý.</p>
+                        <ul class="tech-list">
+                            <li><i class="fas fa-check-circle"></i> Vận chuyển mẫu 24/7</li>
+                            <li><i class="fas fa-check-circle"></i> Giảm sai sót con người</li>
+                            <li><i class="fas fa-check-circle"></i> Truy xuất nguồn gốc chính xác</li>
+                            <li><i class="fas fa-check-circle"></i> Tích hợp hệ thống bệnh viện</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="equipment-grid">
+                    <div class="equipment-card">
+                        <div class="equipment-img">
+                            <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/uploaded_media_1769592360842.jpg"
+                                alt="Hệ thống xét nghiệm tự động">
+                            <span class="equipment-badge">Tự động hóa</span>
+                        </div>
+                        <div class="equipment-content">
+                            <h3>Hệ thống Xét nghiệm Tự động Hóa</h3>
+                            <p>Dây chuyền xét nghiệm hoàn toàn tự động từ tiếp nhận mẫu, phân tích đến trả kết quả.</p>
+                            <ul class="equipment-features">
+                                <li><i class="fas fa-check"></i> Xử lý 1000+ mẫu/giờ</li>
+                                <li><i class="fas fa-check"></i> Kết quả nhanh trong 30 phút</li>
+                                <li><i class="fas fa-check"></i> Độ chính xác 99.9%</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="equipment-card">
+                        <div class="equipment-img">
+                            <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/uploaded_media_0_1769592934333.jpg"
+                                alt="Trung tâm xét nghiệm quốc tế">
+                        </div>
+                        <div class="equipment-content">
+                            <h3>Trung tâm Xét nghiệm Tiêu chuẩn Quốc tế</h3>
+                            <p>Phòng xét nghiệm đạt tiêu chuẩn ISO 15189, được kiểm định chất lượng quốc tế định kỳ.</p>
+                            <ul class="equipment-features">
+                                <li><i class="fas fa-check"></i> Chứng nhận ISO 15189</li>
+                                <li><i class="fas fa-check"></i> Kiểm tra chất lượng ngoại kiểm</li>
+                                <li><i class="fas fa-check"></i> Hơn 500 xét nghiệm</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI & Endoscopy -->
+            <div class="equipment-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h2>Trí tuệ Nhân tạo (AI) & Nội soi</h2>
+                </div>
+
+                <div class="tech-highlight">
+                    <div class="tech-img">
+                        <img src="C:/Users/TWG/.gemini/antigravity/brain/1a7715af-145f-45bf-9d57-45d70420c672/uploaded_media_1769591313413.jpg"
+                            alt="Trung tâm AI">
+                    </div>
+                    <div class="tech-content">
+                        <h3>Trung tâm Chẩn đoán AI</h3>
+                        <p>Hệ thống AI hỗ trợ phân tích hình ảnh y khoa, phát hiện bất thường với độ chính xác 99%.</p>
+                        <ul class="tech-list">
+                            <li><i class="fas fa-check-circle"></i> Phân tích hình ảnh tự động</li>
+                            <li><i class="fas fa-check-circle"></i> Chẩn đoán chính xác 99%</li>
+                            <li><i class="fas fa-check-circle"></i> Phát hiện sớm ung thư, đột quỵ</li>
+                            <li><i class="fas fa-check-circle"></i> Học máy liên tục</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="equipment-grid">
+                    <div class="equipment-card">
+                        <div class="equipment-img">
+                            <img src="assets/endoscopy-nbi.jpg" alt="Nội soi NBI phóng đại">
+                            <span class="equipment-badge">Công nghệ mới</span>
+                        </div>
+                        <div class="equipment-content">
+                            <h3>Nội soi NBI Phóng đại</h3>
+                            <p>Công nghệ nội soi dải tần hẹp NBI kết hợp phóng đại, phát hiện ung thư đường tiêu hóa ở
+                                giai đoạn rất sớm.</p>
+                            <ul class="equipment-features">
+                                <li><i class="fas fa-check"></i> Phát hiện tổn thương vi mô</li>
+                                <li><i class="fas fa-check"></i> Phóng đại 100 lần</li>
+                                <li><i class="fas fa-check"></i> Chẩn đoán ung thư giai đoạn 0</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="equipment-card">
+                        <div class="equipment-img">
+                            <img src="assets/endoscopy-ai.jpg" alt="Nội soi AI">
+                        </div>
+                        <div class="equipment-content">
+                            <h3>Hệ thống Nội soi Tích hợp AI</h3>
+                            <p>AI hỗ trợ phát hiện polyp và tổn thương trong quá trình nội soi, giảm thiểu bỏ sót tổn
+                                thương.</p>
+                            <ul class="equipment-features">
+                                <li><i class="fas fa-check"></i> Phát hiện polyp tự động</li>
+                                <li><i class="fas fa-check"></i> Cảnh báo thời gian thực</li>
+                                <li><i class="fas fa-check"></i> Báo cáo tự động</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="stats-section">
+        <div class="container" style="text-align: center;">
+            <h2 style="color: #fff; font-size: 2rem; margin-bottom: 15px;">Đặt Lịch Khám Ngay Hôm Nay</h2>
+            <p style="color: rgba(255,255,255,0.9); margin-bottom: 30px;">Trải nghiệm dịch vụ y tế chất lượng cao với
+                trang thiết bị hiện đại nhất</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="index.html#booking" class="btn"
+                    style="background: #fff; color: var(--primary-color); padding: 15px 35px; border-radius: 50px; font-weight: 700;">ĐẶT
+                    LỊCH HẸN</a>
+                <a href="tel:02723550507" class="btn"
+                    style="background: transparent; color: #fff; padding: 15px 35px; border-radius: 50px; border: 2px solid #fff; font-weight: 600;">
+                    <i class="fas fa-phone-alt" style="margin-right: 8px;"></i> 0272 3 550 507
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3 data-i18n="common.hospitalName">BỆNH VIỆN ĐA KHOA QUỐC TẾ TÂN AN</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="common.address">Số 136C Tỉnh lộ 827,
+                            Phường Tân An, Tây Ninh (Long An cũ)</span>
+                    </p>
+                    <p><i class="fas fa-phone-alt"></i> <span data-i18n="common.hotline">Hotline</span>: <span
+                            class="hotline">0272 3 550 507</span></p>
+                    <p><i class="fas fa-phone-alt"></i> <span data-i18n="common.emergency">Cấp cứu</span>: <span
+                            class="hotline">0272 3 550 115</span></p>
+                    <p><i class="fas fa-envelope"></i> Email: info@tananhospital.vn </p>
+                    <p><i class="fas fa-clock"></i> <span data-i18n="common.workingHours">Giờ làm việc: Thứ 2 - Chủ
+                            Nhật: 7:30 - 17:00</span></p>
+                </div>
+
+                <div class="footer-links">
+                    <h3 data-i18n="footer.systemTitle">HỆ THỐNG</h3>
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav.home">Trang chủ</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">Về chúng tôi</a></li>
+                        <li><a href="package-details.html" data-i18n="quickActions.healthPackages">Gói khám</a></li>
+                        <li><a href="#" data-i18n="footer.career">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3 data-i18n="footer.usefulLinks">LIÊN KẾT HỮU ÍCH</h3>
+                    <ul>
+                        <li><a href="doctors.html" data-i18n="quickActions.findDoctor">Tìm Bác Sĩ</a></li>
+                        <li><a href="index.html#booking" data-i18n="quickActions.bookAppt">Đặt Hẹn Khám Bệnh</a></li>
+                        <li><a href="#" data-i18n="footer.qa">Hỏi Đáp Y Khoa</a></li>
+                        <li><a href="news.html" data-i18n="nav.news">Tin Tức & Sự Kiện</a></li>
+                        <li><a href="#" data-i18n="footer.careerOpp">Cơ Hội Nghề Nghiệp</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Map & Contact Form Grid -->
+            <div class="footer-bottom-grid"
+                style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 30px; align-items: stretch;">
+
+                <!-- Google Maps Card - 70% -->
+                <div class="footer-card"
+                    style="flex: 7; min-width: 300px; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column;">
+                    <h3 style="text-align: center; margin-bottom: 15px; font-weight: 700; color: #333;"
+                        data-i18n="footer.mapTitle">VỊ TRÍ BỆNH VIỆN
+                    </h3>
+                    <div style="flex-grow: 1; position: relative; min-height: 350px;">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12000.745696109608!2d106.41952391990549!3d10.519977685397096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310ab72385f606b3%3A0x3f48c61fbf566805!2zQuG7h25oIHZp4buHbiDEkGEga2hvYSBUw6JuIEFu!5e0!3m2!1svi!2s!4v1769573620015!5m2!1svi!2s"
+                            width="100%" height="100%"
+                            style="border:0; border-radius: 8px; position: absolute; top: 0; left: 0;"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <!-- Registration Form Card - 30% -->
+                <div class="footer-card" id="booking"
+                    style="flex: 0 0 30%; max-width: 350px; min-width: 280px; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; scroll-margin-top: 120px;">
+                    <h3 style="text-align: center; margin-bottom: 15px; font-weight: 700; color: #333;"
+                        data-i18n="footer.formTitle">ĐĂNG KÝ TƯ VẤN NHANH</h3>
+                    <form id="consultation-form"
+                        style="display: flex; flex-direction: column; gap: 10px; flex-grow: 1; justify-content: center;">
+                        <input type="text" class="form-control" name="ho_ten" placeholder="Họ và tên *" required
+                            style="padding: 10px; border: 1px solid #ddd; border-radius: 6px;"
+                            data-i18n-placeholder="footer.formName">
+                        <input type="tel" class="form-control" name="so_dien_thoai" placeholder="Số điện thoại *"
+                            required style="padding: 10px; border: 1px solid #ddd; border-radius: 6px;"
+                            data-i18n-placeholder="footer.formPhone">
+                        <input type="email" class="form-control" name="email" placeholder="Email (nếu có)"
+                            style="padding: 10px; border: 1px solid #ddd; border-radius: 6px;"
+                            data-i18n-placeholder="footer.formEmail">
+                        <select class="form-control" name="chuyen_khoa"
+                            style="padding: 10px; border: 1px solid #ddd; border-radius: 6px; color: #555;">
+                            <option value="" data-i18n="footer.formSelect">-- Chọn Dịch vụ đăng ký --</option>
+                            <option value="Khám tổng quát" data-i18n="dropdown.checkup">Khám tổng quát</option>
+                            <option value="Nội soi tiêu hóa" data-i18n="dropdown.endoscopy">Nội soi tiêu hóa</option>
+                            <option value="Tầm soát ung thư" data-i18n="services.cancer">Tầm soát ung thư</option>
+                            <option value="Tư vấn sức khỏe" data-i18n="footer.formHealthConsult">Tư vấn sức khỏe
+                            </option>
+                            <option value="Khác" data-i18n="footer.formOther">Khác</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary btn-block"
+                            style="padding: 10px; font-weight: bold;" data-i18n="footer.formSubmit">GỬI YÊU CẦU</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                &copy; 2026 Bệnh Viện Đa Khoa Quốc Tế Tân An. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Widget -->
+    <div class="floating-contact">
+        <a href="tel:02723550507" class="float-btn phone" title="Gọi ngay">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="https://zalo.me/0272550507" class="float-btn zalo" title="Chat Zalo" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo"
+                style="width: 24px; height: 24px;">
+        </a>
+        <a href="https://m.me/BenhVienTanAn" class="float-btn messenger" title="Messenger" target="_blank">
+            <i class="fab fa-facebook-messenger"></i>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="lang-switcher.js"></script>
+</body>
+
+</html>
